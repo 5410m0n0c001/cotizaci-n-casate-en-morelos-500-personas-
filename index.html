@@ -1402,7 +1402,7 @@
         <div class="hero-video" id="heroVideo" data-video="5xVqNRu6nu8"></div>
         <div id="heroHtml5VideoWrap" style="display:none; position:absolute; inset:0; z-index:0; overflow:hidden;">
             <video preload="none" data-autoplay="1" id="heroHtml5Video" muted loop playsinline webkit-playsinline poster="portada_finca_las_isabeles.webp" style="width:100%; height:100%; object-fit:cover;">
-                <source src="https://primaveraeventsgroup.com/wp-content/uploads/2026/03/i2.mp4" type="video/mp4">
+                <source src="isabeles_hero.mp4" type="video/mp4">
             </video>
         </div>
         <a class="btn-watch-video" id="btnWatchVideoHero" href="https://youtu.be/5xVqNRu6nu8" target="_blank" rel="noopener" title="Ver video oficial del recinto"><i class="fas fa-circle-play"></i> Ver Video del Recinto</a>
@@ -4142,7 +4142,7 @@
                 if (heroHtml5Wrap) {
                     heroHtml5Wrap.style.display = 'block';
                     var vid = heroHtml5Wrap.querySelector('video');
-                    if (vid && !esMovil) { vid.preload = 'auto'; vid.play().catch(function(){}); }
+                    if (vid) { vid.preload = 'auto'; vid.play().catch(function(){}); }
                 }
                 if (mainHero) mainHero.style.backgroundImage = "url('portada_finca_las_isabeles.webp')";
             } else {
@@ -4500,9 +4500,9 @@
 
         // ══ Videos: se cargan y reproducen SOLO cuando están en pantalla (móvil: menos datos y sin trabas) ══
         // Todos los <video> llevan preload="none" + data-autoplay; este observador los arranca al entrar
-        // al viewport y los pausa al salir. El video remoto del hero de Isabeles no se reproduce en móvil.
+        // al viewport y los pausa al salir. El hero de Isabeles ya es un archivo local
+        // liviano (isabeles_hero.mp4, ~4.7MB) y se reproduce igual en escritorio y móvil.
         function activaVideo(v){
-            if (v.id === 'heroHtml5Video' && esMovil) return;
             if (v.offsetParent === null) return;
             if (v.preload === 'none') v.preload = 'auto';
             var p = v.play(); if (p && p.catch) p.catch(function(){});
