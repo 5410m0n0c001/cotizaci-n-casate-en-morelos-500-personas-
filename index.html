@@ -249,7 +249,8 @@
            completo queda con proporción horizontal y da la ilusión de un solo video ancho. */
         .triptico-horizontal { display:flex; gap:2px; width:100%; border-radius:18px; overflow:hidden; background:#000; box-shadow:0 12px 30px rgba(0,0,0,.15); }
         .triptico-horizontal .triptico-panel { flex:1 1 0; aspect-ratio:9/16; min-width:0; }
-        .triptico-horizontal video { width:100% !important; height:100% !important; object-fit:cover !important; display:block !important; }
+        .triptico-horizontal video, .triptico-horizontal img, .triptico-horizontal .is-short-video-box { width:100% !important; height:100% !important; object-fit:cover !important; display:block !important; }
+        .triptico-horizontal .is-short-video-box { position:relative !important; }
         .complemento-body h4 { font-size:1rem; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
         .complemento-body h4 i { color:var(--primary-pink); }
         .complemento-body p { font-size:.8rem; color:var(--gray-text); margin-bottom:12px; }
@@ -3580,13 +3581,7 @@
                     </div>
                     <div class="reveal reveal-left">
                         <div class="complemento-card">
-                            <div class="complemento-img-gallery">
-                                <img src="merchandising_store_1.webp" alt="Merchandising Store" loading="lazy">
-                                <img src="merchandising_store_2.webp" alt="Merchandising Store" loading="lazy">
-                                <img src="merchandising_store_3.webp" alt="Merchandising Store" loading="lazy">
-                                <img src="merchandising_store_4.webp" alt="Merchandising Store" loading="lazy">
-                                <img src="merchandising_store_5.webp" alt="Merchandising Store" loading="lazy">
-                            </div>
+                            <img loading="lazy" decoding="async" class="complemento-img" src="merchandising_store_1.webp" alt="Merchandising Store">
                             <div class="complemento-body">
                                 <h4><i class="fas fa-shirt"></i> Merchandising Store</h4>
                                 <p>Estación de artículos personalizados (playeras, gorras, tazas) para que tus invitados se lleven un recuerdo único.</p>
@@ -3596,11 +3591,7 @@
                     </div>
                     <div class="reveal reveal-right">
                         <div class="complemento-card">
-                            <div class="complemento-img-gallery">
-                                <img src="barra_mixologia_1.webp" alt="Barra de mixología" loading="lazy">
-                                <img src="barra_mixologia_2.webp" alt="Barra de mixología" loading="lazy">
-                                <div class="is-short-video-box" data-video="AjOVYnYQ6cQ" data-inicio="197" data-fin="206" style="position:relative;"></div>
-                            </div>
+                            <img loading="lazy" decoding="async" class="complemento-img" src="barra_mixologia_1.webp" alt="Barra de mixología">
                             <div class="complemento-body">
                                 <h4><i class="fas fa-martini-glass-citrus"></i> Barra de Mixología</h4>
                                 <p>Barra de coctelería de autor con mixólogo en vivo, para elevar la experiencia de tus invitados.</p>
@@ -3622,6 +3613,43 @@
                     <h4 style="font-size:1.1rem; margin-bottom:6px; color:var(--primary-dark); font-family:var(--font-serif);"><i class="fas fa-guitar" style="color:var(--primary-pink); margin-right:8px;"></i> Música en Vivo &amp; Show Men</h4>
                     <p style="font-size:0.9rem; color:var(--gray-text); max-width:640px; margin:0 auto;">Banda sinaloense, mariachi tradicional, show men animador o saxofonistas adicionales para momentos estelares.</p>
                     <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-complemento" style="display:inline-flex; margin-top:12px;"><i class="fas fa-arrow-up-right-from-square"></i> Consultar</a>
+                </div>
+            </div>
+
+            <!-- ══ Barra de Mixología: 2 fotos + video lado a lado ══ -->
+            <div class="video-section reveal" style="margin-top:25px;">
+                <div class="triptico-horizontal">
+                    <div class="triptico-panel"><img src="barra_mixologia_1.webp" alt="Barra de mixología" loading="lazy"></div>
+                    <div class="triptico-panel"><img src="barra_mixologia_2.webp" alt="Barra de mixología" loading="lazy"></div>
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="AjOVYnYQ6cQ" data-inicio="197" data-fin="206"></div></div>
+                </div>
+                <div style="text-align:center; margin-top:14px;">
+                    <h4 style="font-size:1.1rem; margin-bottom:6px; color:var(--primary-dark); font-family:var(--font-serif);"><i class="fas fa-martini-glass-citrus" style="color:var(--primary-pink); margin-right:8px;"></i> Barra de Mixología</h4>
+                    <p style="font-size:0.9rem; color:var(--gray-text); max-width:640px; margin:0 auto;">Barra de coctelería de autor con mixólogo en vivo, para elevar la experiencia de tus invitados.</p>
+                    <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-complemento" style="display:inline-flex; margin-top:12px;"><i class="fas fa-arrow-up-right-from-square"></i> Consultar</a>
+                </div>
+            </div>
+
+            <!-- ══ Merchandising Store: galería de 5 fotos ══ -->
+            <div class="reveal" style="margin-top:25px;">
+                <div class="gallery-block-title reveal reveal-left" style="margin-top:0;"><i class="fas fa-shirt"></i> Merchandising Store</div>
+                <p class="calc-hint" style="margin-top:-6px;">Estación de artículos personalizados (playeras, gorras, tazas) para que tus invitados se lleven un recuerdo único.</p>
+                <div class="slides-section slides-fotos reveal" style="margin-top:0;">
+                    <div class="slides-wrap">
+                        <button class="slide-nav prev" id="slidePrevMerchandising" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <div class="slides-track" id="slidesTrackMerchandising">
+                            <div class="slide"><img src="merchandising_store_1.webp" alt="Merchandising Store" loading="lazy"></div>
+                            <div class="slide"><img src="merchandising_store_2.webp" alt="Merchandising Store" loading="lazy"></div>
+                            <div class="slide"><img src="merchandising_store_3.webp" alt="Merchandising Store" loading="lazy"></div>
+                            <div class="slide"><img src="merchandising_store_4.webp" alt="Merchandising Store" loading="lazy"></div>
+                            <div class="slide"><img src="merchandising_store_5.webp" alt="Merchandising Store" loading="lazy"></div>
+                        </div>
+                        <button class="slide-nav next" id="slideNextMerchandising" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="slides-dots" id="slidesDotsMerchandising"></div>
+                </div>
+                <div style="text-align:center; margin-top:14px;">
+                    <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-complemento" style="display:inline-flex;"><i class="fas fa-arrow-up-right-from-square"></i> Consultar</a>
                 </div>
             </div>
 
@@ -4593,6 +4621,7 @@
         initCarrusel('slidesTrackPostres', 'slidesDotsPostres', 'slidePrevPostres', 'slideNextPostres');
         initCarrusel('slidesTrackIsabeles', 'slidesDotsIsabeles', 'slidePrevIsabeles', 'slideNextIsabeles');
         initCarrusel('slidesTrackPresidente', 'slidesDotsPresidente', 'slidePrevPresidente', 'slideNextPresidente');
+        initCarrusel('slidesTrackMerchandising', 'slidesDotsMerchandising', 'slidePrevMerchandising', 'slideNextMerchandising');
         initCarrusel('slidesTrack', 'slidesDots', 'slidePrev', 'slideNext');
 
         // ══ Visor Modal de Minuto a Minuto ══
