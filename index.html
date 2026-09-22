@@ -239,7 +239,7 @@
         /* Triptico de 3 videos verticales lado a lado, para que en conjunto den la
            ilusión de un solo video horizontal (usado en Música en Vivo & Show Men). */
         .complemento-triptych { display:flex; width:220px; flex-shrink:0; gap:1px; overflow:hidden; background:#000; }
-        .complemento-triptych video { width:33.334%; height:100%; object-fit:cover; display:block; }
+        .complemento-triptych video { width:33.334% !important; height:100% !important; max-width:33.334% !important; object-fit:cover !important; display:block !important; flex-shrink:0 !important; }
         .complemento-body { padding:18px; flex:1; }
         .complemento-body h4 { font-size:1rem; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
         .complemento-body h4 i { color:var(--primary-pink); }
