@@ -103,7 +103,10 @@
                html, body): .container y .quote-card ya recortan el desborde horizontal por
                su cuenta con overflow-x:clip, sin romper el sticky. */
             html, body { max-width:100vw !important; width:100% !important; position:relative; }
-            .container{margin-top:-40px;padding:0 6px !important; width:100% !important; max-width:100% !important; overflow-x:clip !important; box-sizing:border-box !important;}
+            /* La barra ahora es fixed (ver arriba) y ya no reserva espacio propio en el
+               flujo del documento: se compensa restando los -40px de traslape original
+               con el hero y sumando la altura real de la barra (--barra-h, medida por JS). */
+            .container{margin-top:calc(var(--barra-h, 125px) - 40px);padding:0 6px !important; width:100% !important; max-width:100% !important; overflow-x:clip !important; box-sizing:border-box !important;}
             .quote-card{padding:16px 10px !important;border-radius:16px !important; width:100% !important; max-width:100% !important; overflow-x:clip !important; box-sizing:border-box !important;}
             .hero { max-height:70vh !important; min-height:0 !important; }
             .hero h1{ font-size:clamp(1.35rem, 5.2vw, 1.8rem) !important; line-height:1.18 !important; }
@@ -737,21 +740,23 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-        /* Móvil: sin desenfoque en la barra fija (repinta en cada scroll y traba el desplazamiento).
-           También se fuerza su propia capa de composición (translateZ) porque en varios
-           navegadores móviles (Safari/Chrome iOS y Android) position:sticky "desaparece"
-           al hacer scroll rápido hacia arriba por un bug de repintado del navegador. */
+        /* Móvil: la barra pasa de sticky a fixed. position:sticky seguía "desapareciendo"
+           al hacer scroll hacia arriba en varios navegadores móviles sin importar la
+           velocidad (bug de varios motores con sticky, no solo de repintado rápido);
+           fixed no depende de ese mecanismo y queda pegada siempre, sin excepción. */
         @media (max-width: 768px) {
             .controls-sticky-bar {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
                 backdrop-filter: none !important;
                 -webkit-backdrop-filter: none !important;
                 background: #fff !important;
                 box-shadow: 0 4px 20px rgba(31,31,31,0.08);
                 border-bottom: 2px solid var(--gold-accent);
                 padding: 12px 16px;
-                -webkit-transform: translateZ(0);
-                transform: translateZ(0);
-                will-change: transform;
             }
         }
         .controls-inner {
@@ -1074,35 +1079,6 @@
         .lbl-corto { display: none; }
         .lbl-largo { display: inline; }
 
-        /* ══ Sub-bloque Presidente: Gobernador vs Presidente ══ */
-        .tabla-paquetes-ccp {
-            width: 100%;
-            border-collapse: collapse;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1.5px solid var(--gold-accent);
-            margin: 25px 0 15px;
-            background: var(--white);
-            box-shadow: 0 8px 24px rgba(31,31,31,0.06);
-        }
-        .tabla-paquetes-ccp th {
-            background: var(--gold-accent);
-            color: var(--white);
-            padding: 14px 18px;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: var(--font-serif);
-            width: 50%;
-            text-align: center;
-        }
-        .tabla-paquetes-ccp td {
-            padding: 16px 20px;
-            border: 1px solid var(--beige);
-            font-size: 0.85rem;
-            line-height: 1.6;
-            vertical-align: top;
-        }
         .nota-pie-ccp {
             font-size: 0.82rem;
             color: var(--gray-text);
@@ -1114,65 +1090,6 @@
             margin-bottom: 25px;
             line-height: 1.5;
         }
-        @media (max-width: 768px) {
-            .tabla-paquetes-ccp,
-            .tabla-paquetes-ccp tbody,
-            .tabla-paquetes-ccp tr {
-                display: block !important;
-                width: 100% !important;
-                border: none !important;
-                box-shadow: none !important;
-                background: transparent !important;
-            }
-            .tabla-paquetes-ccp thead {
-                display: none !important;
-            }
-            .tabla-paquetes-ccp td {
-                display: block !important;
-                width: 100% !important;
-                box-sizing: border-box !important;
-                border: 1.5px solid var(--gold-accent) !important;
-                border-radius: 14px !important;
-                margin-bottom: 18px !important;
-                padding: 46px 16px 16px !important;
-                position: relative !important;
-                background: var(--white) !important;
-                box-shadow: 0 4px 14px rgba(31,31,31,.05) !important;
-            }
-            .tabla-paquetes-ccp tr td:first-child::before {
-                content: "Paquete Gobernador";
-                position: absolute;
-                top: 0; left: 0; right: 0;
-                background: var(--gold-accent);
-                color: var(--white);
-                font-family: var(--font-serif);
-                font-weight: 700;
-                font-size: 0.95rem;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                padding: 10px 14px;
-                text-align: center;
-                border-top-left-radius: 12px;
-                border-top-right-radius: 12px;
-            }
-            .tabla-paquetes-ccp tr td:last-child::before {
-                content: "Paquete Presidente";
-                position: absolute;
-                top: 0; left: 0; right: 0;
-                background: var(--primary-dark);
-                color: var(--gold-accent);
-                font-family: var(--font-serif);
-                font-weight: 700;
-                font-size: 0.95rem;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                padding: 10px 14px;
-                text-align: center;
-                border-top-left-radius: 12px;
-                border-top-right-radius: 12px;
-            }
-        }
-
         /* ══ Tarjetas de Paquete Oficial vs Propuesta ══ */
         .tarjetas-paquete-grid {
             display: grid;
@@ -1655,7 +1572,7 @@
                             <tr>
                                 <td class="col-feature-cell">Horario de cierre</td>
                                 <td class="col-venue-cell col-venue-tsunuum col-active-venue">10 hrs de presencia (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio)</td>
-                                <td class="col-venue-cell col-venue-presidente">9 horas de servicio continuo (cierre 00:00 hrs con Paquete Gobernador · 01:00 hrs con Paquete Presidente)</td>
+                                <td class="col-venue-cell col-venue-presidente">9 horas de servicio continuo (cierre 01:00 hrs, Paquete Presidente)</td>
                                 <td class="col-venue-cell col-venue-isabeles">9 horas continuas de servicio</td>
                                 <td class="col-venue-cell col-venue-lavilla">10 hrs de presencia (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio)</td>
                                 <td class="col-venue-cell col-venue-sanrafael">10 hrs de presencia (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio)</td>
@@ -1749,7 +1666,7 @@
                 <div class="venue-info-card"><i class="fas fa-map-marker-alt"></i><h5>Ubicación</h5><p>Av. Defensa Nacional #8, Col. Chamilpa, 62210 Cuernavaca, Morelos</p></div>
                 <div class="venue-info-card"><i class="fas fa-users"></i><h5>Capacidad</h5><p>Desde 100 hasta 500 personas máximo — salón techado climatizado</p></div>
                 <div class="venue-info-card"><i class="fas fa-palette"></i><h5>Estilo</h5><p>Arquitectónico modernista, elegante e industrial con amplias alturas</p></div>
-                <div class="venue-info-card"><i class="fas fa-clock"></i><h5>Horario</h5><p>9 hrs de servicio continuo (cierre 00:00 Paquete Gobernador · 01:00 Paquete Presidente)</p></div>
+                <div class="venue-info-card"><i class="fas fa-clock"></i><h5>Horario</h5><p>9 hrs de servicio continuo (cierre 01:00 hrs, Paquete Presidente)</p></div>
                 <div class="venue-info-card"><i class="fas fa-bed"></i><h5>Hospedaje</h5><p>Convenios especiales con hoteles de Cuernavaca (a 5–10 min)</p></div>
                 <div class="venue-info-card"><i class="fas fa-car"></i><h5>Estacionamiento</h5><p>Interno y vigilado para 35 vehículos compactos</p></div>
             </div>
@@ -2174,9 +2091,9 @@
             <div class="solo-print bloque-print venue-block venue-presidente">
                 <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-gift"></i> 2 &middot; Cortesías Incluidas Sin Costo</h3>
                 <div class="cuadro-paquete-pdf solo-print">
-                    <strong>Paquetes Oficiales:</strong> Gobernador &amp; Presidente &middot; <strong>Duración:</strong> 9 horas continuas &middot; <strong>Precio publicado:</strong> $899 (100&ndash;149) &middot; $849 (150&ndash;199) &middot; $799 (200&ndash;299) &middot; $749 (300&ndash;400) &middot; 401+: Consultar. <em>Precios publicados hasta 400 invitados; para 500 invitados esta propuesta toma el paquete Presidente como base y lo amplía con el Grupo B, a $850.00 MXN por persona.</em>
+                    <strong>Paquete Oficial:</strong> Presidente &middot; <strong>Duración:</strong> 9 horas continuas. <em>El recinto no publica precio de lista para 500 invitados (su escala oficial llega hasta 400); esta propuesta toma el paquete Presidente como base y lo amplía con el Grupo B, a $850.00 MXN por persona.</em>
                 </div>
-                <p class="calc-hint solo-print" style="margin-bottom:10px;">Para total transparencia, separamos las cortesías en dos grupos: las que los paquetes oficiales del recinto <strong>ya publican</strong>, y las que <strong>se agregan de más</strong> exclusivamente en esta propuesta.</p>
+                <p class="calc-hint solo-print" style="margin-bottom:10px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete oficial del recinto <strong>ya publica</strong>, y las que <strong>se agregan de más</strong> exclusivamente en esta propuesta.</p>
                 <div class="pricing-table-container solo-print print-seccion" style="margin-bottom:24px;">
                     <table class="pricing-table">
                         <thead>
@@ -2786,39 +2703,6 @@
                     <div class="tarjetas-paquete-grid">
                         <div class="tarjeta-paquete-oficial reveal">
                             <div>
-                                <h4>Paquete Gobernador</h4>
-                                <div class="paquete-meta">
-                                    Ficha oficial: <a href="https://primaveraeventsgroup.com/paquete-gobernador/" target="_blank" rel="noopener">primaveraeventsgroup.com/paquete-gobernador/</a> &middot; 9 horas de servicio continuo (cierre 00:00)
-                                </div>
-                                <ul>
-                                    <li><i class="fas fa-check"></i> Estacionamiento para 35 vehículos compactos</li>
-                                    <li><i class="fas fa-check"></i> Área de jardín con fuente artificial en la entrada principal</li>
-                                    <li><i class="fas fa-check"></i> Área de kids con juegos múltiples fijos</li>
-                                    <li><i class="fas fa-check"></i> Salón techado para 500 px máximo, estilo arquitectónico modernista y elegante</li>
-                                    <li><i class="fas fa-check"></i> Templete para DJ o grupo musical</li>
-                                    <li><i class="fas fa-check"></i> Área de cocina amplia y baños múltiples</li>
-                                    <li><i class="fas fa-check"></i> Uso de salón por 8 horas (total 9 horas de servicio continuo)</li>
-                                    <li><i class="fas fa-check"></i> Cóctel de bienvenida con periqueras altas, salas lounge y sombrillas</li>
-                                    <li><i class="fas fa-check"></i> Margaritas de sabores sin alcohol (2 sabores) &middot; Agua fresca (2 sabores) &middot; Crudités (pepino, jícama y zanahoria con miguelito y chamoy)</li>
-                                    <li><i class="fas fa-check"></i> Mesa principal de honor con sillón o sillones, templete de madera y centro de mesa floral natural</li>
-                                    <li><i class="fas fa-check"></i> Arreglo natural para centros de mesa (largos, redondos y altos)</li>
-                                    <li><i class="fas fa-check"></i> Mesa redonda/cuadrada/tipo mármol/vintage, sillas Tiffany, Crossback, Lotus o Boss</li>
-                                    <li><i class="fas fa-check"></i> Mantelería fina (mantel blanco, camino y servilleta de tela de color a elegir)</li>
-                                    <li><i class="fas fa-check"></i> Plato base (varios modelos), loza blanca, cubertería fina (dorada y plata) y cristalería fina</li>
-                                    <li><i class="fas fa-check"></i> Banquete a 3 tiempos (Entrada, Plato Fuerte, Tornafiesta)</li>
-                                    <li><i class="fas fa-check"></i> Servicio de mezcladores completo: hielo, agua natural, refrescos de la línea Coca-Cola, jugo de limón y sal</li>
-                                    <li><i class="fas fa-check"></i> Equipo de servicio completo: Coordinador General, Hostess, Meseros, Personal de barra, Stewart, Cocina, Personal de baños</li>
-                                    <li><i class="fas fa-check"></i> DJ Profesional con cabina, audio/iluminación de alta calidad, cabezas robóticas, proyector/pantalla, accesorios de animación, micrófonos inalámbricos, láser y máquina de humo</li>
-                                    <li><i class="fas fa-check"></i> Cortesías: Degustación para 4 personas al firmar, letras gigantes (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>), corazón rojo iluminado, mesas de pastel/regalos, detonación de 2 chisperos, alfombra roja, espejo selfie y barra mix con 12 toppings</li>
-                                </ul>
-                            </div>
-                            <div class="paquete-pie-precio">
-                                Precio de lista publicado: $899 p/p (100&ndash;149) &middot; $849 (150&ndash;199) &middot; $799 (200&ndash;299) &middot; $749 (300&ndash;400) &middot; 401+ personas: "Consultar / Personalizado".
-                            </div>
-                        </div>
-
-                        <div class="tarjeta-paquete-oficial reveal">
-                            <div>
                                 <h4>Paquete Presidente</h4>
                                 <div class="paquete-meta">
                                     Ficha oficial: <a href="https://primaveraeventsgroup.com/paquete-presidente/" target="_blank" rel="noopener">primaveraeventsgroup.com/paquete-presidente/</a> &middot; 9 horas continuas (cierre 01:00)
@@ -2846,12 +2730,12 @@
                                 </ul>
                             </div>
                             <div class="paquete-pie-precio">
-                                Precio de lista publicado: $899 p/p (100&ndash;149) &middot; $849 (150&ndash;199) &middot; $799 (200&ndash;299) &middot; $749 (300&ndash;400) &middot; 401+ personas: "Consultar / Personalizado".
+                                El recinto no publica precio de lista para 500 invitados (su escala oficial llega hasta 400).
                             </div>
                         </div>
                     </div>
                     <div class="nota-pie-ccp" style="margin-top:12px; font-size:0.85rem; color:var(--gray-text); font-style:italic;">
-                        Ambos paquetes publican precio hasta 400 invitados; para 500 invitados el recinto cotiza de forma personalizada. Esta propuesta toma el paquete Presidente como base y lo amplía con todo lo del Grupo B, a $850.00 MXN por persona.
+                        Para 500 invitados el recinto cotiza de forma personalizada. Esta propuesta toma el paquete Presidente como base y lo amplía con todo lo del Grupo B, a $850.00 MXN por persona.
                     </div>
                 </div>
 
@@ -2978,7 +2862,7 @@
             <div class="venue-block venue-presidente">
                 <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
                     <h3><i class="fas fa-gift"></i> Cortesías: Lo que ya Trae el Paquete y lo que se Agrega de Más</h3>
-                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que los paquetes oficiales del recinto (<a href="https://primaveraeventsgroup.com/paquete-presidente/" target="_blank" rel="noopener">ficha oficial</a>) <strong>ya publican</strong>, y las que <strong>se agrega de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro del precio de $850.00 MXN por persona (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
+                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete oficial del recinto (<a href="https://primaveraeventsgroup.com/paquete-presidente/" target="_blank" rel="noopener">ficha oficial</a>) <strong>ya publica</strong>, y las que <strong>se agrega de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro del precio de $850.00 MXN por persona (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
 
                     <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--gray-text); text-transform:uppercase; letter-spacing:.5px;">A &middot; Ya lo incluyen los paquetes oficiales del recinto</p>
                     <ul>
@@ -2996,7 +2880,7 @@
                         <li>Mezcladores.</li>
                         <li>Equipo de servicio completo.</li>
                         <li>Área infantil y estacionamiento.</li>
-                        <li>(Solo Paquete Presidente: pista de baile LED 5&times;5, 2 chisperos a control remoto, 4 tiempos con postre, sillones Rey &amp; Reyna, opción de montaje de ceremonia con mobiliario elegante).</li>
+                        <li>Pista de baile LED 5&times;5, 2 chisperos a control remoto, 4 tiempos con postre, sillones Rey &amp; Reyna y opción de montaje de ceremonia con mobiliario elegante.</li>
                     </ul>
 
                     <p style="font-weight:700; font-size:.88rem; margin:18px 0 6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">B &middot; Se agrega de más en esta propuesta</p>
@@ -3009,7 +2893,6 @@
                         <li><strong>Invitación digital premium</strong>.</li>
                         <li><strong>Social Media Content</strong>.</li>
                         <li><strong>Show de cabezones, robot LED y cabina de experiencia a elegir (360&deg; o inflable)</strong>.</li>
-                        <li><strong>Pista de baile LED 5&times;5 y postre como cuarto tiempo también en el esquema Gobernador</strong>.</li>
                         <li><strong>Kit organizador de eventos</strong>.</li>
                         <li><strong>10 horas de presencia</strong> (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio) frente a las 9 horas del paquete oficial.</li>
                     </ul>
