@@ -251,6 +251,12 @@
         .triptico-horizontal .triptico-panel { flex:1 1 0; aspect-ratio:9/16; min-width:0; }
         .triptico-horizontal video, .triptico-horizontal img, .triptico-horizontal .is-short-video-box { width:100% !important; height:100% !important; object-fit:cover !important; display:block !important; }
         .triptico-horizontal .is-short-video-box { position:relative !important; }
+        /* Especificidad extra: en móvil hay una regla genérica que fuerza
+           aspect-ratio:16/9 en cualquier .is-short-video-box (pensada para otro
+           contexto) y le ganaba a la regla de arriba, aplastando el panel vertical
+           del tríptico y dejando el video en miniatura con espacio negro alrededor. */
+        .triptico-horizontal .triptico-panel .is-short-video-box,
+        .triptico-horizontal .triptico-panel .is-short-video-box iframe { width:100% !important; height:100% !important; aspect-ratio:auto !important; object-fit:cover !important; }
         .complemento-body h4 { font-size:1rem; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
         .complemento-body h4 i { color:var(--primary-pink); }
         .complemento-body p { font-size:.8rem; color:var(--gray-text); margin-bottom:12px; }
