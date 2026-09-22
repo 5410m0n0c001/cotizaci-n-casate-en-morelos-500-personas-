@@ -237,6 +237,12 @@
         .complemento-card { border-radius:20px; overflow:hidden; border:1px solid var(--beige); background:var(--white); display:flex; }
         .complemento-img { width:120px; object-fit:cover; }
         .complemento-body { padding:18px; flex:1; }
+        /* Mini-galería deslizable (varias fotos y/o un video) dentro del cuadro angosto de una
+           tarjeta de complemento — misma técnica que .is-gallery de las tarjetas de cortesías. */
+        .complemento-img-gallery { width:120px; flex-shrink:0; display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; background:#000; }
+        .complemento-img-gallery > * { flex:0 0 100%; width:100%; height:100%; object-fit:cover; scroll-snap-align:center; }
+        .complemento-img-gallery::-webkit-scrollbar { height:4px; }
+        .complemento-img-gallery::-webkit-scrollbar-thumb { background:var(--beige); border-radius:10px; }
 
         /* Tríptico ancho de 3 videos 9:16 completos lado a lado: cada panel conserva su
            formato vertical real (sin recortarlo a una franja delgada); juntos, el bloque
@@ -3538,6 +3544,66 @@
                             <div class="complemento-body">
                                 <h4><i class="fas fa-guitar"></i> Música en Vivo &amp; Show Men</h4>
                                 <p>Banda sinaloense, mariachi tradicional, show men animador o saxofonistas adicionales para momentos estelares.</p>
+                                <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-complemento"><i class="fas fa-arrow-up-right-from-square"></i> Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-left">
+                        <div class="complemento-card">
+                            <img loading="lazy" decoding="async" class="complemento-img" src="servicios_emergencia.webp" alt="Servicios de emergencia">
+                            <div class="complemento-body">
+                                <h4><i class="fas fa-truck-medical"></i> Servicios de Emergencia</h4>
+                                <p>Paramédico y equipo de primeros auxilios en sitio durante todo el evento, para tranquilidad de la familia.</p>
+                                <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-complemento"><i class="fas fa-arrow-up-right-from-square"></i> Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal">
+                        <div class="complemento-card">
+                            <img loading="lazy" decoding="async" class="complemento-img" src="limusinas.webp" alt="Limusinas">
+                            <div class="complemento-body">
+                                <h4><i class="fas fa-car-side"></i> Limusinas</h4>
+                                <p>Traslado de los novios o de la quinceañera en limusina de lujo, para una entrada inolvidable.</p>
+                                <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-complemento"><i class="fas fa-arrow-up-right-from-square"></i> Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-right">
+                        <div class="complemento-card">
+                            <img loading="lazy" decoding="async" class="complemento-img" src="souvenirs_personalizados.webp" alt="Souvenirs personalizados">
+                            <div class="complemento-body">
+                                <h4><i class="fas fa-gift"></i> Souvenirs Personalizados</h4>
+                                <p>Recuerdos personalizados para tus invitados, a juego con la temática y los colores de tu evento.</p>
+                                <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-complemento"><i class="fas fa-arrow-up-right-from-square"></i> Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-left">
+                        <div class="complemento-card">
+                            <div class="complemento-img-gallery">
+                                <img src="merchandising_store_1.webp" alt="Merchandising Store" loading="lazy">
+                                <img src="merchandising_store_2.webp" alt="Merchandising Store" loading="lazy">
+                                <img src="merchandising_store_3.webp" alt="Merchandising Store" loading="lazy">
+                                <img src="merchandising_store_4.webp" alt="Merchandising Store" loading="lazy">
+                                <img src="merchandising_store_5.webp" alt="Merchandising Store" loading="lazy">
+                            </div>
+                            <div class="complemento-body">
+                                <h4><i class="fas fa-shirt"></i> Merchandising Store</h4>
+                                <p>Estación de artículos personalizados (playeras, gorras, tazas) para que tus invitados se lleven un recuerdo único.</p>
+                                <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-complemento"><i class="fas fa-arrow-up-right-from-square"></i> Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-right">
+                        <div class="complemento-card">
+                            <div class="complemento-img-gallery">
+                                <img src="barra_mixologia_1.webp" alt="Barra de mixología" loading="lazy">
+                                <img src="barra_mixologia_2.webp" alt="Barra de mixología" loading="lazy">
+                                <div class="is-short-video-box" data-video="AjOVYnYQ6cQ" data-inicio="197" data-fin="206" style="position:relative;"></div>
+                            </div>
+                            <div class="complemento-body">
+                                <h4><i class="fas fa-martini-glass-citrus"></i> Barra de Mixología</h4>
+                                <p>Barra de coctelería de autor con mixólogo en vivo, para elevar la experiencia de tus invitados.</p>
                                 <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-complemento"><i class="fas fa-arrow-up-right-from-square"></i> Consultar</a>
                             </div>
                         </div>
