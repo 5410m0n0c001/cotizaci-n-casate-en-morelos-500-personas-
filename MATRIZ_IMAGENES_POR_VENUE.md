@@ -25,7 +25,7 @@ Leyenda: ✅ = imagen propia disponible en la carpeta · 🔁 = usa imagen gené
 | Hospedaje | ✅ `hospedaje_habitacion.png` (sujeto a disponibilidad) | — (no hay hospedaje; convenio con hoteles — sin imagen) | ✅ `finca_hospedaje.webp` |
 | Suite nupcial | ❌ FALTA (si existe) | — | ✅ `finca_suite_nupcial.webp` |
 | Cocina | ❌ FALTA | ❌ FALTA (el paquete oficial la menciona: "área de cocina amplia") | ✅ `finca_cocina.webp` |
-| Baños / sanitarios | ❌ FALTA (hoy usa `sanitarios.webp` genérico) | ✅ `presidente_12.webp` | ❌ FALTA (hoy usa `sanitarios.webp` genérico) |
+| Baños / sanitarios | ✅ video `tsunuum_banos.mp4` (DJI, 19 s) | ✅ `presidente_12.webp` | ❌ FALTA |
 | Estacionamiento / valet | ❌ FALTA | ✅ `presidente_07.webp` (jardín + estacionamiento) | ✅ `finca_valet_parking.webp` |
 | Área infantil | — | ✅ `presidente_06.webp` | — |
 | Croquis / plano interactivo | ❌ FALTA (usar `croquis_interactivo.mp4` como demo del servicio, aclarando que es ejemplo) | ✅ app 2D/3D propia: https://5410m0n0c001.github.io/centro-de-convenciones-presidente-croquis/ (enlazar con botón) | ✅ `croquis_interactivo.mp4` (es el croquis real de Isabeles) |
