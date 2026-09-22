@@ -192,7 +192,10 @@
         .include-img-container.is-video.is-vertical { aspect-ratio:3/4 !important; }
         .include-img-container.is-video.is-vertical video { object-fit:cover !important; object-position:center 30%; }
         body.venue-active-presidente .ceremonia-generica, body.venue-active-tsunuum .ceremonia-generica, body.venue-active-isabeles .ceremonia-generica { display:none !important; }
-        .video-frame.video-vertical { aspect-ratio:9/16 !important; }
+        /* Video vertical a ancho completo del cuadro: el cuadro toma la altura natural del video
+           (sin aspect-ratio fijo ni límite de alto), así no quedan franjas negras arriba y abajo. */
+        .video-frame.video-vertical { aspect-ratio:auto !important; background:transparent !important; height:auto !important; }
+        .video-frame.video-vertical video.include-video { width:100% !important; height:auto !important; max-height:none !important; object-fit:cover !important; display:block !important; background:transparent !important; }
         .video-frame.is-short-video-box iframe { position:absolute; inset:0; width:100% !important; height:100% !important; border:0; }
         .video-frame { width:100% !important; aspect-ratio:16/9 !important; border-radius:20px !important; overflow:hidden !important; background:#000 !important; position:relative; }
         .video-frame video { width:100% !important; height:100% !important; object-fit:contain !important; display:block !important; }
@@ -3158,7 +3161,7 @@
             <!-- Isabeles: video real del montaje de ceremonia en los jardines (clip 0:58-1:12) -->
             <div class="venue-block venue-isabeles reveal" style="margin-top:0;">
                 <p class="calc-hint" style="margin-top:-6px;">Montaje real de la ceremonia en los jardines de Finca Las Isabeles: pasarela de madera sobre el estanque, sillas y ambientación floral natural.</p>
-                <div class="video-frame video-vertical" style="max-width:420px; margin:0 auto 22px; aspect-ratio:9/16;">
+                <div class="video-frame video-vertical" style="max-width:420px; margin:0 auto 22px;">
                     <video class="include-video" autoplay muted loop playsinline webkit-playsinline poster="isabeles_salon_montado_poster.jpg" style="object-fit:cover;"><source src="isabeles_salon_montado.mp4" type="video/mp4"></video>
                 </div>
             </div>
