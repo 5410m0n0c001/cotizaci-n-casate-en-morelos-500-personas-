@@ -263,6 +263,15 @@
            ocultos por default, visibles solo cuando ese evento está activo en el toggle. */
         .evento-block { display:none !important; }
         body.evento-activo-graduacion .evento-graduacion-block { display:block !important; }
+        /* En móvil los videos se veían muy chicos en una sola línea de 5: se
+           reparten en dos líneas de 3 (una antes y otra después del precio p/p),
+           y en escritorio se conserva la única línea de 5. */
+        @media (max-width:768px) {
+            body.evento-activo-graduacion .evento-graduacion-block.graduacion-desktop-only { display:none !important; }
+        }
+        @media (min-width:769px) {
+            body.evento-activo-graduacion .evento-graduacion-block.graduacion-mobile-only { display:none !important; }
+        }
         .complemento-body h4 i { color:var(--primary-pink); }
         .complemento-body p { font-size:.8rem; color:var(--gray-text); margin-bottom:12px; }
         .btn-complemento { display:inline-flex; align-items:center; gap:6px; background:var(--primary-pink); color:var(--white); padding:6px 14px; border-radius:30px; font-weight:600; font-size:.75rem; text-decoration:none; }
@@ -2673,6 +2682,15 @@
                 </div>
             </div>
 
+            <!-- ══ Graduación (solo móvil, línea 1 de 3, antes del precio) ══ -->
+            <div class="video-section reveal evento-block evento-graduacion-block graduacion-mobile-only" style="margin-bottom:25px;">
+                <div class="triptico-horizontal">
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="gWsXegmZEgM"></div></div>
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="Gskb3tClLhY"></div></div>
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="cpItpEHm3M4"></div></div>
+                </div>
+            </div>
+
             <!-- ══ PRECIO BASE POR PERSONA (CAJA OSCURA) ══ -->
             <div class="pricing-section print-seccion reveal reveal-zoom" id="inversionBase">
                 <h3>Precio por Persona</h3>
@@ -2692,14 +2710,27 @@
                 </div>
             </div>
 
-            <!-- ══ Graduación: tríptico horizontal de 5 videos verticales (solo visible con evento=Graduación) ══ -->
-            <div class="video-section reveal evento-block evento-graduacion-block" style="margin-top:25px;">
+            <!-- ══ Graduación: tríptico horizontal de 5 videos verticales (escritorio; solo visible con evento=Graduación) ══ -->
+            <div class="video-section reveal evento-block evento-graduacion-block graduacion-desktop-only" style="margin-top:25px;">
                 <div class="triptico-horizontal">
                     <div class="triptico-panel"><div class="is-short-video-box" data-video="gWsXegmZEgM"></div></div>
                     <div class="triptico-panel"><div class="is-short-video-box" data-video="Gskb3tClLhY"></div></div>
                     <div class="triptico-panel"><div class="is-short-video-box" data-video="cpItpEHm3M4"></div></div>
                     <div class="triptico-panel"><div class="is-short-video-box" data-video="iOTu9DFZPU8"></div></div>
                     <div class="triptico-panel"><div class="is-short-video-box" data-video="in1SZUNehR8"></div></div>
+                </div>
+                <div style="text-align:center; margin-top:14px;">
+                    <h4 style="font-size:1.1rem; margin-bottom:6px; color:var(--primary-dark); font-family:var(--font-serif);"><i class="fas fa-graduation-cap" style="color:var(--primary-pink); margin-right:8px;"></i> Graduación · Momentos Reales</h4>
+                    <p style="font-size:0.9rem; color:var(--gray-text); max-width:640px; margin:0 auto;">Así se vive una graduación con Primavera Events Group: banquete, pista, música en vivo y toda la energía de tus egresados.</p>
+                </div>
+            </div>
+
+            <!-- ══ Graduación (solo móvil, línea 2 de 3, después del precio) ══ -->
+            <div class="video-section reveal evento-block evento-graduacion-block graduacion-mobile-only" style="margin-top:25px;">
+                <div class="triptico-horizontal">
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="iOTu9DFZPU8"></div></div>
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="in1SZUNehR8"></div></div>
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="LJ-3NJdEcdU"></div></div>
                 </div>
                 <div style="text-align:center; margin-top:14px;">
                     <h4 style="font-size:1.1rem; margin-bottom:6px; color:var(--primary-dark); font-family:var(--font-serif);"><i class="fas fa-graduation-cap" style="color:var(--primary-pink); margin-right:8px;"></i> Graduación · Momentos Reales</h4>
