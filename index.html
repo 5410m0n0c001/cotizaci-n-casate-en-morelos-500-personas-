@@ -191,7 +191,8 @@
            video llena el cuadro; en un cuadro 16:9 se veía como una tira diminuta al centro. */
         .include-img-container.is-video.is-vertical { aspect-ratio:3/4 !important; }
         .include-img-container.is-video.is-vertical video { object-fit:cover !important; object-position:center 30%; }
-        body.venue-active-presidente .ceremonia-generica, body.venue-active-tsunuum .ceremonia-generica { display:none !important; }
+        body.venue-active-presidente .ceremonia-generica, body.venue-active-tsunuum .ceremonia-generica, body.venue-active-isabeles .ceremonia-generica { display:none !important; }
+        .video-frame.video-vertical { aspect-ratio:9/16 !important; }
         .video-frame.is-short-video-box iframe { position:absolute; inset:0; width:100% !important; height:100% !important; border:0; }
         .video-frame { width:100% !important; aspect-ratio:16/9 !important; border-radius:20px !important; overflow:hidden !important; background:#000 !important; position:relative; }
         .video-frame video { width:100% !important; height:100% !important; object-fit:contain !important; display:block !important; }
@@ -3100,15 +3101,6 @@
                     <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="finca_hospedaje.webp" alt="Hospedaje en cabañas ecológicas"></div><div class="include-content"><h4><i class="fas fa-house-chimney"></i> Hospedaje en Cabañas</h4><p>Cabañas ecológicas rústicas disponibles dentro de la finca (previa reserva y costo adicional).</p></div></div></div>
                     <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="finca_suite_nupcial.webp" alt="Suite nupcial en finca"></div><div class="include-content"><h4><i class="fas fa-champagne-glasses"></i> Suite Nupcial</h4><p>Suite nupcial privada de diseño campestre exclusivo (previa reserva y costo adicional).</p></div></div></div>
                     <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="finca_valet_parking.webp" alt="Valet parking en la finca"></div><div class="include-content"><h4><i class="fas fa-car-side"></i> Valet Parking</h4><p>Servicio de valet parking y control vehicular para máxima comodidad de tus invitados.</p></div></div></div>
-                    <div class="reveal reveal-left" data-venue="isabeles">
-                        <div class="include-item">
-                            <div class="include-img-container is-video is-vertical"><video class="include-video" autoplay muted loop playsinline webkit-playsinline poster="isabeles_salon_montado_poster.jpg"><source src="isabeles_salon_montado.mp4" type="video/mp4"></video></div>
-                            <div class="include-content">
-                                <h4><i class="fas fa-video"></i> Montaje Real en Finca Las Isabeles <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4>
-                                <p>Montaje real de mesas y ceremonia en los jardines de la finca, con pasarela de madera sobre el estanque.</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Galería adicional Finca Las Isabeles -->
@@ -3162,6 +3154,13 @@
             <div class="venue-block venue-tsunuum reveal" style="margin-top:0;">
                 <p class="calc-hint" style="margin-top:-6px;">Así se vive la <span class="txt-evento" data-evento-boda="misa de boda" data-evento-xv="misa de acción de gracias">misa de boda</span> en el área de ceremonia al aire libre de Jardín Tsú Nuum.</p>
                 <div class="video-frame is-short-video-box" data-video="5xVqNRu6nu8" data-inicio="16" data-fin="38" style="aspect-ratio:16/9; margin-bottom:22px;"></div>
+            </div>
+            <!-- Isabeles: video real del montaje de ceremonia en los jardines (clip 0:58-1:12) -->
+            <div class="venue-block venue-isabeles reveal" style="margin-top:0;">
+                <p class="calc-hint" style="margin-top:-6px;">Montaje real de la ceremonia en los jardines de Finca Las Isabeles: pasarela de madera sobre el estanque, sillas y ambientación floral natural.</p>
+                <div class="video-frame video-vertical" style="max-width:420px; margin:0 auto 22px; aspect-ratio:9/16;">
+                    <video class="include-video" autoplay muted loop playsinline webkit-playsinline poster="isabeles_salon_montado_poster.jpg" style="object-fit:cover;"><source src="isabeles_salon_montado.mp4" type="video/mp4"></video>
+                </div>
             </div>
             <p class="calc-hint reveal reveal-left ceremonia-generica" style="margin-top:-6px;">Fotos reales de montajes ceremoniales de Primavera Events Group: atril, altar, cruz floral, reclinatorio, sonorización profesional y oficiante religioso.</p>
             <div class="slides-section slides-fotos reveal ceremonia-generica" style="margin-top:0;">
