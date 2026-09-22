@@ -737,13 +737,22 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-        /* Móvil: sin desenfoque en la barra fija (repinta en cada scroll y traba el desplazamiento) */
+        /* Móvil: sin desenfoque en la barra fija (repinta en cada scroll y traba el desplazamiento).
+           También se fuerza su propia capa de composición (translateZ) porque en varios
+           navegadores móviles (Safari/Chrome iOS y Android) position:sticky "desaparece"
+           al hacer scroll rápido hacia arriba por un bug de repintado del navegador. */
         @media (max-width: 768px) {
-            .controls-sticky-bar { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: #fff !important; }
-            box-shadow: 0 4px 20px rgba(31,31,31,0.08);
-            border-bottom: 2px solid var(--gold-accent);
-            padding: 12px 16px;
-            transition: all 0.3s ease;
+            .controls-sticky-bar {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: #fff !important;
+                box-shadow: 0 4px 20px rgba(31,31,31,0.08);
+                border-bottom: 2px solid var(--gold-accent);
+                padding: 12px 16px;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                will-change: transform;
+            }
         }
         .controls-inner {
             max-width: 1100px;
