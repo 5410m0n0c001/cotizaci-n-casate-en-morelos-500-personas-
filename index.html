@@ -3036,8 +3036,8 @@
                 <div class="gallery-block-title reveal reveal-left">1 &middot; Centro de Convenciones Presidente — Recinto y Áreas</div>
                 <div class="includes-grid">
                     <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_02.webp" alt="Gran salón techado climatizado"></div><div class="include-content"><h4><i class="fas fa-snowflake"></i> Salón Techado Climatizado</h4><p>Gran salón techado climatizado, con excelentes acabados y acústica de primer nivel.</p></div></div></div>
-                    <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_03.webp" alt="Salón con entelado y pista LED"></div><div class="include-content"><h4><i class="fas fa-border-all"></i> Entelado &amp; Pista LED</h4><p>Salón montado con elegante entelado de techo y pista de baile LED interactiva.</p></div></div></div>
-                    <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_04.webp" alt="Vista completa del salón en evento"></div><div class="include-content"><h4><i class="fas fa-wand-magic-sparkles"></i> Iluminación Arquitectónica</h4><p>Vista completa del salón en evento con entelado e iluminación arquitectónica perimetral.</p></div></div></div>
+                    <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_salon_montado_01.webp" alt="Salón montado para banquete en Centro de Convenciones Presidente"></div><div class="include-content"><h4><i class="fas fa-champagne-glasses"></i> Salón Montado para Banquete</h4><p>Montaje real de evento en el salón: mesas con mantelería fina, sillas decorativas y centros de mesa florales naturales. Desliza la galería de abajo para ver más.</p></div></div></div>
+                    <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_pista_baile.webp" alt="Pista de baile y templete en Centro de Convenciones Presidente"></div><div class="include-content"><h4><i class="fas fa-music"></i> Pista de Baile y Templete</h4><p>Pista de baile frente al templete con pantalla e iluminación de evento.</p></div></div></div>
                     <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_05.webp" alt="Terraza y pasillos techados de acceso"></div><div class="include-content"><h4><i class="fas fa-walkie-talkie"></i> Terraza y Pasillos Techados</h4><p>Terraza y pasillos techados de acceso para una recepción cómoda y fluida.</p></div></div></div>
                     <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_06.webp" alt="Área infantil con juegos múltiples fijos"></div><div class="include-content"><h4><i class="fas fa-child"></i> Área Infantil</h4><p>Área infantil con juegos múltiples fijos, seguros y techados para los más pequeños.</p></div></div></div>
                     <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-short-video-box" data-video="W0IPzy0dFwk" data-inicio="50" data-fin="57" style="aspect-ratio:16/9;"></div><div class="include-content"><h4><i class="fas fa-square-parking"></i> Estacionamiento Interno Vigilado <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Estacionamiento privado interno y vigilado para 35 vehículos compactos.</p></div></div></div>
@@ -3069,6 +3069,26 @@
                                 <p>Cocina amplia adaptada para banquetes masivos.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Galería: salón montado en evento real (fotos propias del recinto) -->
+                <div class="reveal" style="margin-top:35px;">
+                    <div class="gallery-block-title reveal reveal-left" style="margin-top:10px;">Galería Fotográfica &middot; Salón Montado en Evento Real</div>
+                    <p class="calc-hint" style="margin-top:-6px;">Montaje real en el salón del Centro de Convenciones Presidente: mesas, mantelería, sillería decorativa, centros de mesa y detalles de montaje.</p>
+                    <div class="slides-section slides-fotos reveal" style="margin-top:0;">
+                        <div class="slides-wrap">
+                            <button class="slide-nav prev" id="slidePrevPresidente" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                            <div class="slides-track" id="slidesTrackPresidente">
+                                <div class="slide"><img src="presidente_salon_montado_01.webp" alt="Salón montado con mesas y sillas decorativas" loading="lazy"></div>
+                                <div class="slide"><img src="presidente_salon_montado_02.webp" alt="Detalle de montaje: plato base, cristalería y servilleta" loading="lazy"></div>
+                                <div class="slide"><img src="presidente_salon_montado_03.webp" alt="Mesa montada con centro de mesa floral" loading="lazy"></div>
+                                <div class="slide"><img src="presidente_salon_montado_04.webp" alt="Mesas montadas con letras gigantes al fondo" loading="lazy"></div>
+                                <div class="slide"><img src="presidente_pista_baile.webp" alt="Pista de baile y templete" loading="lazy"></div>
+                            </div>
+                            <button class="slide-nav next" id="slideNextPresidente" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="slides-dots" id="slidesDotsPresidente"></div>
                     </div>
                 </div>
 
@@ -4461,6 +4481,7 @@
         initCarrusel('slidesTrackFuertes', 'slidesDotsFuertes', 'slidePrevFuertes', 'slideNextFuertes');
         initCarrusel('slidesTrackPostres', 'slidesDotsPostres', 'slidePrevPostres', 'slideNextPostres');
         initCarrusel('slidesTrackIsabeles', 'slidesDotsIsabeles', 'slidePrevIsabeles', 'slideNextIsabeles');
+        initCarrusel('slidesTrackPresidente', 'slidesDotsPresidente', 'slidePrevPresidente', 'slideNextPresidente');
         initCarrusel('slidesTrack', 'slidesDots', 'slidePrev', 'slideNext');
 
         // ══ Visor Modal de Minuto a Minuto ══
