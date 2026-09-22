@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotización 500 Invitados · Boda o XV Años · Cásate en Morelos × Primavera Events Group</title>
-    <meta name="description" content="Propuesta integral para 500 invitados en tres recintos exclusivos de Morelos: Jardín Tsú Nuum, Centro de Convenciones Presidente y Finca Las Isabeles. Precio: $1,900.00 MXN por persona ($950,000.00 MXN). Presentada por Cásate en Morelos y Primavera Events Group.">
+    <meta name="description" content="Propuesta integral para 500 invitados en recintos exclusivos de Morelos: Jardín Tsú Nuum, Centro de Convenciones Presidente, Finca Las Isabeles, Jardín La Villa y Jardín San Rafael. Precios desde $850 por persona. Presentada por Cásate en Morelos y Primavera Events Group.">
     <meta name="author" content="Primavera Events Group®">
     <meta name="theme-color" content="#F65C7A">
     <link rel="canonical" href="https://5410m0n0c001.github.io/cotizaci-n-casate-en-morelos-500-personas-/">
@@ -15,7 +15,7 @@
     <meta property="og:locale" content="es_MX">
     <meta property="og:url" content="https://5410m0n0c001.github.io/cotizaci-n-casate-en-morelos-500-personas-/">
     <meta property="og:title" content="Cotización 500 Invitados · Boda o XV Años · Cásate en Morelos × Primavera Events Group">
-    <meta property="og:description" content="Propuesta integral para 500 invitados en tres recintos exclusivos de Morelos: Jardín Tsú Nuum, Centro de Convenciones Presidente y Finca Las Isabeles. Inversión: $1,900.00 MXN por persona ($950,000.00 MXN).">
+    <meta property="og:description" content="Propuesta integral para 500 invitados en recintos exclusivos de Morelos: Jardín Tsú Nuum, Centro de Convenciones Presidente, Finca Las Isabeles, Jardín La Villa y Jardín San Rafael. Precios desde $850 por persona.">
     <meta property="og:image" content="https://5410m0n0c001.github.io/cotizaci-n-casate-en-morelos-500-personas-/og_image.jpg">
     <meta property="og:image:secure_url" content="https://5410m0n0c001.github.io/cotizaci-n-casate-en-morelos-500-personas-/og_image.jpg">
     <meta property="og:image:type" content="image/jpeg">
@@ -26,7 +26,7 @@
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Cotización 500 Invitados · Boda o XV Años · Cásate en Morelos × Primavera Events Group">
-    <meta name="twitter:description" content="Propuesta integral para 500 invitados en Morelos: Jardín Tsú Nuum, Centro de Convenciones Presidente y Finca Las Isabeles. Tarifa: $1,900.00 MXN p/p.">
+    <meta name="twitter:description" content="Propuesta integral para 500 invitados en Morelos: Jardín Tsú Nuum, Centro de Convenciones Presidente, Finca Las Isabeles, Jardín La Villa y Jardín San Rafael. Tarifas desde $850 por persona.">
     <meta name="twitter:image" content="https://5410m0n0c001.github.io/cotizaci-n-casate-en-morelos-500-personas-/og_image.jpg">
     <meta name="twitter:image:alt" content="Montaje de evento de gala con iluminación cálida y candiles por Primavera Events Group.">
 
@@ -833,6 +833,10 @@
             text-align: center;
             font-size: 0.85rem;
             line-height: 1.5;
+            min-width: 190px;
+        }
+        .comparativo-table th.col-venue-header {
+            min-width: 190px;
         }
         .comparativo-table .col-active-venue {
             background: rgba(246, 92, 122, 0.05);
@@ -882,18 +886,19 @@
         @media (max-width: 767px) {
             .comp-mobile-selector {
                 display: flex !important;
+                flex-wrap: wrap;
                 gap: 6px;
                 margin: 12px 0 16px;
                 background: var(--background-light);
-                padding: 4px;
-                border-radius: 30px;
+                padding: 6px;
+                border-radius: 16px;
                 border: 1px solid var(--beige);
             }
             .comp-mobile-btn {
-                flex: 1;
+                flex: 1 1 28%;
                 padding: 8px 4px;
                 font-size: 0.72rem;
-                border-radius: 25px;
+                border-radius: 20px;
                 border: none;
                 background: transparent;
                 color: var(--gray-text);
@@ -919,6 +924,7 @@
             }
             .comparativo-table th, .comparativo-table td {
                 width: 50% !important;
+                min-width: 0 !important;
                 padding: 10px 8px !important;
                 font-size: 0.8rem !important;
                 box-sizing: border-box !important;
@@ -938,17 +944,38 @@
 
         /* ══ Visibilidad por Venue ══ */
         body.venue-active-tsunuum .venue-presidente,
-        body.venue-active-tsunuum .venue-isabeles {
+        body.venue-active-tsunuum .venue-isabeles,
+        body.venue-active-tsunuum .venue-lavilla,
+        body.venue-active-tsunuum .venue-sanrafael {
             display: none !important;
         }
         body.venue-active-presidente .venue-tsunuum,
-        body.venue-active-presidente .venue-isabeles {
+        body.venue-active-presidente .venue-isabeles,
+        body.venue-active-presidente .venue-lavilla,
+        body.venue-active-presidente .venue-sanrafael {
             display: none !important;
         }
         body.venue-active-isabeles .venue-tsunuum,
-        body.venue-active-isabeles .venue-presidente {
+        body.venue-active-isabeles .venue-presidente,
+        body.venue-active-isabeles .venue-lavilla,
+        body.venue-active-isabeles .venue-sanrafael {
             display: none !important;
         }
+        body.venue-active-lavilla .venue-tsunuum,
+        body.venue-active-lavilla .venue-presidente,
+        body.venue-active-lavilla .venue-isabeles,
+        body.venue-active-lavilla .venue-sanrafael {
+            display: none !important;
+        }
+        body.venue-active-sanrafael .venue-tsunuum,
+        body.venue-active-sanrafael .venue-presidente,
+        body.venue-active-sanrafael .venue-isabeles,
+        body.venue-active-sanrafael .venue-lavilla {
+            display: none !important;
+        }
+
+        .lbl-corto { display: none; }
+        .lbl-largo { display: inline; }
 
         /* ══ Sub-bloque Presidente: Gobernador vs Presidente ══ */
         .tabla-paquetes-ccp {
@@ -1049,6 +1076,87 @@
             }
         }
 
+        /* ══ Tarjetas de Paquete Oficial vs Propuesta ══ */
+        .tarjetas-paquete-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .tarjeta-paquete-oficial {
+            background: var(--white);
+            border: 1.5px solid var(--gold-accent);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 8px 24px rgba(31,31,31,0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .tarjeta-paquete-oficial h4 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+        .tarjeta-paquete-oficial .paquete-meta {
+            font-size: 0.82rem;
+            color: var(--gray-text);
+            margin-bottom: 14px;
+            line-height: 1.45;
+        }
+        .tarjeta-paquete-oficial .paquete-meta a {
+            color: var(--primary-pink);
+            text-decoration: underline;
+        }
+        .tarjeta-paquete-oficial ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px;
+        }
+        .tarjeta-paquete-oficial li {
+            font-size: 0.84rem;
+            color: var(--gray-text);
+            margin-bottom: 8px;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .tarjeta-paquete-oficial li i {
+            color: var(--primary-pink);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        .tarjeta-paquete-oficial .paquete-pie-precio {
+            border-top: 1px dashed var(--beige);
+            padding-top: 12px;
+            margin-top: auto;
+            font-size: 0.85rem;
+            color: var(--gold-accent);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        .tarjeta-paquete-oficial .paquete-pie-nota {
+            font-size: 0.8rem;
+            color: var(--gray-text);
+            font-weight: 400;
+            margin-top: 6px;
+            font-style: italic;
+        }
+        .cuadro-paquete-pdf {
+            background: #FFF9F5;
+            border: 1px solid var(--gold-accent);
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 12px;
+            font-size: 0.82rem;
+            line-height: 1.45;
+        }
+        .cuadro-paquete-pdf strong {
+            color: var(--primary-dark);
+        }
+
         /* ══ Clase de datos por confirmar ══ */
         .pendiente-confirmar {
             color: var(--gray-text);
@@ -1113,28 +1221,41 @@
                 flex-shrink: 0 !important;
                 font-size: 0.72rem !important;
                 letter-spacing: 0.5px !important;
+                display: none !important;
+            }
+            .lbl-corto {
+                display: inline !important;
+            }
+            .lbl-largo {
+                display: none !important;
+            }
+            .controls-sticky-bar {
+                max-height: 125px !important;
+                padding: 6px 8px !important;
+            }
+            .control-group-venue {
+                width: 100% !important;
+                overflow: visible !important;
             }
             .pills-venue {
                 display: flex !important;
-                flex-wrap: nowrap !important;
-                overflow-x: auto !important;
-                white-space: nowrap !important;
-                -webkit-overflow-scrolling: touch !important;
+                flex-wrap: wrap !important;
                 gap: 5px !important;
-                padding: 2px 2px !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-                scrollbar-width: none !important;
-                -ms-overflow-style: none !important;
+                width: 100% !important;
+                overflow: visible !important;
+                white-space: normal !important;
             }
             .pills-venue::-webkit-scrollbar {
                 display: none !important;
             }
-            .pill-btn {
-                padding: 6px 12px !important;
-                font-size: 0.78rem !important;
-                flex-shrink: 0 !important;
-                white-space: nowrap !important;
+            .pills-venue .venue-pill {
+                flex: 1 1 30% !important;
+                min-width: 0 !important;
+                padding: 6px 4px !important;
+                font-size: 0.74rem !important;
+                line-height: 1.15 !important;
+                white-space: normal !important;
+                text-align: center !important;
             }
             .controls-row-secondary {
                 display: flex !important;
@@ -1153,8 +1274,7 @@
                 margin: 0 !important;
             }
             .control-group-evento .control-label {
-                font-size: 0.72rem !important;
-                letter-spacing: 0.5px !important;
+                display: none !important;
             }
             .control-group-evento .pills-group {
                 gap: 4px !important;
@@ -1209,15 +1329,33 @@
                 display: none !important;
             }
             body.venue-active-tsunuum .venue-presidente,
-            body.venue-active-tsunuum .venue-isabeles {
+            body.venue-active-tsunuum .venue-isabeles,
+            body.venue-active-tsunuum .venue-lavilla,
+            body.venue-active-tsunuum .venue-sanrafael {
                 display: none !important;
             }
             body.venue-active-presidente .venue-tsunuum,
-            body.venue-active-presidente .venue-isabeles {
+            body.venue-active-presidente .venue-isabeles,
+            body.venue-active-presidente .venue-lavilla,
+            body.venue-active-presidente .venue-sanrafael {
                 display: none !important;
             }
             body.venue-active-isabeles .venue-tsunuum,
-            body.venue-active-isabeles .venue-presidente {
+            body.venue-active-isabeles .venue-presidente,
+            body.venue-active-isabeles .venue-lavilla,
+            body.venue-active-isabeles .venue-sanrafael {
+                display: none !important;
+            }
+            body.venue-active-lavilla .venue-tsunuum,
+            body.venue-active-lavilla .venue-presidente,
+            body.venue-active-lavilla .venue-isabeles,
+            body.venue-active-lavilla .venue-sanrafael {
+                display: none !important;
+            }
+            body.venue-active-sanrafael .venue-tsunuum,
+            body.venue-active-sanrafael .venue-presidente,
+            body.venue-active-sanrafael .venue-isabeles,
+            body.venue-active-sanrafael .venue-lavilla {
                 display: none !important;
             }
         }
@@ -1237,7 +1375,7 @@
                 <img class="preloader-logo" src="logo_primavera_events_group.png" alt="Primavera Events Group" style="width:52px; height:52px; margin-bottom:0;">
             </div>
             <h2 class="preloader-title">Bienvenidos</h2>
-            <p class="preloader-text">Le presentamos la propuesta integral para un evento de <strong>500 invitados</strong> — Boda o XV Años — en tres recintos exclusivos de Morelos.</p>
+            <p class="preloader-text">Le presentamos la propuesta integral para un evento de <strong>500 invitados</strong> — Boda o XV Años — en cinco recintos exclusivos de Morelos.</p>
             <button id="btnEnter" class="btn-enter">Ingresar a la Propuesta</button>
             <p style="margin-top:16px; font-size:.68rem; color:var(--gray-text); letter-spacing:.3px;">Primavera Events Group<sup class="marca-reg">&reg;</sup> · Marca Registrada</p>
         </div>
@@ -1267,9 +1405,11 @@
             <div class="control-group control-group-venue">
                 <span class="control-label"><i class="fas fa-location-dot"></i> Recinto:</span>
                 <div class="pills-group pills-venue">
-                    <button type="button" class="pill-btn venue-pill active" id="btnVenueTsunuum" onclick="window.seleccionarVenue('tsunuum')">Jardín Tsú Nuum</button>
-                    <button type="button" class="pill-btn venue-pill" id="btnVenuePresidente" onclick="window.seleccionarVenue('presidente')">Centro de Convenciones Presidente</button>
-                    <button type="button" class="pill-btn venue-pill" id="btnVenueIsabeles" onclick="window.seleccionarVenue('isabeles')">Finca Las Isabeles</button>
+                    <button type="button" class="pill-btn venue-pill active" id="btnVenueTsunuum" onclick="window.seleccionarVenue('tsunuum')"><span class="lbl-largo">Jardín Tsú Nuum</span><span class="lbl-corto">Tsú Nuum</span></button>
+                    <button type="button" class="pill-btn venue-pill" id="btnVenuePresidente" onclick="window.seleccionarVenue('presidente')"><span class="lbl-largo">Centro de Convenciones Presidente</span><span class="lbl-corto">Presidente</span></button>
+                    <button type="button" class="pill-btn venue-pill" id="btnVenueIsabeles" onclick="window.seleccionarVenue('isabeles')"><span class="lbl-largo">Finca Las Isabeles</span><span class="lbl-corto">Isabeles</span></button>
+                    <button type="button" class="pill-btn venue-pill" id="btnVenueLavilla" onclick="window.seleccionarVenue('lavilla')"><span class="lbl-largo">Jardín La Villa</span><span class="lbl-corto">La Villa</span></button>
+                    <button type="button" class="pill-btn venue-pill" id="btnVenueSanrafael" onclick="window.seleccionarVenue('sanrafael')"><span class="lbl-largo">Jardín San Rafael</span><span class="lbl-corto">San Rafael</span></button>
                 </div>
             </div>
             <div class="controls-row-secondary">
@@ -1283,10 +1423,10 @@
                 <div class="control-group control-group-invitados invitados-control">
                     <div class="invitados-row">
                         <label for="inputInvitados" class="control-label"><i class="fas fa-users"></i> Invitados:</label>
-                        <input type="number" id="inputInvitados" class="invitados-input" min="400" max="600" step="10" value="500" title="Proyección al mismo precio por persona; el número final se confirma con tu planner." onchange="window.cambiarInvitados(this.value)" oninput="window.cambiarInvitados(this.value)">
+                        <input type="number" id="inputInvitados" class="invitados-input" min="400" max="600" step="10" value="500" title="Proyección de invitados; el número final se confirma con tu planner." onchange="window.cambiarInvitados(this.value)" oninput="window.cambiarInvitados(this.value)">
                         <span style="font-size:0.85rem; font-weight:600; color:var(--primary-dark);">Px</span>
                     </div>
-                    <span class="invitados-subtext">Proyección al mismo precio por persona; el número final se confirma con tu planner.</span>
+                    <span class="invitados-subtext">El número final de invitados se confirma directamente con tu planner.</span>
                 </div>
             </div>
         </div>
@@ -1305,7 +1445,7 @@
                     </div>
                     <div class="ph-txt">
                         <h2>Cotización elaborada por Primavera Events Group<sup class="marca-reg">&reg;</sup> &middot; Presentada por Cásate en Morelos</h2>
-                        <p class="ph-meta">Propuesta para <span class="invitados-num-txt">500</span> Invitados &middot; <span class="txt-evento" data-evento-boda="Boda" data-evento-xv="XV Años">Boda</span> &middot; <span class="venue-inline-name">Jardín Tsú Nuum</span> &middot; $1,900.00 MXN por persona &middot; Inversión total base: <span class="total-base-txt">$950,000.00 MXN</span></p>
+                        <p class="ph-meta">Propuesta para <span class="invitados-num-txt">500</span> Invitados &middot; <span class="txt-evento" data-evento-boda="Boda" data-evento-xv="XV Años">Boda</span> &middot; <span class="venue-inline-name">Jardín Tsú Nuum</span> &middot; <span class="pp-activo">$1,000.00</span> MXN por persona &middot; Inversión total base: <span class="total-base-txt total-activo">$500,000.00 MXN</span></p>
                     </div>
                 </div>
                 <div class="qr-print-box">
@@ -1314,13 +1454,15 @@
                 </div>
             </div>
 
-            <!-- ══ SECCIÓN NUEVA: COMPARATIVO DE LOS 3 RECINTOS (SÍ SE IMPRIME) ══ -->
-            <div class="comparativo-section bloque-print" id="seccionComparativo">
-                <h3 class="section-title" style="margin-top:10px;"><i class="fas fa-scale-balanced"></i> Comparativo de los 3 Recintos</h3>
+            <!-- ══ SECCIÓN NUEVA: COMPARATIVO DE LOS 5 RECINTOS (SÍ SE IMPRIME) ══ -->
+            <div class="comparativo-section bloque-print reveal" id="seccionComparativo">
+                <h3 class="section-title" style="margin-top:10px;"><i class="fas fa-scale-balanced"></i> Comparativo de los 5 Recintos</h3>
                 <div class="comp-mobile-selector" id="compMobileSelector">
-                    <button type="button" class="comp-mobile-btn active" data-comp-venue="tsunuum" onclick="window.seleccionarVenue('tsunuum')">Jardín Tsú Nuum</button>
-                    <button type="button" class="comp-mobile-btn" data-comp-venue="presidente" onclick="window.seleccionarVenue('presidente')">CC Presidente</button>
-                    <button type="button" class="comp-mobile-btn" data-comp-venue="isabeles" onclick="window.seleccionarVenue('isabeles')">Finca Las Isabeles</button>
+                    <button type="button" class="comp-mobile-btn active" data-comp-venue="tsunuum" onclick="window.seleccionarVenue('tsunuum')"><span class="lbl-largo">Jardín Tsú Nuum</span><span class="lbl-corto">Tsú Nuum</span></button>
+                    <button type="button" class="comp-mobile-btn" data-comp-venue="presidente" onclick="window.seleccionarVenue('presidente')"><span class="lbl-largo">CC Presidente</span><span class="lbl-corto">Presidente</span></button>
+                    <button type="button" class="comp-mobile-btn" data-comp-venue="isabeles" onclick="window.seleccionarVenue('isabeles')"><span class="lbl-largo">Finca Las Isabeles</span><span class="lbl-corto">Isabeles</span></button>
+                    <button type="button" class="comp-mobile-btn" data-comp-venue="lavilla" onclick="window.seleccionarVenue('lavilla')"><span class="lbl-largo">Jardín La Villa</span><span class="lbl-corto">La Villa</span></button>
+                    <button type="button" class="comp-mobile-btn" data-comp-venue="sanrafael" onclick="window.seleccionarVenue('sanrafael')"><span class="lbl-largo">Jardín San Rafael</span><span class="lbl-corto">San Rafael</span></button>
                 </div>
                 <div class="comparativo-table-wrap">
                     <table class="comparativo-table">
@@ -1330,6 +1472,8 @@
                                 <th class="col-venue-header col-venue-tsunuum col-active-venue">Jardín Tsú Nuum</th>
                                 <th class="col-venue-header col-venue-presidente">Centro de Convenciones Presidente</th>
                                 <th class="col-venue-header col-venue-isabeles">Finca Las Isabeles</th>
+                                <th class="col-venue-header col-venue-lavilla">Jardín La Villa</th>
+                                <th class="col-venue-header col-venue-sanrafael">Jardín San Rafael</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1349,60 +1493,90 @@
                                     <img src="portada_finca_las_isabeles.webp" alt="Finca Las Isabeles" class="comp-thumb" loading="lazy">
                                     <img src="logo_finca_las_isabeles.png" alt="Logo Finca Las Isabeles" style="height:40px; width:auto; object-fit:contain; margin:10px auto 0; display:block;" loading="lazy">
                                 </td>
+                                <td class="col-venue-cell col-venue-lavilla">
+                                    <div style="background:linear-gradient(135deg, #1F1F1F 0%, #3a2a30 60%, #F65C7A 140%); border-radius:10px; height:90px; display:flex; align-items:center; justify-content:center; padding:8px; text-align:center; max-width:220px; margin:0 auto;">
+                                        <span style="font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; color:#fff;">Jardín La Villa</span>
+                                    </div>
+                                    <span style="display:block; font-size:0.75rem; color:var(--gray-text); margin-top:8px;">Recinto asociado</span>
+                                </td>
+                                <td class="col-venue-cell col-venue-sanrafael">
+                                    <div style="background:linear-gradient(135deg, #1F1F1F 0%, #3a2a30 60%, #F65C7A 140%); border-radius:10px; height:90px; display:flex; align-items:center; justify-content:center; padding:8px; text-align:center; max-width:220px; margin:0 auto;">
+                                        <span style="font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; color:#fff;">Jardín San Rafael</span>
+                                    </div>
+                                    <span style="display:block; font-size:0.75rem; color:var(--gray-text); margin-top:8px;">Recinto asociado</span>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="col-feature-cell">Ubicación</td>
                                 <td class="col-venue-cell col-venue-tsunuum col-active-venue">Xochitepec, Morelos <span class="pendiente-confirmar">(dirección exacta a confirmar con tu coordinador)</span></td>
                                 <td class="col-venue-cell col-venue-presidente">Avenida Defensa Nacional #8, Col. Chamilpa, 62210 Cuernavaca, Morelos</td>
                                 <td class="col-venue-cell col-venue-isabeles">Xochitepec, Morelos</td>
+                                <td class="col-venue-cell col-venue-lavilla"><span class="pendiente-confirmar">Morelos (dirección a confirmar con tu planner)</span></td>
+                                <td class="col-venue-cell col-venue-sanrafael">Jiutepec, Morelos</td>
                             </tr>
                             <tr>
                                 <td class="col-feature-cell">Estilo</td>
                                 <td class="col-venue-cell col-venue-tsunuum col-active-venue">Jardín zen moderno minimalista con paisajismo de diseñador</td>
                                 <td class="col-venue-cell col-venue-presidente">Arquitectónico modernista, elegante e industrial con amplias alturas</td>
                                 <td class="col-venue-cell col-venue-isabeles">Finca campestre rústica elegante de gran exclusividad</td>
+                                <td class="col-venue-cell col-venue-lavilla"><span class="pendiente-confirmar">Jardín de eventos</span></td>
+                                <td class="col-venue-cell col-venue-sanrafael">Jardín de eventos de gran capacidad</td>
                             </tr>
                             <tr>
                                 <td class="col-feature-cell">Capacidad</td>
                                 <td class="col-venue-cell col-venue-tsunuum col-active-venue">500 invitados <span class="pendiente-confirmar">(montaje para 500 sujeto a confirmación con tu planner)</span></td>
                                 <td class="col-venue-cell col-venue-presidente">Desde 100 hasta 500 personas máximo — salón techado climatizado</td>
                                 <td class="col-venue-cell col-venue-isabeles">500 invitados <span class="pendiente-confirmar">(montaje para 500 sujeto a confirmación con tu planner)</span></td>
+                                <td class="col-venue-cell col-venue-lavilla"><span class="pendiente-confirmar">500 invitados (montaje sujeto a confirmación)</span></td>
+                                <td class="col-venue-cell col-venue-sanrafael">500 invitados <span class="pendiente-confirmar">(sujeto a confirmación)</span></td>
                             </tr>
                             <tr>
                                 <td class="col-feature-cell">Ceremonia en sitio</td>
                                 <td class="col-venue-cell col-venue-tsunuum col-active-venue">Sí — área de ceremonia al aire libre</td>
                                 <td class="col-venue-cell col-venue-presidente">Sí — montaje de ceremonia con mobiliario elegante en el jardín de la entrada</td>
                                 <td class="col-venue-cell col-venue-isabeles">Sí — área consagrada dentro de la finca</td>
+                                <td class="col-venue-cell col-venue-lavilla">Consultar con tu planner</td>
+                                <td class="col-venue-cell col-venue-sanrafael">Consultar con tu planner</td>
                             </tr>
                             <tr>
                                 <td class="col-feature-cell">Hospedaje</td>
                                 <td class="col-venue-cell col-venue-tsunuum col-active-venue"><span class="pendiente-confirmar">Sujeto a disponibilidad (se confirma con tu planner)</span></td>
                                 <td class="col-venue-cell col-venue-presidente">No disponible en el recinto; convenios especiales con hoteles de Cuernavaca (a 5–10 min)</td>
                                 <td class="col-venue-cell col-venue-isabeles">Cabañas ecológicas rústicas y suite nupcial (previa reserva y costo adicional)</td>
+                                <td class="col-venue-cell col-venue-lavilla">Consultar con tu planner</td>
+                                <td class="col-venue-cell col-venue-sanrafael">Consultar con tu planner</td>
                             </tr>
                             <tr>
                                 <td class="col-feature-cell">Estacionamiento</td>
                                 <td class="col-venue-cell col-venue-tsunuum col-active-venue"><span class="pendiente-confirmar">Consultar con tu coordinador</span></td>
                                 <td class="col-venue-cell col-venue-presidente">Interno y vigilado para 35 vehículos compactos</td>
                                 <td class="col-venue-cell col-venue-isabeles">Valet parking</td>
+                                <td class="col-venue-cell col-venue-lavilla">Consultar con tu planner</td>
+                                <td class="col-venue-cell col-venue-sanrafael">Consultar con tu planner</td>
                             </tr>
                             <tr>
                                 <td class="col-feature-cell">Horario de cierre</td>
                                 <td class="col-venue-cell col-venue-tsunuum col-active-venue">10 hrs de presencia (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio)</td>
                                 <td class="col-venue-cell col-venue-presidente">9 horas de servicio continuo (cierre 00:00 hrs con Paquete Gobernador · 01:00 hrs con Paquete Presidente)</td>
                                 <td class="col-venue-cell col-venue-isabeles">9 horas continuas de servicio</td>
+                                <td class="col-venue-cell col-venue-lavilla">10 hrs de presencia (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio)</td>
+                                <td class="col-venue-cell col-venue-sanrafael">10 hrs de presencia (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio)</td>
                             </tr>
                             <tr>
                                 <td class="col-feature-cell">Precio por persona</td>
-                                <td class="col-venue-cell col-venue-tsunuum col-active-venue"><strong>$1,900.00 MXN</strong></td>
-                                <td class="col-venue-cell col-venue-presidente"><strong>$1,900.00 MXN</strong></td>
-                                <td class="col-venue-cell col-venue-isabeles"><strong>$1,900.00 MXN</strong></td>
+                                <td class="col-venue-cell col-venue-tsunuum col-active-venue"><strong><span class="pp-val-tsunuum">$1,000.00</span> MXN</strong></td>
+                                <td class="col-venue-cell col-venue-presidente"><strong><span class="pp-val-presidente">$850.00</span> MXN</strong></td>
+                                <td class="col-venue-cell col-venue-isabeles"><strong><span class="pp-val-isabeles">$1,000.00</span> MXN</strong></td>
+                                <td class="col-venue-cell col-venue-lavilla"><strong><span class="pp-val-lavilla">$1,000.00</span> MXN</strong></td>
+                                <td class="col-venue-cell col-venue-sanrafael"><strong><span class="pp-val-sanrafael">$1,000.00</span> MXN</strong></td>
                             </tr>
                             <tr>
                                 <td class="col-feature-cell">Inversión <span class="invitados-num-txt">500</span> invitados</td>
-                                <td class="col-venue-cell col-venue-tsunuum col-active-venue"><strong class="total-base-txt" style="color:var(--primary-pink); font-size:1.05rem;">$950,000.00 MXN</strong></td>
-                                <td class="col-venue-cell col-venue-presidente"><strong class="total-base-txt" style="color:var(--primary-pink); font-size:1.05rem;">$950,000.00 MXN</strong></td>
-                                <td class="col-venue-cell col-venue-isabeles"><strong class="total-base-txt" style="color:var(--primary-pink); font-size:1.05rem;">$950,000.00 MXN</strong></td>
+                                <td class="col-venue-cell col-venue-tsunuum col-active-venue"><strong class="total-val-tsunuum" style="color:var(--primary-pink); font-size:1.05rem;">$500,000.00 MXN</strong></td>
+                                <td class="col-venue-cell col-venue-presidente"><strong class="total-val-presidente" style="color:var(--primary-pink); font-size:1.05rem;">$425,000.00 MXN</strong></td>
+                                <td class="col-venue-cell col-venue-isabeles"><strong class="total-val-isabeles" style="color:var(--primary-pink); font-size:1.05rem;">$500,000.00 MXN</strong></td>
+                                <td class="col-venue-cell col-venue-lavilla"><strong class="total-val-lavilla" style="color:var(--primary-pink); font-size:1.05rem;">$500,000.00 MXN</strong></td>
+                                <td class="col-venue-cell col-venue-sanrafael"><strong class="total-val-sanrafael" style="color:var(--primary-pink); font-size:1.05rem;">$500,000.00 MXN</strong></td>
                             </tr>
                             <tr>
                                 <td class="col-feature-cell">Propuesta detallada</td>
@@ -1415,6 +1589,12 @@
                                 <td class="col-venue-cell col-venue-isabeles">
                                     <button type="button" class="btn-ver-propuesta" onclick="window.seleccionarVenueYScroll('isabeles')"><i class="fas fa-eye"></i> Ver esta propuesta</button>
                                 </td>
+                                <td class="col-venue-cell col-venue-lavilla">
+                                    <button type="button" class="btn-ver-propuesta" onclick="window.seleccionarVenueYScroll('lavilla')"><i class="fas fa-eye"></i> Ver esta propuesta</button>
+                                </td>
+                                <td class="col-venue-cell col-venue-sanrafael">
+                                    <button type="button" class="btn-ver-propuesta" onclick="window.seleccionarVenueYScroll('sanrafael')"><i class="fas fa-eye"></i> Ver esta propuesta</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -1422,23 +1602,31 @@
             </div>
 
             <!-- ══ Logotipo y Nombre de Venue Activo ══ -->
-            <div class="venue-logo-wrap venue-block venue-tsunuum" id="datosRecinto">
+            <div class="venue-logo-wrap reveal venue-block venue-tsunuum" id="datosRecinto">
                 <a href="https://primaveraeventsgroup.com/jardin-tsu-nuum/" target="_blank" rel="noopener">
                     <img src="logo_tsu_nuum.png" alt="Jardín Tsú Nuum" style="max-height:120px; height:auto; width:auto; object-fit:contain;">
                 </a>
                 <span>Recinto Oficial Asociado</span>
             </div>
-            <div class="venue-logo-wrap venue-block venue-presidente">
+            <div class="venue-logo-wrap reveal venue-block venue-presidente">
                 <div style="background:#1F1F1F; display:inline-block; border-radius:16px; padding:12px 24px; box-shadow:0 6px 18px rgba(0,0,0,.15); margin-bottom:6px;">
                     <img src="logo_ccpresidente.png" alt="Centro de Convenciones Presidente" style="max-height:115px; width:auto; object-fit:contain; border:none; padding:0; background:transparent;">
                 </div>
                 <span>Recinto Oficial Asociado &middot; Cuernavaca, Morelos</span>
             </div>
-            <div class="venue-logo-wrap venue-block venue-isabeles">
+            <div class="venue-logo-wrap reveal venue-block venue-isabeles">
                 <a href="https://primaveraeventsgroup.com/finca-las-isabeles/" target="_blank" rel="noopener">
                     <img src="logo_finca_las_isabeles.png" alt="Finca Las Isabeles" style="max-height:140px; height:auto; width:auto; object-fit:contain;">
                 </a>
                 <span>Recinto Oficial Asociado</span>
+            </div>
+            <div class="venue-logo-wrap reveal venue-block venue-lavilla">
+                <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--primary-dark); margin-bottom:4px;">Jardín La Villa</h2>
+                <span>Recinto asociado</span>
+            </div>
+            <div class="venue-logo-wrap reveal venue-block venue-sanrafael">
+                <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--primary-dark); margin-bottom:4px;">Jardín San Rafael</h2>
+                <span>Recinto asociado &middot; Jiutepec, Morelos</span>
             </div>
 
             <!-- ══ DATOS DEL EVENTO ══ -->
@@ -1448,10 +1636,10 @@
                     <p>Propuesta integral y personalizada para <strong><span class="invitados-num-txt">500</span> invitados</strong> en <strong class="venue-inline-name">Jardín Tsú Nuum</strong>. Toma como base el paquete Vuelo Esmeralda de Primavera Events Group, integrando banquete haute cuisine, barra libre de bebidas y mezcladores, mobiliario de diseñador, amenidades de cortesía, audio profesional y coordinación general de servicio.</p>
                     <span class="badge-event">Paquete Integral 500 &middot; Personalizado</span>
                 </div>
-                <div class="summary-boxes">
+                <div class="summary-boxes reveal">
                     <div class="info-box"><span>Invitados</span><strong class="invitados-num-txt">500</strong> Px</div>
-                    <div class="info-box"><span>Precio p/p</span><strong>$1,900.00</strong></div>
-                    <div class="info-box"><span>Inversión Base</span><strong class="total-base-txt">$950,000.00</strong></div>
+                    <div class="info-box"><span>Precio p/p</span><strong><span class="pp-activo">$1,000.00</span></strong></div>
+                    <div class="info-box"><span>Inversión Base</span><strong class="total-base-txt total-activo">$500,000.00</strong></div>
                     <div class="info-box"><span>Duración</span><strong class="duracion-venue-txt">10 hrs</strong></div>
                 </div>
             </div>
@@ -1485,6 +1673,26 @@
                 <div class="venue-info-card"><i class="fas fa-clock"></i><h5>Horario</h5><p>9 horas continuas de servicio</p></div>
                 <div class="venue-info-card"><i class="fas fa-bed"></i><h5>Hospedaje</h5><p>Cabañas ecológicas rústicas y suite nupcial (previa reserva y costo adicional)</p></div>
                 <div class="venue-info-card"><i class="fas fa-car"></i><h5>Estacionamiento</h5><p>Valet parking</p></div>
+            </div>
+
+            <!-- La Villa -->
+            <div class="venue-info-grid reveal venue-block venue-lavilla">
+                <div class="venue-info-card"><i class="fas fa-map-marker-alt"></i><h5>Ubicación</h5><p><span class="pendiente-confirmar">Morelos (dirección a confirmar con tu planner)</span></p></div>
+                <div class="venue-info-card"><i class="fas fa-users"></i><h5>Capacidad</h5><p><span class="pendiente-confirmar">500 invitados (montaje sujeto a confirmación)</span></p></div>
+                <div class="venue-info-card"><i class="fas fa-palette"></i><h5>Estilo</h5><p><span class="pendiente-confirmar">Jardín de eventos</span></p></div>
+                <div class="venue-info-card"><i class="fas fa-clock"></i><h5>Horario</h5><p>10 hrs de presencia (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio)</p></div>
+                <div class="venue-info-card"><i class="fas fa-bed"></i><h5>Hospedaje</h5><p>Consultar con tu planner</p></div>
+                <div class="venue-info-card"><i class="fas fa-car"></i><h5>Estacionamiento</h5><p>Consultar con tu planner</p></div>
+            </div>
+
+            <!-- San Rafael -->
+            <div class="venue-info-grid reveal venue-block venue-sanrafael">
+                <div class="venue-info-card"><i class="fas fa-map-marker-alt"></i><h5>Ubicación</h5><p>Jiutepec, Morelos</p></div>
+                <div class="venue-info-card"><i class="fas fa-users"></i><h5>Capacidad</h5><p>500 invitados <span class="pendiente-confirmar">(sujeto a confirmación)</span></p></div>
+                <div class="venue-info-card"><i class="fas fa-palette"></i><h5>Estilo</h5><p>Jardín de eventos de gran capacidad</p></div>
+                <div class="venue-info-card"><i class="fas fa-clock"></i><h5>Horario</h5><p>10 hrs de presencia (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio)</p></div>
+                <div class="venue-info-card"><i class="fas fa-bed"></i><h5>Hospedaje</h5><p>Consultar con tu planner</p></div>
+                <div class="venue-info-card"><i class="fas fa-car"></i><h5>Estacionamiento</h5><p>Consultar con tu planner</p></div>
             </div>
 
             <!-- ══ DESGLOSE COMPLETO DEL PAQUETE (VERSIÓN IMPRESA / PDF) ══ -->
@@ -1535,6 +1743,20 @@
                         <tr class="venue-block venue-isabeles">
                             <td><img class="tbl-thumb" src="finca_hospedaje.webp" alt="Hospedaje" loading="lazy"><strong>Hospedaje</strong></td>
                             <td>Cabañas ecológicas rústicas y suite nupcial, previa reserva y costo adicional.</td>
+                            <td class="align-center">&mdash;</td>
+                            <td class="align-right">Según recinto</td>
+                            <td class="align-right">Según recinto</td>
+                        </tr>
+                        <tr class="venue-block venue-lavilla">
+                            <td><strong>Hospedaje</strong></td>
+                            <td>Consultar con tu planner.</td>
+                            <td class="align-center">&mdash;</td>
+                            <td class="align-right">Según recinto</td>
+                            <td class="align-right">Según recinto</td>
+                        </tr>
+                        <tr class="venue-block venue-sanrafael">
+                            <td><strong>Hospedaje</strong></td>
+                            <td>Consultar con tu planner.</td>
                             <td class="align-center">&mdash;</td>
                             <td class="align-right">Según recinto</td>
                             <td class="align-right">Según recinto</td>
@@ -1745,97 +1967,525 @@
                     </tbody>
                     <tfoot>
                         <tr style="background:var(--primary-dark); color:var(--white);">
-                            <td colspan="3"><strong>INVERSIÓN TOTAL BASE DEL EVENTO (<span class="invitados-num-txt">500</span> INVITADOS &middot; $1,900.00 MXN P/P)</strong></td>
-                            <td class="align-right"><strong id="pdfTotalPersona">$1,900.00</strong></td>
-                            <td class="align-right"><strong id="pdfTotalEvento">$950,000.00</strong></td>
+                            <td colspan="3"><strong>INVERSIÓN TOTAL BASE DEL EVENTO (<span class="invitados-num-txt">500</span> INVITADOS &middot; <span class="pp-activo">$1,000.00</span> MXN P/P)</strong></td>
+                            <td class="align-right"><strong id="pdfTotalPersona">$1,000.00</strong></td>
+                            <td class="align-right"><strong id="pdfTotalEvento">$500,000.00</strong></td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
-            <p class="calc-hint solo-print" style="margin-top:8px;"><strong>Tarifa oficial garantizada:</strong> el precio integral para <span class="invitados-num-txt">500</span> invitados es de $1,900.00 MXN por persona ($950,000.00 MXN totales), aplicable exactamente con el mismo paquete en Jardín Tsú Nuum, Centro de Convenciones Presidente y Finca Las Isabeles.</p>
+            <p class="calc-hint solo-print" style="margin-top:8px;"><strong>Tarifa oficial garantizada:</strong> inversión calculada para <span class="invitados-num-txt">500</span> invitados según el recinto seleccionado, aplicable con el paquete integral descrito a continuación.</p>
 
-            <!-- ══ 2 &middot; CORTESÍAS INCLUIDAS EN LA INVERSIÓN (VERSIÓN PDF) ══ -->
-            <div class="solo-print bloque-print">
-                <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-gift"></i> 2 &middot; Cortesías Incluidas en la Inversión</h3>
-                <p class="calc-hint solo-print" style="margin-bottom:10px;">Los siguientes beneficios de cortesía se entregan integrados dentro de la inversión contratada, sin costo adicional:</p>
+            <!-- ══ 2 &middot; CORTESÍAS INCLUIDAS SIN COSTO (VERSIÓN PDF) ══ -->
+            <!-- PDF Tsú Nuum -->
+            <div class="solo-print bloque-print venue-block venue-tsunuum">
+                <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-gift"></i> 2 &middot; Cortesías Incluidas Sin Costo</h3>
+                <div class="cuadro-paquete-pdf solo-print">
+                    <strong>Paquete Oficial:</strong> Paquete Vuelo Esmeralda &middot; <strong>Duración:</strong> 8 a 9 horas continuas &middot; <strong>Precio publicado:</strong> $2,199 (100&ndash;149) &middot; $2,099 (150&ndash;199) &middot; $1,999 (200&ndash;299). <em>Escala máxima publicada 200&ndash;299 invitados; para 500 invitados el precio se personaliza: en esta propuesta, $1,000.00 MXN por persona.</em>
+                </div>
+                <p class="calc-hint solo-print" style="margin-bottom:10px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete Vuelo Esmeralda <strong>ya publica</strong>, y las que <strong>se agregan de más</strong> exclusivamente en esta propuesta.</p>
                 <div class="pricing-table-container solo-print print-seccion" style="margin-bottom:24px;">
                     <table class="pricing-table">
                         <thead>
                             <tr>
                                 <th>Cortesía</th>
-                                <th>Detalle del Beneficio</th>
+                                <th>Detalle</th>
                                 <th class="align-right">Costo</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr style="background:var(--soft-pink);"><td colspan="3"><strong>A &middot; CORTESÍAS QUE YA INCLUYE EL PAQUETE VUELO ESMERALDA</strong></td></tr>
                             <tr>
-                                <td><strong>Letras Gigantes y Corazón Iluminado</strong></td>
+                                <td><strong>Letras Decorativas y Corazón</strong></td>
                                 <td>Letras a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>) y corazón rojo decorativo iluminado.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
                                 <td><strong>Mesas Especiales</strong></td>
-                                <td>Mesa de honor <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera y su familia">para los novios</span>, mesa especial para pastel y mesa para regalos.</td>
+                                <td>Mesa especial para pastel y mesa especial para regalos.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
-                                <td><strong>Pirotecnia en Frío (4 Chisperos)</strong></td>
-                                <td>Cuatro chisperos de pirotecnia en frío a control remoto para momentos estelares.</td>
+                                <td><strong>Detonación de 2 Chisperos</strong></td>
+                                <td>Dos chisperos de pirotecnia en frío (en esta propuesta se duplican a 4 &mdash; ver grupo B).</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
                                 <td><strong>Alfombra Roja</strong></td>
-                                <td>Alfombra roja para una entrada triunfal <span class="txt-evento" data-evento-boda="para recibir a los novios y a sus invitados" data-evento-xv="para recibir a la quinceañera y a sus invitados">para recibir a los novios y a sus invitados</span>.</td>
+                                <td>Alfombra roja para una entrada espectacular en la recepción.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+
+                            <tr style="background:var(--soft-pink);"><td colspan="3"><strong>B &middot; SE AGREGA DE MÁS EN ESTA PROPUESTA</strong></td></tr>
+                            <tr>
+                                <td><strong>Ceremonia Religiosa Completa</strong></td>
+                                <td>Kit ceremonial (atril, cruz, reclinatorio, banca, arreglo floral, entelado, sillas Tiffany), sonorización, oficiante y coro.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
-                                <td><strong>Kit Religioso Completo &amp; Sonorización</strong></td>
-                                <td>Atril, cruz, reclinatorio, banca, arreglo floral para la cruz, entelado, sillas Tiffany blancas y audio profesional para la ceremonia.</td>
+                                <td><strong>Cóctel de Bienvenida Completo</strong></td>
+                                <td>Salas lounge, periqueras, sombrillas, margaritas/piñadas/azulitos/mojitos con y sin alcohol, aguas frescas y barra con 12 toppings.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
-                                <td><strong>Oficiante y Coro</strong></td>
-                                <td>Padre / oficiante religioso y coro en vivo acompañando la ceremonia.</td>
+                                <td><strong>2 Chisperos Adicionales</strong></td>
+                                <td>El paquete oficial incluye 2; aquí se duplican a 4 chisperos en frío a control remoto en total.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
                                 <td><strong>Saxofonista en Vivo</strong></td>
-                                <td>Música de saxofón en vivo (1 hora) para amenizar la comida.</td>
+                                <td>Saxofonista en vivo durante el servicio de banquete para ambientación musical.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
                                 <td><strong>Servicio de Café</strong></td>
-                                <td>Estación de café con termos, azúcar, endulzantes y galletas para acompañar el postre.</td>
+                                <td>Estación de café de cortesía con termos, galletas y endulzantes para acompañar el postre.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
-                                <td><strong>Show de Cabezones, Robot LED, Cabina &amp; Pista LED</strong></td>
-                                <td>Show interactivo de cabezones, robot LED, cabina de experiencia a elegir (360&deg;, inflable o espejo) y pista de baile de LEDs 5&times;5 m.</td>
+                                <td><strong>Postre &amp; Tornafiesta</strong></td>
+                                <td>Postre como cuarto tiempo y tornafiesta integrados en el servicio.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
                                 <td><strong>Invitación Digital Premium</strong></td>
-                                <td>Invitación digital personalizada, con RSVP vía WhatsApp, mapa y galería (valor comercial $4,000&ndash;$8,000 MXN, incluida al contratar).</td>
+                                <td>Invitación digital personalizada con confirmación RSVP vía WhatsApp, cronograma y mapa interactivo.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
-                                <td><img class="tbl-thumb" src="dinamica_mazo_retos.jpg" alt="Mazo de retos" loading="lazy"><img class="tbl-thumb" src="buenos_deseos_video.jpg" alt="Buenos deseos" loading="lazy"><strong>Social Media Content</strong></td>
-                                <td>Contenido vertical para redes sociales: reels del evento, dinámica del mazo de retos y buenos deseos grabados en video.</td>
+                                <td><strong>Social Media Content</strong></td>
+                                <td>Reels verticales del evento, dinámica de retos en mesas y recopilación de buenos deseos grabados en video.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Animación, Show &amp; Pista LED</strong></td>
+                                <td>Show de cabezones, robot LED, cabina de experiencia a elegir (360&deg; o inflable) y pista de baile de LEDs 5&times;5 m.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
                                 <td><strong>Degustación para 4 Personas</strong></td>
-                                <td>Se programa una vez firmado el contrato y cubierto el apartado del 10%.</td>
+                                <td>Degustación completa de banquete para 4 personas al formalizar contrato.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
                                 <td><strong>Kit Organizador de Eventos</strong></td>
-                                <td>Plantilla de control de presupuesto en Excel y guía maestra de organización en PDF.</td>
+                                <td>Plantilla Excel de presupuesto y guía maestra de organización en PDF.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
-                                <td><strong>Descorche Libre</strong></td>
-                                <td>Sin cobro de descorche por ingresar tus propias botellas de licor y vino.</td>
+                                <td><strong>10 Horas de Presencia</strong></td>
+                                <td>1 hora de ceremonia + 1 hora de cóctel + 8 horas de banquete y servicio continuo.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PDF Presidente -->
+            <div class="solo-print bloque-print venue-block venue-presidente">
+                <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-gift"></i> 2 &middot; Cortesías Incluidas Sin Costo</h3>
+                <div class="cuadro-paquete-pdf solo-print">
+                    <strong>Paquetes Oficiales:</strong> Gobernador &amp; Presidente &middot; <strong>Duración:</strong> 9 horas continuas &middot; <strong>Precio publicado:</strong> $899 (100&ndash;149) &middot; $849 (150&ndash;199) &middot; $799 (200&ndash;299) &middot; $749 (300&ndash;400) &middot; 401+: Consultar. <em>Precios publicados hasta 400 invitados; para 500 invitados esta propuesta toma el paquete Presidente como base y lo amplía con el Grupo B, a $850.00 MXN por persona.</em>
+                </div>
+                <p class="calc-hint solo-print" style="margin-bottom:10px;">Para total transparencia, separamos las cortesías en dos grupos: las que los paquetes oficiales del recinto <strong>ya publican</strong>, y las que <strong>se agregan de más</strong> exclusivamente en esta propuesta.</p>
+                <div class="pricing-table-container solo-print print-seccion" style="margin-bottom:24px;">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Cortesía</th>
+                                <th>Detalle</th>
+                                <th class="align-right">Costo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background:var(--soft-pink);"><td colspan="3"><strong>A &middot; YA LO INCLUYEN LOS PAQUETES OFICIALES DEL RECINTO</strong></td></tr>
+                            <tr>
+                                <td><strong>Cortesías Oficiales de Entrada y Fiesta</strong></td>
+                                <td>Degustación para 4 personas, letras gigantes (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>), corazón iluminado, mesas de pastel/regalos, detonación de 2 chisperos, alfombra roja, espejo selfie y barra mix con 12 toppings.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cóctel de Bienvenida Oficial</strong></td>
+                                <td>Cóctel con salas lounge, periqueras y sombrillas con margaritas y aguas frescas sin alcohol.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Audio, DJ &amp; Iluminación</strong></td>
+                                <td>DJ profesional con cabina, cabezas robóticas, proyector/pantalla, láser y máquina de humo.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Servicio e Instalaciones</strong></td>
+                                <td>Mobiliario, mantelería, loza, cristalería, mezcladores completos, equipo de servicio completo, área infantil y estacionamiento.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Beneficios Esquema Presidente</strong></td>
+                                <td>Pista de baile LED 5&times;5 m, 2 chisperos a control remoto, banquete a 4 tiempos con postre, sillones Rey &amp; Reyna y opción de montaje de mobiliario de ceremonia.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+
+                            <tr style="background:var(--soft-pink);"><td colspan="3"><strong>B &middot; SE AGREGA DE MÁS EN ESTA PROPUESTA</strong></td></tr>
+                            <tr>
+                                <td><strong>Ceremonia Religiosa Completa</strong></td>
+                                <td>Kit ceremonial completo, sonorización, oficiante religioso y coro (el recinto solo contemplaba mobiliario).</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cóctel con Bebidas Con y Sin Alcohol</strong></td>
+                                <td>Margaritas, piñadas, azulitos y mojitos con y sin alcohol (el paquete oficial solo incluye bebidas sin alcohol).</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2 Chisperos Adicionales</strong></td>
+                                <td>2 chisperos adicionales para completar 4 detonaciones en frío a control remoto.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Saxofonista en Vivo</strong></td>
+                                <td>Música de saxofón en vivo durante el banquete.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Servicio de Café</strong></td>
+                                <td>Estación de café de cortesía con termos, galletas y endulzantes.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Invitación Digital Premium</strong></td>
+                                <td>Invitación interactiva personalizada con confirmación RSVP vía WhatsApp.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Social Media Content</strong></td>
+                                <td>Reels verticales del evento, dinámica del mazo de retos y videos de buenos deseos.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Show &amp; Cabina de Experiencia</strong></td>
+                                <td>Show de cabezones, robot LED y cabina de experiencia a elegir (360&deg; o inflable).</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pista LED &amp; 4 Tiempos en Ambos Esquemas</strong></td>
+                                <td>Pista LED 5&times;5 m y postre integrado como 4to tiempo garantizados.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kit Organizador de Eventos</strong></td>
+                                <td>Plantilla Excel y guía maestra de organización en PDF.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>10 Horas de Presencia</strong></td>
+                                <td>1 hora de ceremonia + 1 hora de cóctel + 8 horas de servicio continuo (frente a las 9 horas oficiales).</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PDF Isabeles -->
+            <div class="solo-print bloque-print venue-block venue-isabeles">
+                <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-gift"></i> 2 &middot; Cortesías Incluidas Sin Costo</h3>
+                <div class="cuadro-paquete-pdf solo-print">
+                    <strong>Paquete Oficial:</strong> Nature's Majesty &middot; <strong>Duración:</strong> 9 horas continuas &middot; <strong>Precio publicado:</strong> $1,999 (100&ndash;149) &middot; $1,899 (150&ndash;199) &middot; $1,799 (200&ndash;299). <em>Escala máxima publicada 200&ndash;299 invitados; para 500 invitados el precio se personaliza: en esta propuesta, $1,000.00 MXN por persona.</em>
+                </div>
+                <p class="calc-hint solo-print" style="margin-bottom:10px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete Nature's Majesty <strong>ya publica</strong>, y las que <strong>se agregan de más</strong> exclusivamente en esta propuesta.</p>
+                <div class="pricing-table-container solo-print print-seccion" style="margin-bottom:24px;">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Cortesía</th>
+                                <th>Detalle</th>
+                                <th class="align-right">Costo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background:var(--soft-pink);"><td colspan="3"><strong>A &middot; YA LO INCLUYE EL PAQUETE NATURE'S MAJESTY</strong></td></tr>
+                            <tr>
+                                <td><strong>Áreas y Cabañas</strong></td>
+                                <td>Uso de las amplias áreas de jardín boscoso y alojamiento en cabañas ecológicas rústicas (previa reserva y costo adicional).</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Banquete y Mobiliario Campestre</strong></td>
+                                <td>Banquete gourmet a tiempos con finos ingredientes y mobiliario campestre de autor.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Audio, DJ &amp; Iluminación de Bosque</strong></td>
+                                <td>Audio, DJ profesional, iluminación arquitectónica del bosque y kit de animación.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Personal Operativo Completo</strong></td>
+                                <td>Meseros, personal de barras, Stewart y mantenimiento de sanitarios.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cortesías Tradicionales de la Firma</strong></td>
+                                <td>Letras decorativas (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>), corazón iluminado, mesas de pastel/regalos, 2 chisperos y alfombra roja.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+
+                            <tr style="background:var(--soft-pink);"><td colspan="3"><strong>B &middot; SE AGREGA DE MÁS EN ESTA PROPUESTA</strong></td></tr>
+                            <tr>
+                                <td><strong>Ceremonia en Área Consagrada</strong></td>
+                                <td>Ceremonia religiosa completa en el área consagrada &mdash; kit ceremonial, sonorización, oficiante y coro.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cóctel de Bienvenida Completo</strong></td>
+                                <td>Salas lounge, periqueras, sombrillas, bebidas con y sin alcohol, aguas frescas y barra con 12 toppings.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2 Chisperos Adicionales</strong></td>
+                                <td>Se duplican a 4 chisperos de pirotecnia en frío a control remoto en total.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Saxofonista en Vivo</strong></td>
+                                <td>Música de saxofón en vivo durante el banquete.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Servicio de Café</strong></td>
+                                <td>Estación de café de cortesía para acompañar el postre.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Postre &amp; Tornafiesta</strong></td>
+                                <td>Postre como cuarto tiempo y tornafiesta integrados.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Invitación Digital Premium</strong></td>
+                                <td>Invitación interactiva personalizada con confirmación RSVP.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Social Media Content</strong></td>
+                                <td>Reels verticales, mazo de retos y recopilación de buenos deseos en video.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Show, Cabina &amp; Pista LED</strong></td>
+                                <td>Show de cabezones, robot LED, cabina de experiencia a elegir y pista de baile de LEDs 5&times;5 m.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Degustación para 4 Personas</strong></td>
+                                <td>Degustación completa para 4 personas al formalizar contrato.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kit Organizador de Eventos</strong></td>
+                                <td>Plantilla Excel y guía de organización en PDF.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>10 Horas de Presencia</strong></td>
+                                <td>1 hora de ceremonia + 1 hora de cóctel + 8 horas de servicio continuo.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PDF La Villa -->
+            <div class="solo-print bloque-print venue-block venue-lavilla">
+                <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-gift"></i> 2 &middot; Cortesías Incluidas Sin Costo</h3>
+                <div class="cuadro-paquete-pdf solo-print">
+                    <strong>Propuesta Integral:</strong> Paquete Integral Personalizado &middot; <strong>Duración:</strong> 10 horas de presencia &middot; <strong>Inversión:</strong> $1,000.00 MXN por persona. <em>Propuesta completa integrada con el mismo estándar de servicios y amenidades de los demás recintos.</em>
+                </div>
+                <p class="calc-hint solo-print" style="margin-bottom:10px;">Para total certidumbre, los siguientes beneficios de cortesía se entregan integrados dentro de la propuesta contratada, sin costo adicional:</p>
+                <div class="pricing-table-container solo-print print-seccion" style="margin-bottom:24px;">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Cortesía</th>
+                                <th>Detalle</th>
+                                <th class="align-right">Costo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background:var(--soft-pink);"><td colspan="3"><strong>BENEFICIOS INCLUIDOS EN ESTA PROPUESTA</strong></td></tr>
+                            <tr>
+                                <td><strong>Letras Gigantes y Corazón Iluminado</strong></td>
+                                <td>Letras a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>) y corazón rojo iluminado.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mesas Especiales</strong></td>
+                                <td>Mesa de honor <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera">para los novios</span>, mesa para pastel y mesa para regalos.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Detonación de 4 Chisperos</strong></td>
+                                <td>Cuatro chisperos de pirotecnia en frío a control remoto.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alfombra Roja</strong></td>
+                                <td>Alfombra roja para entrada de gala de recepción.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ceremonia Religiosa Completa</strong></td>
+                                <td>Kit ceremonial, sonorización con micrófono inalámbrico, oficiante y coro.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cóctel de Bienvenida Completo</strong></td>
+                                <td>Salas lounge, periqueras, sombrillas, bebidas con y sin alcohol, aguas frescas y barra con 12 toppings.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Saxofonista en Vivo</strong></td>
+                                <td>Saxofonista en vivo durante el banquete.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Servicio de Café</strong></td>
+                                <td>Estación de café de cortesía con termos, galletas y endulzantes.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Postre &amp; Tornafiesta</strong></td>
+                                <td>Postre como cuarto tiempo y tornafiesta integrados.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Invitación Digital Premium</strong></td>
+                                <td>Invitación interactiva personalizada con confirmación RSVP.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Social Media Content</strong></td>
+                                <td>Reels verticales del evento, mazo de retos y videos de buenos deseos.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Show, Cabina &amp; Pista LED</strong></td>
+                                <td>Show de cabezones, robot LED, cabina de experiencia a elegir y pista de baile de LEDs 5&times;5 m.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Degustación para 4 Personas</strong></td>
+                                <td>Degustación completa para 4 personas al formalizar contrato.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kit Organizador de Eventos</strong></td>
+                                <td>Plantilla Excel y guía de organización en PDF.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>10 Horas de Presencia</strong></td>
+                                <td>1 hora de ceremonia + 1 hora de cóctel + 8 horas de banquete y servicio continuo.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PDF San Rafael -->
+            <div class="solo-print bloque-print venue-block venue-sanrafael">
+                <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-gift"></i> 2 &middot; Cortesías Incluidas Sin Costo</h3>
+                <div class="cuadro-paquete-pdf solo-print">
+                    <strong>Propuesta Integral:</strong> Paquete Integral Personalizado &middot; <strong>Duración:</strong> 10 horas de presencia &middot; <strong>Inversión:</strong> $1,000.00 MXN por persona. <em>Propuesta completa integrada con el mismo estándar de servicios y amenidades de los demás recintos.</em>
+                </div>
+                <p class="calc-hint solo-print" style="margin-bottom:10px;">Para total certidumbre, los siguientes beneficios de cortesía se entregan integrados dentro de la propuesta contratada, sin costo adicional:</p>
+                <div class="pricing-table-container solo-print print-seccion" style="margin-bottom:24px;">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Cortesía</th>
+                                <th>Detalle</th>
+                                <th class="align-right">Costo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background:var(--soft-pink);"><td colspan="3"><strong>BENEFICIOS INCLUIDOS EN ESTA PROPUESTA</strong></td></tr>
+                            <tr>
+                                <td><strong>Letras Gigantes y Corazón Iluminado</strong></td>
+                                <td>Letras a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>) y corazón rojo iluminado.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mesas Especiales</strong></td>
+                                <td>Mesa de honor <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera">para los novios</span>, mesa para pastel y mesa para regalos.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Detonación de 4 Chisperos</strong></td>
+                                <td>Cuatro chisperos de pirotecnia en frío a control remoto.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alfombra Roja</strong></td>
+                                <td>Alfombra roja para entrada de gala de recepción.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ceremonia Religiosa Completa</strong></td>
+                                <td>Kit ceremonial, sonorización con micrófono inalámbrico, oficiante y coro.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cóctel de Bienvenida Completo</strong></td>
+                                <td>Salas lounge, periqueras, sombrillas, bebidas con y sin alcohol, aguas frescas y barra con 12 toppings.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Saxofonista en Vivo</strong></td>
+                                <td>Saxofonista en vivo durante el banquete.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Servicio de Café</strong></td>
+                                <td>Estación de café de cortesía con termos, galletas y endulzantes.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Postre &amp; Tornafiesta</strong></td>
+                                <td>Postre como cuarto tiempo y tornafiesta integrados.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Invitación Digital Premium</strong></td>
+                                <td>Invitación interactiva personalizada con confirmación RSVP.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Social Media Content</strong></td>
+                                <td>Reels verticales del evento, mazo de retos y videos de buenos deseos.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Show, Cabina &amp; Pista LED</strong></td>
+                                <td>Show de cabezones, robot LED, cabina de experiencia a elegir y pista de baile de LEDs 5&times;5 m.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Degustación para 4 Personas</strong></td>
+                                <td>Degustación completa para 4 personas al formalizar contrato.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kit Organizador de Eventos</strong></td>
+                                <td>Plantilla Excel y guía de organización en PDF.</td>
+                                <td class="align-right">Cortesía</td>
+                            </tr>
+                            <tr>
+                                <td><strong>10 Horas de Presencia</strong></td>
+                                <td>1 hora de ceremonia + 1 hora de cóctel + 8 horas de banquete y servicio continuo.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                         </tbody>
@@ -1954,49 +2604,389 @@
             </div>
 
             <!-- ══ INVERSIÓN TOTAL BASE (CAJA OSCURA) ══ -->
-            <div class="pricing-section print-seccion reveal" id="inversionBase">
+            <div class="pricing-section print-seccion reveal reveal-zoom" id="inversionBase">
                 <h3>Inversión Total del Evento</h3>
-                <div class="price-hero" id="totalBaseDisplay">$1,900.00<sup>MXN</sup></div>
-                <div class="price-label">por persona &middot; <span class="invitados-num-txt">500</span> invitados</div>
+                <div class="price-hero" id="totalBaseDisplay"><span class="pp-activo">$1,000.00</span><sup>MXN</sup></div>
+                <div class="price-label">Precio por persona según recinto &middot; <span class="invitados-num-txt invitados-activo">500</span> invitados</div>
                 <div style="font-size:1.4rem; font-weight:700; color:var(--white); margin:12px 0;">
-                    Inversión total del evento: <span class="total-base-txt" style="color:var(--gold-accent);">$950,000.00 MXN</span>
+                    Inversión total del evento: <span class="total-base-txt total-activo" style="color:var(--gold-accent);">$500,000.00 MXN</span>
                 </div>
                 <div class="price-breakdown" style="max-width:540px; margin:20px auto 0;">
                     <div class="price-breakdown-row">
-                        <span>Paquete Integral 500 (<span class="invitados-num-txt">500</span> invitados &times; $1,900.00)</span>
-                        <strong class="total-base-txt">$950,000.00 MXN</strong>
+                        <span>Paquete Integral 500 (<span class="invitados-num-txt invitados-activo">500</span> invitados &times; <span class="pp-activo">$1,000.00</span>)</span>
+                        <strong class="total-base-txt total-activo">$500,000.00 MXN</strong>
                     </div>
                     <div id="desgloseExtras" style="display:none; margin-top:8px; padding-top:8px; border-top:1px dashed rgba(255,255,255,.2);">
                         <ul id="listaExtras" style="list-style:none; padding:0; margin:0;"></ul>
                     </div>
                 </div>
                 <div class="price-note">
-                    Precios netos, no incluyen IVA (16% solo aplica si se solicita factura oficial). Cotización con validez de 15 días a partir de su emisión. Mismo precio y mismo paquete en los tres recintos.
+                    Precios netos, no incluyen IVA (16% solo aplica si se solicita factura oficial). Cotización con validez de 15 días a partir de su emisión.
                 </div>
             </div>
 
-            <!-- ══ CORTESÍAS INCLUIDAS EN LA INVERSIÓN (VERSIÓN WEB) ══ -->
-            <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:35px;">
-                <h3 style="color:var(--primary-dark);"><i class="fas fa-gift" style="color:var(--gold-accent);"></i> Cortesías Incluidas en la Inversión</h3>
-                <p style="color:var(--gray-text); font-size:.88rem; margin-bottom:12px;">Para total certidumbre, tu propuesta integral incluye los siguientes beneficios sin costo adicional:</p>
-                <ul style="color:var(--primary-dark); font-size:.88rem; line-height:1.7;">
-                    <li><strong>Letras decorativas iluminadas</strong> a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>) y <strong>corazón rojo iluminado</strong>.</li>
-                    <li><strong>Mesa de honor</strong> <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera y su familia">para los novios</span>, mesa especial para pastel y mesa especial para regalos.</li>
-                    <li><strong>Detonación de 4 chisperos de pirotecnia en frío</strong> a control remoto.</li>
-                    <li><strong>Alfombra roja</strong> de gala <span class="txt-evento" data-evento-boda="para recibir a los novios y a sus invitados" data-evento-xv="para recibir a la quinceañera y a sus invitados">para recibir a los novios y a sus invitados</span>.</li>
-                    <li><strong>Kit religioso completo</strong> (atril, cruz, reclinatorio, banca, arreglo floral, entelado y sillas Tiffany) y <strong>sonorización con micrófono inalámbrico</strong>.</li>
-                    <li><strong>Padre / oficiante religioso</strong> y <strong>coro en vivo</strong> acompañando la ceremonia.</li>
-                    <li><strong>Saxofonista en vivo</strong> (1 hora) para amenizar el servicio del banquete.</li>
-                    <li><strong>Servicio de café de cortesía</strong> con termos, galletas y endulzantes para acompañar el postre.</li>
-                    <li><strong>Invitación digital premium</strong> personalizada con confirmación RSVP vía WhatsApp, mapa interactivo y galería (valor comercial $4,000&ndash;$8,000 MXN, incluida al contratar).</li>
-                    <li><strong>Social Media Content</strong> &mdash; reels verticales del evento, dinámica del mazo de retos con fotos de recuerdo y buenos deseos de los invitados grabados en video.</li>
-                    <li><strong>Show de cabezones</strong>, <strong>robot LED</strong>, <strong>cabina de experiencia a elegir</strong> (360&deg;, inflable o espejo) y <strong>pista de baile de LEDs 5&times;5 m</strong> interactiva.</li>
-                    <li><strong>Degustación para 4 personas</strong>: se programa una vez firmado el contrato y cubierto el 10% de apartado.</li>
-                    <li><strong>Kit Organizador de Eventos</strong>: plantilla Excel de presupuesto y guía maestra de organización en PDF.</li>
-                    <li><strong>Descorche libre</strong> durante todo el evento.</li>
-                </ul>
-                <p class="quote-phrase">Todos estos beneficios van integrados dentro de la inversión contratada &mdash; transparencia absoluta sin cargos sorpresa.</p>
-                <p style="color:var(--gray-text); font-size:.82rem; margin-top:14px; padding-top:14px; border-top:1px dashed var(--beige);"><i class="fas fa-circle-info" style="color:var(--primary-pink); margin-right:6px;"></i><strong>Los complementos adicionales opcionales</strong> (fotografía y video profesional, grupos musicales, etc.) se detallan más adelante en el "Cotizador Dinámico de Extras" y solo se cobran si decides agregarlos.</p>
+            <!-- ══ SECCIÓN: PAQUETE OFICIAL DEL RECINTO VS. ESTA PROPUESTA ══ -->
+            <div class="paquete-oficial-section" style="margin-top:40px;">
+                <h3 class="section-title reveal reveal-left"><i class="fas fa-file-contract"></i> Paquete Oficial del Recinto vs. Esta Propuesta</h3>
+                <p class="calc-hint">Para total transparencia, primero mostramos el paquete que el recinto publica oficialmente, con su precio de lista y todo lo que incluye. Después, lo que esta propuesta agrega de más &mdash; todo dentro de los <span class="pp-activo">$1,000.00</span> MXN por persona.</p>
+
+                <!-- Tarjetas Tsú Nuum -->
+                <div class="venue-block venue-tsunuum">
+                    <div class="tarjetas-paquete-grid">
+                        <div class="tarjeta-paquete-oficial reveal">
+                            <div>
+                                <h4>Paquete Vuelo Esmeralda</h4>
+                                <div class="paquete-meta">
+                                    Ficha oficial: <a href="https://primaveraeventsgroup.com/paquete-vuelo-esmeralda/" target="_blank" rel="noopener">primaveraeventsgroup.com/paquete-vuelo-esmeralda/</a> &middot; Duración: 8 a 9 horas continuas
+                                </div>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Acceso a áreas de jardín y áreas comunes decoradas</li>
+                                    <li><i class="fas fa-check"></i> Hospedaje opcional en hotel asociado a 80 m de distancia para 60 personas (reserva previa, costo adicional)</li>
+                                    <li><i class="fas fa-check"></i> Banquete gourmet personalizado de alta calidad</li>
+                                    <li><i class="fas fa-check"></i> Mobiliario de gala campirano combinando madera y mantelería fina</li>
+                                    <li><i class="fas fa-check"></i> Loza, plaqué y cristalería fina</li>
+                                    <li><i class="fas fa-check"></i> Centros de mesa con arreglos florales naturales de temporada</li>
+                                    <li><i class="fas fa-check"></i> DJ, iluminación y soporte de audio completo</li>
+                                    <li><i class="fas fa-check"></i> Servicio de meseros y personal de cocina profesional</li>
+                                    <li><i class="fas fa-check"></i> Cortesías decorativas de la firma Primavera Events (letras decorativas <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>, corazón rojo iluminado, mesa de pastel, mesa de regalos, detonación de 2 chisperos, alfombra roja)</li>
+                                </ul>
+                            </div>
+                            <div class="paquete-pie-precio">
+                                Precio de lista publicado: $2,199 p/p (100&ndash;149) &middot; $2,099 p/p (150&ndash;199) &middot; $1,999 p/p (200&ndash;299).
+                                <div class="paquete-pie-nota">La escala máxima publicada es 200&ndash;299 invitados; para 500 invitados el precio se personaliza: en esta propuesta, $1,000.00 MXN por persona.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjetas Presidente -->
+                <div class="venue-block venue-presidente">
+                    <div class="tarjetas-paquete-grid">
+                        <div class="tarjeta-paquete-oficial reveal">
+                            <div>
+                                <h4>Paquete Gobernador</h4>
+                                <div class="paquete-meta">
+                                    Ficha oficial: <a href="https://primaveraeventsgroup.com/paquete-gobernador/" target="_blank" rel="noopener">primaveraeventsgroup.com/paquete-gobernador/</a> &middot; 9 horas de servicio continuo (cierre 00:00)
+                                </div>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Estacionamiento para 35 vehículos compactos</li>
+                                    <li><i class="fas fa-check"></i> Área de jardín con fuente artificial en la entrada principal</li>
+                                    <li><i class="fas fa-check"></i> Área de kids con juegos múltiples fijos</li>
+                                    <li><i class="fas fa-check"></i> Salón techado para 500 px máximo, estilo arquitectónico modernista y elegante</li>
+                                    <li><i class="fas fa-check"></i> Templete para DJ o grupo musical</li>
+                                    <li><i class="fas fa-check"></i> Área de cocina amplia y baños múltiples</li>
+                                    <li><i class="fas fa-check"></i> Uso de salón por 8 horas (total 9 horas de servicio continuo)</li>
+                                    <li><i class="fas fa-check"></i> Cóctel de bienvenida con periqueras altas, salas lounge y sombrillas</li>
+                                    <li><i class="fas fa-check"></i> Margaritas de sabores sin alcohol (2 sabores) &middot; Agua fresca (2 sabores) &middot; Crudités (pepino, jícama y zanahoria con miguelito y chamoy)</li>
+                                    <li><i class="fas fa-check"></i> Mesa principal de honor con sillón o sillones, templete de madera y centro de mesa floral natural</li>
+                                    <li><i class="fas fa-check"></i> Arreglo natural para centros de mesa (largos, redondos y altos)</li>
+                                    <li><i class="fas fa-check"></i> Mesa redonda/cuadrada/tipo mármol/vintage, sillas Tiffany, Crossback, Lotus o Boss</li>
+                                    <li><i class="fas fa-check"></i> Mantelería fina (mantel blanco, camino y servilleta de tela de color a elegir)</li>
+                                    <li><i class="fas fa-check"></i> Plato base (varios modelos), loza blanca, cubertería fina (dorada y plata) y cristalería fina</li>
+                                    <li><i class="fas fa-check"></i> Banquete a 3 tiempos (Entrada, Plato Fuerte, Tornafiesta)</li>
+                                    <li><i class="fas fa-check"></i> Servicio de mezcladores completo: hielo, agua natural, refrescos de la línea Coca-Cola, jugo de limón y sal</li>
+                                    <li><i class="fas fa-check"></i> Equipo de servicio completo: Coordinador General, Hostess, Meseros, Personal de barra, Stewart, Cocina, Personal de baños</li>
+                                    <li><i class="fas fa-check"></i> DJ Profesional con cabina, audio/iluminación de alta calidad, cabezas robóticas, proyector/pantalla, accesorios de animación, micrófonos inalámbricos, láser y máquina de humo</li>
+                                    <li><i class="fas fa-check"></i> Cortesías: Degustación para 4 personas al firmar, letras gigantes (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>), corazón rojo iluminado, mesas de pastel/regalos, detonación de 2 chisperos, alfombra roja, espejo selfie y barra mix con 12 toppings</li>
+                                </ul>
+                            </div>
+                            <div class="paquete-pie-precio">
+                                Precio de lista publicado: $899 p/p (100&ndash;149) &middot; $849 (150&ndash;199) &middot; $799 (200&ndash;299) &middot; $749 (300&ndash;400) &middot; 401+ personas: "Consultar / Personalizado".
+                            </div>
+                        </div>
+
+                        <div class="tarjeta-paquete-oficial reveal">
+                            <div>
+                                <h4>Paquete Presidente</h4>
+                                <div class="paquete-meta">
+                                    Ficha oficial: <a href="https://primaveraeventsgroup.com/paquete-presidente/" target="_blank" rel="noopener">primaveraeventsgroup.com/paquete-presidente/</a> &middot; 9 horas continuas (cierre 01:00)
+                                </div>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Estacionamiento para 35 vehículos compactos</li>
+                                    <li><i class="fas fa-check"></i> Área de jardín con fuente artificial en la entrada principal</li>
+                                    <li><i class="fas fa-check"></i> Área de kids con juegos múltiples fijos</li>
+                                    <li><i class="fas fa-check"></i> Salón techado para 500 px máximo, estilo modernista elegante</li>
+                                    <li><i class="fas fa-check"></i> Templete para DJ o grupo musical</li>
+                                    <li><i class="fas fa-check"></i> Área de cocina amplia y baños múltiples</li>
+                                    <li><i class="fas fa-check"></i> Uso de salón por 9 horas continuas</li>
+                                    <li><i class="fas fa-check"></i> Cóctel de bienvenida premium con periqueras altas, salas lounge y sombrillas</li>
+                                    <li><i class="fas fa-check"></i> Margaritas de sabores sin alcohol, piñada sin alcohol y mojito sin alcohol &middot; Agua fresca (2 sabores) &middot; Crudités</li>
+                                    <li><i class="fas fa-check"></i> Mesa principal de honor con sillones Rey &amp; Reyna, templete de madera, centro floral natural</li>
+                                    <li><i class="fas fa-check"></i> Arreglo natural para centro de mesa (largo y redondo) &middot; Bases de metal altas para centros de mesa</li>
+                                    <li><i class="fas fa-check"></i> Mesa tipo mármol cuadrada/redonda para 10&ndash;12 personas con silla Tiffany blanca</li>
+                                    <li><i class="fas fa-check"></i> Mantelería fina (mantel blanco, camino y servilleta de tela de color a elegir)</li>
+                                    <li><i class="fas fa-check"></i> Plato base (varios modelos), loza blanca, cubertería fina (dorada y plata) y cristalería fina</li>
+                                    <li><i class="fas fa-check"></i> Banquete a 4 tiempos (Entrada, Plato Fuerte, Postre, Tornafiesta)</li>
+                                    <li><i class="fas fa-check"></i> Servicio de mezcladores completo: hielo, agua, refrescos de la línea Coca-Cola, limón y sal</li>
+                                    <li><i class="fas fa-check"></i> Equipo de servicio completo: Coordinador General, Capitán de Meseros, Hostess, Meseros, Barra, Stewart, Cocina, Personal de baños</li>
+                                    <li><i class="fas fa-check"></i> DJ Profesional con cabina, audio/iluminación, cabezas robóticas, proyector/pantalla, accesorios de animación, micrófonos inalámbricos, láser, máquina de humo, pista de baile 5&times;5 y 2 chisperos a control remoto</li>
+                                    <li><i class="fas fa-check"></i> Cortesías: Degustación para 4 personas, letras gigantes (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>), corazón rojo iluminado, mesas de pastel/regalos, detonación de 2 chisperos, alfombra roja, espejo selfie, barra mix con 12 toppings y opción de montaje de ceremonia con mobiliario elegante</li>
+                                </ul>
+                            </div>
+                            <div class="paquete-pie-precio">
+                                Precio de lista publicado: $899 p/p (100&ndash;149) &middot; $849 (150&ndash;199) &middot; $799 (200&ndash;299) &middot; $749 (300&ndash;400) &middot; 401+ personas: "Consultar / Personalizado".
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nota-pie-ccp" style="margin-top:12px; font-size:0.85rem; color:var(--gray-text); font-style:italic;">
+                        Ambos paquetes publican precio hasta 400 invitados; para 500 invitados el recinto cotiza de forma personalizada. Esta propuesta toma el paquete Presidente como base y lo amplía con todo lo del Grupo B, a $850.00 MXN por persona.
+                    </div>
+                </div>
+
+                <!-- Tarjetas Isabeles -->
+                <div class="venue-block venue-isabeles">
+                    <div class="tarjetas-paquete-grid">
+                        <div class="tarjeta-paquete-oficial reveal">
+                            <div>
+                                <h4>Paquete Nature's Majesty</h4>
+                                <div class="paquete-meta">
+                                    Ficha oficial: <a href="https://primaveraeventsgroup.com/paquete-natures-majesty/" target="_blank" rel="noopener">primaveraeventsgroup.com/paquete-natures-majesty/</a> &middot; Duración: 9 horas continuas
+                                </div>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Uso de amplias áreas de jardín boscoso</li>
+                                    <li><i class="fas fa-check"></i> Alojamiento en hermosas y confortables cabañas ecológicas rústicas (previa reserva y costo adicional)</li>
+                                    <li><i class="fas fa-check"></i> Banquete gourmet a tiempos con finos ingredientes campestres</li>
+                                    <li><i class="fas fa-check"></i> Mobiliario estilo campestre de autor</li>
+                                    <li><i class="fas fa-check"></i> Audio, DJ profesional, iluminación arquitectónica del bosque y kit de animación</li>
+                                    <li><i class="fas fa-check"></i> Personal operativo de meseros, barras, Stewart y sanitarios</li>
+                                    <li><i class="fas fa-check"></i> Cortesías tradicionales de la firma (letras decorativas <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>, corazón rojo iluminado, mesa de pastel, mesa de regalos, detonación de 2 chisperos, alfombra roja)</li>
+                                </ul>
+                            </div>
+                            <div class="paquete-pie-precio">
+                                Precio de lista publicado: $1,999 p/p (100&ndash;149) &middot; $1,899 (150&ndash;199) &middot; $1,799 (200&ndash;299).
+                                <div class="paquete-pie-nota">La escala máxima publicada es 200&ndash;299 invitados; para 500 invitados el precio se personaliza: en esta propuesta, $1,000.00 MXN por persona.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjetas La Villa -->
+                <div class="venue-block venue-lavilla">
+                    <div class="tarjetas-paquete-grid">
+                        <div class="tarjeta-paquete-oficial reveal">
+                            <div>
+                                <h4>Esta Propuesta Incluye</h4>
+                                <div class="paquete-meta">
+                                    Paquete integral personalizado &middot; Duración: 10 horas de presencia (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio)
+                                </div>
+                                <p style="font-size:0.84rem; color:var(--gray-text); margin-bottom:12px; font-style:italic;">Este recinto no tiene un paquete publicado en el sitio de Primavera Events Group; la propuesta se integra con el mismo paquete completo de servicios y amenidades de los demás recintos, a $1,000.00 MXN por persona.</p>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Jardín de eventos con montajes integrales de gala</li>
+                                    <li><i class="fas fa-check"></i> Banquete gourmet a tiempos con finos ingredientes</li>
+                                    <li><i class="fas fa-check"></i> Mobiliario de autor, loza, plaqué y cristalería fina</li>
+                                    <li><i class="fas fa-check"></i> Centros de mesa con arreglos florales naturales</li>
+                                    <li><i class="fas fa-check"></i> DJ profesional con cabina, audio de alta fidelidad, iluminación robótica y kit de animación</li>
+                                    <li><i class="fas fa-check"></i> Personal de servicio completo: coordinación, hostess, meseros, barra, stewart y cocina</li>
+                                    <li><i class="fas fa-check"></i> Cobertura completa de amenidades, entretenimiento y cortesías exclusivas</li>
+                                </ul>
+                            </div>
+                            <div class="paquete-pie-precio">
+                                Propuesta integral personalizada: $1,000.00 MXN por persona.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjetas San Rafael -->
+                <div class="venue-block venue-sanrafael">
+                    <div class="tarjetas-paquete-grid">
+                        <div class="tarjeta-paquete-oficial reveal">
+                            <div>
+                                <h4>Esta Propuesta Incluye</h4>
+                                <div class="paquete-meta">
+                                    Paquete integral personalizado &middot; Duración: 10 horas de presencia (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio)
+                                </div>
+                                <p style="font-size:0.84rem; color:var(--gray-text); margin-bottom:12px; font-style:italic;">Este recinto no tiene un paquete publicado en el sitio de Primavera Events Group; la propuesta se integra con el mismo paquete completo de servicios y amenidades de los demás recintos, a $1,000.00 MXN por persona.</p>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Jardín de eventos con montajes integrales de gala</li>
+                                    <li><i class="fas fa-check"></i> Banquete gourmet a tiempos con finos ingredientes</li>
+                                    <li><i class="fas fa-check"></i> Mobiliario de autor, loza, plaqué y cristalería fina</li>
+                                    <li><i class="fas fa-check"></i> Centros de mesa con arreglos florales naturales</li>
+                                    <li><i class="fas fa-check"></i> DJ profesional con cabina, audio de alta fidelidad, iluminación robótica y kit de animación</li>
+                                    <li><i class="fas fa-check"></i> Personal de servicio completo: coordinación, hostess, meseros, barra, stewart y cocina</li>
+                                    <li><i class="fas fa-check"></i> Cobertura completa de amenidades, entretenimiento y cortesías exclusivas</li>
+                                </ul>
+                            </div>
+                            <div class="paquete-pie-precio">
+                                Propuesta integral personalizada: $1,000.00 MXN por persona.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ CORTESÍAS: LO QUE YA TRAE EL PAQUETE Y LO QUE SE AGREGA DE MÁS (WEB) ══ -->
+            <!-- Tsú Nuum -->
+            <div class="venue-block venue-tsunuum">
+                <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
+                    <h3><i class="fas fa-gift"></i> Cortesías: Lo que ya Trae el Paquete y lo que se Agrega de Más</h3>
+                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete Vuelo Esmeralda (<a href="https://primaveraeventsgroup.com/paquete-vuelo-esmeralda/" target="_blank" rel="noopener">ficha oficial</a>) <strong>ya publica</strong>, y las que <strong>se agrega de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro de la inversión de <span class="total-activo">$500,000.00 MXN</span> (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
+
+                    <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--gray-text); text-transform:uppercase; letter-spacing:.5px;">A &middot; Cortesías que ya incluye el paquete Vuelo Esmeralda</p>
+                    <ul>
+                        <li>Letras decorativas a elegir <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>.</li>
+                        <li>Corazón rojo decorativo iluminado.</li>
+                        <li>Mesa especial para pastel.</li>
+                        <li>Mesa especial para regalos.</li>
+                        <li>Detonación de <strong>2</strong> chisperos de pirotecnia en frío.</li>
+                        <li>Alfombra roja para una entrada espectacular.</li>
+                    </ul>
+
+                    <p style="font-weight:700; font-size:.88rem; margin:18px 0 6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">B &middot; Se agrega de más en esta propuesta</p>
+                    <ul>
+                        <li><strong>Ceremonia religiosa completa</strong> &mdash; kit ceremonial (atril, cruz, reclinatorio, banca, arreglo floral, entelado, sillas Tiffany), sonorización, oficiante y coro (el paquete oficial no contempla ningún servicio de ceremonia).</li>
+                        <li><strong>Cóctel de bienvenida</strong> con salas lounge, periqueras y sombrillas, margaritas/piñadas/azulitos/mojitos con y sin alcohol, aguas frescas y barra de snacks con 12 toppings.</li>
+                        <li><strong>2 chisperos adicionales</strong> (4 en total).</li>
+                        <li><strong>Saxofonista en vivo</strong>.</li>
+                        <li><strong>Servicio de café</strong>.</li>
+                        <li><strong>Postre como cuarto tiempo y tornafiesta</strong>.</li>
+                        <li><strong>Invitación digital premium</strong>.</li>
+                        <li><strong>Social Media Content</strong> (reels, mazo de retos, buenos deseos en video).</li>
+                        <li><strong>Show de cabezones, robot LED, cabina de experiencia a elegir (360&deg; o inflable) y pista de baile de LEDs 5&times;5 m</strong>.</li>
+                        <li><strong>Degustación para 4 personas</strong> al firmar.</li>
+                        <li><strong>Kit organizador de eventos</strong>.</li>
+                        <li><strong>10 horas de presencia</strong> (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio).</li>
+                    </ul>
+                    <p style="font-size:0.82rem; color:var(--gray-text); font-style:italic; margin-top:8px;">Hospedaje: el paquete oficial lo ofrece en hotel asociado con costo adicional; en esta propuesta queda sujeto a disponibilidad y se confirma al apartar.</p>
+                    <p class="quote-phrase">El Grupo B va incluido sin costo adicional dentro de los $1,000.00 MXN por persona. Ambos grupos son distintos de los complementos opcionales de pago que se muestran en el Cotizador Dinámico de Extras.</p>
+                </div>
+            </div>
+
+            <!-- Presidente -->
+            <div class="venue-block venue-presidente">
+                <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
+                    <h3><i class="fas fa-gift"></i> Cortesías: Lo que ya Trae el Paquete y lo que se Agrega de Más</h3>
+                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que los paquetes oficiales del recinto (<a href="https://primaveraeventsgroup.com/paquete-presidente/" target="_blank" rel="noopener">ficha oficial</a>) <strong>ya publican</strong>, y las que <strong>se agrega de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro de la inversión de <span class="total-activo">$425,000.00 MXN</span> (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
+
+                    <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--gray-text); text-transform:uppercase; letter-spacing:.5px;">A &middot; Ya lo incluyen los paquetes oficiales del recinto</p>
+                    <ul>
+                        <li>Degustación para 4 personas.</li>
+                        <li>Letras gigantes <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>.</li>
+                        <li>Corazón rojo iluminado.</li>
+                        <li>Mesas de pastel y regalos.</li>
+                        <li>Detonación de 2 chisperos.</li>
+                        <li>Alfombra roja.</li>
+                        <li>Espejo selfie.</li>
+                        <li>Barra mix con 12 toppings.</li>
+                        <li>Cóctel con salas lounge, periqueras y sombrillas (bebidas sin alcohol).</li>
+                        <li>DJ con cabezas robóticas, pantalla, láser y humo.</li>
+                        <li>Mobiliario, mantelería, loza y cristalería fina.</li>
+                        <li>Mezcladores.</li>
+                        <li>Equipo de servicio completo.</li>
+                        <li>Área infantil y estacionamiento.</li>
+                        <li>(Solo Paquete Presidente: pista de baile LED 5&times;5, 2 chisperos a control remoto, 4 tiempos con postre, sillones Rey &amp; Reyna, opción de montaje de ceremonia con mobiliario elegante).</li>
+                    </ul>
+
+                    <p style="font-weight:700; font-size:.88rem; margin:18px 0 6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">B &middot; Se agrega de más en esta propuesta</p>
+                    <ul>
+                        <li><strong>Ceremonia religiosa completa</strong> &mdash; kit ceremonial, sonorización, oficiante y coro (los paquetes oficiales solo contemplan el montaje de mobiliario para ceremonia).</li>
+                        <li><strong>Cóctel de bienvenida con margaritas, piñadas, azulitos y mojitos CON y sin alcohol</strong> (los paquetes oficiales solo los ofrecen sin alcohol).</li>
+                        <li><strong>2 chisperos adicionales</strong> (4 en total).</li>
+                        <li><strong>Saxofonista en vivo</strong>.</li>
+                        <li><strong>Servicio de café</strong>.</li>
+                        <li><strong>Invitación digital premium</strong>.</li>
+                        <li><strong>Social Media Content</strong>.</li>
+                        <li><strong>Show de cabezones, robot LED y cabina de experiencia a elegir (360&deg; o inflable)</strong>.</li>
+                        <li><strong>Pista de baile LED 5&times;5 y postre como cuarto tiempo también en el esquema Gobernador</strong>.</li>
+                        <li><strong>Kit organizador de eventos</strong>.</li>
+                        <li><strong>10 horas de presencia</strong> (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio) frente a las 9 horas del paquete oficial.</li>
+                    </ul>
+                    <p class="quote-phrase">El Grupo B va incluido sin costo adicional dentro de los $850.00 MXN por persona. Ambos grupos son distintos de los complementos opcionales de pago que se muestran en el Cotizador Dinámico de Extras.</p>
+                </div>
+            </div>
+
+            <!-- Isabeles -->
+            <div class="venue-block venue-isabeles">
+                <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
+                    <h3><i class="fas fa-gift"></i> Cortesías: Lo que ya Trae el Paquete y lo que se Agrega de Más</h3>
+                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete Nature's Majesty (<a href="https://primaveraeventsgroup.com/paquete-natures-majesty/" target="_blank" rel="noopener">ficha oficial</a>) <strong>ya publica</strong>, y las que <strong>se agrega de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro de la inversión de <span class="total-activo">$500,000.00 MXN</span> (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
+
+                    <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--gray-text); text-transform:uppercase; letter-spacing:.5px;">A &middot; Ya lo incluye el paquete Nature's Majesty</p>
+                    <ul>
+                        <li>Uso de las áreas de jardín boscoso.</li>
+                        <li>Banquete gourmet a tiempos.</li>
+                        <li>Mobiliario campestre de autor.</li>
+                        <li>Audio, DJ, iluminación arquitectónica del bosque y kit de animación.</li>
+                        <li>Meseros, barras, Stewart y sanitarios.</li>
+                        <li>Cortesías tradicionales de la firma (letras <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>, corazón iluminado, mesas de pastel y regalos, 2 chisperos, alfombra roja).</li>
+                    </ul>
+
+                    <p style="font-weight:700; font-size:.88rem; margin:18px 0 6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">B &middot; Se agrega de más en esta propuesta</p>
+                    <ul>
+                        <li><strong>Ceremonia religiosa completa en el área consagrada</strong> &mdash; kit ceremonial, sonorización, oficiante y coro.</li>
+                        <li><strong>Cóctel de bienvenida</strong> con salas lounge, periqueras y sombrillas, bebidas con y sin alcohol, aguas frescas y barra de snacks con 12 toppings.</li>
+                        <li><strong>2 chisperos adicionales</strong> (4 en total).</li>
+                        <li><strong>Saxofonista en vivo</strong>.</li>
+                        <li><strong>Servicio de café</strong>.</li>
+                        <li><strong>Postre como cuarto tiempo y tornafiesta</strong>.</li>
+                        <li><strong>Invitación digital premium</strong>.</li>
+                        <li><strong>Social Media Content</strong>.</li>
+                        <li><strong>Show de cabezones, robot LED, cabina de experiencia a elegir (360&deg; o inflable) y pista de baile de LEDs 5&times;5 m</strong>.</li>
+                        <li><strong>Degustación para 4 personas</strong> al firmar.</li>
+                        <li><strong>Kit organizador de eventos</strong>.</li>
+                        <li><strong>10 horas de presencia</strong>.</li>
+                    </ul>
+                    <p style="font-size:0.82rem; color:var(--gray-text); font-style:italic; margin-top:8px;">Hospedaje en cabañas y suite nupcial: previa reserva y costo adicional, igual que en el paquete oficial.</p>
+                    <p class="quote-phrase">El Grupo B va incluido sin costo adicional dentro de los $1,000.00 MXN por persona. Ambos grupos son distintos de los complementos opcionales de pago que se muestran en el Cotizador Dinámico de Extras.</p>
+                </div>
+            </div>
+
+            <!-- La Villa -->
+            <div class="venue-block venue-lavilla">
+                <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
+                    <h3><i class="fas fa-gift"></i> Cortesías: Beneficios Incluidos en esta Propuesta</h3>
+                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, detallamos todas las cortesías incluidas en esta propuesta personalizada. Todo está considerado dentro de la inversión de <span class="total-activo">$500,000.00 MXN</span> (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
+
+                    <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">Incluido en esta propuesta</p>
+                    <ul>
+                        <li>Letras decorativas a elegir <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>.</li>
+                        <li>Corazón rojo decorativo iluminado.</li>
+                        <li>Mesa especial para pastel y mesa especial para regalos.</li>
+                        <li>Detonación de <strong>4</strong> chisperos de pirotecnia en frío.</li>
+                        <li>Alfombra roja para una entrada espectacular.</li>
+                        <li><strong>Ceremonia religiosa completa</strong> &mdash; kit ceremonial (atril, cruz, reclinatorio, banca, arreglo floral, entelado, sillas Tiffany), sonorización, oficiante y coro.</li>
+                        <li><strong>Cóctel de bienvenida</strong> con salas lounge, periqueras y sombrillas, margaritas/piñadas/azulitos/mojitos con y sin alcohol, aguas frescas y barra de snacks con 12 toppings.</li>
+                        <li><strong>Saxofonista en vivo</strong>.</li>
+                        <li><strong>Servicio de café</strong>.</li>
+                        <li><strong>Postre como cuarto tiempo y tornafiesta</strong>.</li>
+                        <li><strong>Invitación digital premium</strong>.</li>
+                        <li><strong>Social Media Content</strong> (reels, mazo de retos, buenos deseos en video).</li>
+                        <li><strong>Show de cabezones, robot LED, cabina de experiencia a elegir (360&deg; o inflable) y pista de baile de LEDs 5&times;5 m</strong>.</li>
+                        <li><strong>Degustación para 4 personas</strong> al firmar.</li>
+                        <li><strong>Kit organizador de eventos</strong>.</li>
+                        <li><strong>10 horas de presencia</strong> (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio).</li>
+                    </ul>
+                    <p class="quote-phrase">Todos estos beneficios van incluidos sin costo adicional dentro de los $1,000.00 MXN por persona. Son distintos de los complementos opcionales de pago que se muestran en el Cotizador Dinámico de Extras.</p>
+                </div>
+            </div>
+
+            <!-- San Rafael -->
+            <div class="venue-block venue-sanrafael">
+                <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
+                    <h3><i class="fas fa-gift"></i> Cortesías: Beneficios Incluidos en esta Propuesta</h3>
+                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, detallamos todas las cortesías incluidas en esta propuesta personalizada. Todo está considerado dentro de la inversión de <span class="total-activo">$500,000.00 MXN</span> (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
+
+                    <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">Incluido en esta propuesta</p>
+                    <ul>
+                        <li>Letras decorativas a elegir <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>.</li>
+                        <li>Corazón rojo decorativo iluminado.</li>
+                        <li>Mesa especial para pastel y mesa especial para regalos.</li>
+                        <li>Detonación de <strong>4</strong> chisperos de pirotecnia en frío.</li>
+                        <li>Alfombra roja para una entrada espectacular.</li>
+                        <li><strong>Ceremonia religiosa completa</strong> &mdash; kit ceremonial (atril, cruz, reclinatorio, banca, arreglo floral, entelado, sillas Tiffany), sonorización, oficiante y coro.</li>
+                        <li><strong>Cóctel de bienvenida</strong> con salas lounge, periqueras y sombrillas, margaritas/piñadas/azulitos/mojitos con y sin alcohol, aguas frescas y barra de snacks con 12 toppings.</li>
+                        <li><strong>Saxofonista en vivo</strong>.</li>
+                        <li><strong>Servicio de café</strong>.</li>
+                        <li><strong>Postre como cuarto tiempo y tornafiesta</strong>.</li>
+                        <li><strong>Invitación digital premium</strong>.</li>
+                        <li><strong>Social Media Content</strong> (reels, mazo de retos, buenos deseos en video).</li>
+                        <li><strong>Show de cabezones, robot LED, cabina de experiencia a elegir (360&deg; o inflable) y pista de baile de LEDs 5&times;5 m</strong>.</li>
+                        <li><strong>Degustación para 4 personas</strong> al firmar.</li>
+                        <li><strong>Kit organizador de eventos</strong>.</li>
+                        <li><strong>10 horas de presencia</strong> (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio).</li>
+                    </ul>
+                    <p class="quote-phrase">Todos estos beneficios van incluidos sin costo adicional dentro de los $1,000.00 MXN por persona. Son distintos de los complementos opcionales de pago que se muestran en el Cotizador Dinámico de Extras.</p>
+                </div>
             </div>
 
             <h3 class="section-title reveal reveal-left"><i class="fas fa-magic"></i> Todo lo que Incluye, Servicio por Servicio</h3>
@@ -2066,46 +3056,6 @@
                     </div>
                 </div>
 
-                <!-- Sub-bloque informativo Gobernador vs Presidente -->
-                <div class="reveal" style="margin-top:30px;">
-                    <h4 style="font-family:var(--font-serif); font-size:1.25rem; color:var(--primary-dark); margin-bottom:8px;"><i class="fas fa-sliders" style="color:var(--gold-accent); margin-right:8px;"></i> Paquetes Oficiales del Recinto: Gobernador vs Presidente</h4>
-                    <p style="font-size:0.85rem; color:var(--gray-text); margin-bottom:14px;">Conoce la comparativa técnica entre los dos esquemas tradicionales del recinto:</p>
-                    <table class="tabla-paquetes-ccp">
-                        <thead>
-                            <tr>
-                                <th>Paquete Gobernador</th>
-                                <th>Paquete Presidente</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <strong>Uso de salón 8 hrs</strong> (9 hrs de servicio continuo, cierre 00:00) &middot;
-                                    Cóctel con margaritas sin alcohol (2 sabores) y agua fresca (2 sabores) &middot;
-                                    Mesa principal con sillón o sillones &middot;
-                                    Centros de mesa naturales (largos, redondos y altos) &middot;
-                                    Mesa redonda/cuadrada/tipo mármol/vintage con sillas Tiffany, Crossback, Lotus o Boss &middot;
-                                    Banquete a 3 tiempos (Entrada, Plato Fuerte, Tornafiesta) &middot;
-                                    Equipo: Coordinador General, Hostess, Meseros, Barra, Stewart, Cocina, Personal de baños &middot;
-                                    DJ profesional con cabina, cabezas robóticas, proyector/pantalla, láser y humo.
-                                </td>
-                                <td>
-                                    <strong>Uso de salón 9 hrs continuas</strong> (cierre 01:00) &middot;
-                                    Cóctel premium con margaritas, piñada y mojito sin alcohol + agua fresca (2 sabores) &middot;
-                                    Mesa principal con sillones Rey &amp; Reyna &middot;
-                                    Centros de mesa naturales + bases de metal altas &middot;
-                                    Mesa tipo mármol cuadrada/redonda para 10–12 personas con silla Tiffany blanca &middot;
-                                    Banquete a 4 tiempos (Entrada, Plato Fuerte, Postre, Tornafiesta) &middot;
-                                    Equipo: Coordinador General, Capitán de Meseros, Hostess, Meseros, Barra, Stewart, Cocina, Personal de baños &middot;
-                                    DJ profesional + pista de baile LED 5&times;5 y 2 chisperos a control remoto &middot;
-                                    Opción de montaje de ceremonia con mobiliario elegante.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="nota-pie-ccp">
-                        Los precios oficiales publicados de los paquetes Gobernador y Presidente aplican hasta 400 invitados; para 500 invitados esta propuesta se personaliza con el paquete integral descrito abajo, al mismo precio por persona que en los otros dos recintos.
-                    </div>
                 </div>
             </div>
 
@@ -2152,6 +3102,22 @@
                         </div>
                         <div class="slides-dots" id="slidesDotsIsabeles"></div>
                     </div>
+                </div>
+            </div>
+
+            <!-- ═══ BLOQUE 1: JARDÍN LA VILLA — RECINTO Y ÁREAS ═══ -->
+            <div class="venue-block venue-lavilla">
+                <div class="gallery-block-title reveal reveal-left">1 &middot; Jardín La Villa — Recinto y Áreas</div>
+                <div style="background:var(--background-light); border:1px solid var(--beige); border-radius:18px; padding:25px 30px; margin:20px 0 30px;">
+                    <p style="margin:0; font-size:1rem; line-height:1.7; color:var(--primary-dark);">Las fotografías y el recorrido de este recinto se comparten directamente con tu planner. Todos los servicios y amenidades que se muestran a continuación son los mismos que en los demás recintos.</p>
+                </div>
+            </div>
+
+            <!-- ═══ BLOQUE 1: JARDÍN SAN RAFAEL — RECINTO Y ÁREAS ═══ -->
+            <div class="venue-block venue-sanrafael">
+                <div class="gallery-block-title reveal reveal-left">1 &middot; Jardín San Rafael — Recinto y Áreas</div>
+                <div style="background:var(--background-light); border:1px solid var(--beige); border-radius:18px; padding:25px 30px; margin:20px 0 30px;">
+                    <p style="margin:0; font-size:1rem; line-height:1.7; color:var(--primary-dark);">Las fotografías y el recorrido de este recinto se comparten directamente con tu planner. Todos los servicios y amenidades que se muestran a continuación son los mismos que en los demás recintos.</p>
                 </div>
             </div>
 
@@ -2321,6 +3287,30 @@
                         </div>
                     </div>
                 </div>
+                <div class="reveal reveal-zoom venue-block venue-lavilla pendiente-foto" data-venue="lavilla">
+                    <div class="include-item">
+                        <div class="include-img-container" style="background:#EFE7E1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
+                            <i class="fas fa-restroom" style="font-size:3rem; color:var(--primary-pink); opacity:0.85;"></i>
+                            <span style="font-size:0.72rem; color:var(--gray-text); text-transform:uppercase; letter-spacing:1px; font-weight:600;">Foto del recinto por integrar</span>
+                        </div>
+                        <div class="include-content">
+                            <h4><i class="fas fa-restroom"></i> Sanitarios y Limpieza General</h4>
+                            <p>Sanitarios del recinto con personal de limpieza durante todo el evento.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-zoom venue-block venue-sanrafael pendiente-foto" data-venue="sanrafael">
+                    <div class="include-item">
+                        <div class="include-img-container" style="background:#EFE7E1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
+                            <i class="fas fa-restroom" style="font-size:3rem; color:var(--primary-pink); opacity:0.85;"></i>
+                            <span style="font-size:0.72rem; color:var(--gray-text); text-transform:uppercase; letter-spacing:1px; font-weight:600;">Foto del recinto por integrar</span>
+                        </div>
+                        <div class="include-content">
+                            <h4><i class="fas fa-restroom"></i> Sanitarios y Limpieza General</h4>
+                            <p>Sanitarios del recinto con personal de limpieza durante todo el evento.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- ═══ BLOQUE 7: AUDIO E ILUMINACIÓN ═══ -->
@@ -2414,6 +3404,30 @@
                     </div>
                     <p style="text-align:center; font-size:0.85rem; color:var(--gray-text); margin-top:12px; font-weight:500;">Croquis real de Finca Las Isabeles</p>
                 </div>
+
+                <!-- Variante Jardín La Villa -->
+                <div class="venue-block venue-lavilla">
+                    <div class="video-frame">
+                        <video id="videoCroquisLaVilla" controls autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="mesa_principal_rey_reyna.webp">
+                            <source src="croquis_interactivo.mp4" type="video/mp4">
+                            <source src="croquis_interactivo.webm" type="video/webm">
+                        </video>
+                        <button class="video-full" onclick="var v=this.previousElementSibling; if(v.requestFullscreen){v.requestFullscreen();}else if(v.webkitRequestFullscreen){v.webkitRequestFullscreen();}" title="Ver en pantalla completa"><i class="fas fa-expand"></i> Pantalla completa</button>
+                    </div>
+                    <p style="text-align:center; font-size:0.85rem; color:var(--gray-text); margin-top:12px; font-weight:500;">Ejemplo del servicio de croquis interactivo (el de tu recinto se diseña a medida al contratar)</p>
+                </div>
+
+                <!-- Variante Jardín San Rafael -->
+                <div class="venue-block venue-sanrafael">
+                    <div class="video-frame">
+                        <video id="videoCroquisSanRafael" controls autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="mesa_principal_rey_reyna.webp">
+                            <source src="croquis_interactivo.mp4" type="video/mp4">
+                            <source src="croquis_interactivo.webm" type="video/webm">
+                        </video>
+                        <button class="video-full" onclick="var v=this.previousElementSibling; if(v.requestFullscreen){v.requestFullscreen();}else if(v.webkitRequestFullscreen){v.webkitRequestFullscreen();}" title="Ver en pantalla completa"><i class="fas fa-expand"></i> Pantalla completa</button>
+                    </div>
+                    <p style="text-align:center; font-size:0.85rem; color:var(--gray-text); margin-top:12px; font-weight:500;">Ejemplo del servicio de croquis interactivo (el de tu recinto se diseña a medida al contratar)</p>
+                </div>
             </div>
 
             <!-- ══ Minuto a minuto: Ejemplo de Minuto a Minuto (se diseña a medida para tu evento) ══ -->
@@ -2488,17 +3502,17 @@
                 <div class="calc-total-box" id="calcTotalBox">
                     <div class="ctb-row">
                         <span>Paquete base (<span class="invitados-num-txt">500</span> invitados):</span>
-                        <strong class="total-base-txt" id="ctbBase">$950,000.00</strong>
+                        <strong class="total-base-txt total-activo" id="ctbBase">$500,000.00</strong>
                     </div>
                     <div class="ctb-row">
                         <span>Por persona:</span>
-                        <span id="ctbPorPersona">$1,900.00</span>
+                        <span class="pp-activo" id="ctbPorPersona">$1,000.00</span>
                     </div>
                     <ul class="ctb-extras-list" id="ctbExtras"></ul>
                     <div class="ctb-vacio" id="ctbVacio">Sin extras seleccionados</div>
                     <div class="ctb-total">
                         <span>Inversión Final:</span>
-                        <strong id="ctbTotal">$950,000.00</strong>
+                        <strong id="ctbTotal">$500,000.00</strong>
                     </div>
                 </div>
 
@@ -2506,12 +3520,12 @@
             </div>
 
             <!-- ══ RESUMEN FINAL COMPARATIVO ══ -->
-            <div class="pricing-section resumen-web reveal" style="margin-top:40px;">
+            <div class="pricing-section resumen-web reveal reveal-zoom" style="margin-top:40px;">
                 <h3>Resumen de Inversión</h3>
                 <div class="price-breakdown" style="max-width:540px; margin:0 auto; border:none; padding:0;">
                     <div class="price-breakdown-row" style="font-size:1.05rem; padding:8px 0;">
                         <span>Inversión Base (<span class="invitados-num-txt">500</span> invitados)</span>
-                        <strong class="total-base-txt">$950,000.00 MXN</strong>
+                        <strong class="total-base-txt total-activo">$500,000.00 MXN</strong>
                     </div>
                     <div class="price-breakdown-row" id="resumenFinalExtrasRow" style="display:none; font-size:1.05rem; padding:8px 0; color:var(--gold-accent);">
                         <span>Servicios Adicionales Seleccionados</span>
@@ -2519,7 +3533,7 @@
                     </div>
                     <div class="price-breakdown-row" style="font-size:1.25rem; font-weight:700; padding:12px 0 0; border-top:1px solid rgba(255,255,255,.2); color:var(--white);">
                         <span>Total Estimado del Evento</span>
-                        <strong id="resumenFinalTotal" style="color:var(--gold-accent);">$950,000.00 MXN</strong>
+                        <strong id="resumenFinalTotal" style="color:var(--gold-accent);">$500,000.00 MXN</strong>
                     </div>
                 </div>
             </div>
@@ -2601,9 +3615,9 @@
                     <li><strong>Degustación de cortesía:</strong> incluye degustación completa para 4 personas, la cual se programa una vez firmado el contrato y cubierto el 10% de apartado (proteína base pollo o cerdo; upgrade a res o salmón con cargo adicional).</li>
                     <li><strong>Precios netos sin impuestos:</strong> precios netos en moneda nacional (MXN); el 16% de IVA aplica únicamente en caso de solicitar factura fiscal oficial.</li>
                     <li><strong>Vigencia de la propuesta:</strong> cotización con validez garantizada de 15 días naturales a partir de su emisión.</li>
-                    <li><strong>Tarifa homogénea garantizada:</strong> el precio de $1,900.00 MXN por persona aplica exactamente con el mismo paquete integral en los tres recintos (Jardín Tsú Nuum, Centro de Convenciones Presidente y Finca Las Isabeles).</li>
+                    <li><strong>Tarifa garantizada por recinto:</strong> el precio por persona aplica con el paquete integral completo según el recinto seleccionado (<span class="pp-activo">$1,000.00</span> MXN por persona para Jardín Tsú Nuum, Finca Las Isabeles, Jardín La Villa y Jardín San Rafael; $850.00 MXN por persona para Centro de Convenciones Presidente).</li>
                     <li><strong>Hora extra de banquete y servicio:</strong> $12,000.00 MXN por hora adicional.</li>
-                    <li><strong>Hospedaje:</strong> según recinto seleccionado (Jardín Tsú Nuum sujeto a disponibilidad con tu planner; Centro de Convenciones Presidente en hoteles con convenio a 5–10 min; Finca Las Isabeles en cabañas ecológicas y suite nupcial con costo adicional).</li>
+                    <li><strong>Hospedaje:</strong> según recinto seleccionado (Jardín Tsú Nuum, Jardín La Villa y Jardín San Rafael sujeto a disponibilidad o consulta con tu planner; Centro de Convenciones Presidente en hoteles con convenio a 5–10 min; Finca Las Isabeles en cabañas ecológicas y suite nupcial con costo adicional).</li>
                     <li><strong>Descorche libre:</strong> servicio de descorche 100% libre sin cobro por botella.</li>
                 </ul>
                 <p class="quote-phrase">&laquo;Hacemos de tu celebración un recuerdo eterno. El arte de servir, hecho realidad.&raquo;</p>
@@ -2744,9 +3758,11 @@
         window.addEventListener('load', function(){ window.scrollTo(0, 0); });
         window.addEventListener('pageshow', function(e){ if (e.persisted) window.scrollTo(0, 0); });
 
-        const PRECIO_UNITARIO = 1900;
+        // Precio por persona por recinto (Salo, 21-sep-2026)
+        var PRECIOS = { tsunuum: 1000, presidente: 850, isabeles: 1000, lavilla: 1000, sanrafael: 1000 };
+        var VENUES_VALIDOS = new Array('tsunuum', 'presidente', 'isabeles', 'lavilla', 'sanrafael');
         const INVITADOS_BASE = 500;
-        const TOTAL_BASE = 950000;
+        function precioActivo() { return PRECIOS[state.venue] || 1000; }
 
         var state = {
             venue: 'tsunuum',
@@ -2797,6 +3813,8 @@
         function getVenueDisplayName(v) {
             if (v === 'presidente') return 'Centro de Convenciones Presidente';
             if (v === 'isabeles') return 'Finca Las Isabeles';
+            if (v === 'lavilla') return 'Jardín La Villa';
+            if (v === 'sanrafael') return 'Jardín San Rafael';
             return 'Jardín Tsú Nuum';
         }
 
@@ -2848,9 +3866,18 @@
         function actualizarTotal() {
             var seleccion = Array.from(extrasSeleccionados.values());
             var extrasTotal = seleccion.reduce(function(acc, item){ return acc + item.precio; }, 0);
-            var baseTotal = state.invitados * PRECIO_UNITARIO;
+            var ppBase = precioActivo();
+            var baseTotal = state.invitados * ppBase;
             var totalFinal = baseTotal + extrasTotal;
             var porPersona = totalFinal / state.invitados;
+
+            // Precio por persona del recinto activo (sin extras) y totales por columna del comparativo
+            document.querySelectorAll('.pp-activo').forEach(function(el){ el.textContent = moneyFmt(ppBase); });
+            document.querySelectorAll('.invitados-activo').forEach(function(el){ el.textContent = state.invitados; });
+            VENUES_VALIDOS.forEach(function(v){
+                document.querySelectorAll('.pp-val-' + v).forEach(function(el){ el.textContent = moneyFmt(PRECIOS[v]); });
+                document.querySelectorAll('.total-val-' + v).forEach(function(el){ el.textContent = moneyFmt(state.invitados * PRECIOS[v]) + ' MXN'; });
+            });
 
             // Inversión Base display
             var elDisplay = document.getElementById('totalBaseDisplay');
@@ -2952,7 +3979,7 @@
         };
 
         window.seleccionarVenue = function(venueId) {
-            if (venueId !== 'tsunuum' && venueId !== 'presidente' && venueId !== 'isabeles') return;
+            if (VENUES_VALIDOS.indexOf(venueId) < 0) return;
             state.venue = venueId;
             try { localStorage.setItem('cotizacion_500_venue', venueId); } catch(err){}
 
@@ -2963,7 +3990,7 @@
             if (targetPill) targetPill.classList.add('active');
 
             // Actualizar clase del body
-            document.body.classList.remove('venue-active-tsunuum', 'venue-active-presidente', 'venue-active-isabeles');
+            document.body.classList.remove('venue-active-tsunuum', 'venue-active-presidente', 'venue-active-isabeles', 'venue-active-lavilla', 'venue-active-sanrafael');
             document.body.classList.add('venue-active-' + venueId);
 
             // Actualizar Hero
@@ -2975,7 +4002,7 @@
             inlineNames.forEach(function(el){ el.textContent = venueDisplayName; });
 
             // Actualizar Duración según venue
-            var duracionTxt = venueId === 'tsunuum' ? '10 hrs' : '9 hrs';
+            var duracionTxt = (venueId === 'presidente' || venueId === 'isabeles') ? '9 hrs' : '10 hrs';
             var duracionEls = document.querySelectorAll('.duracion-venue-txt');
             duracionEls.forEach(function(el){ el.textContent = duracionTxt; });
 
@@ -3026,6 +4053,12 @@
                     if (vid) vid.play().catch(function(){});
                 }
                 if (mainHero) mainHero.style.backgroundImage = "url('portada_finca_las_isabeles.webp')";
+            } else {
+                // Recintos sin material propio (La Villa, San Rafael): degradado de marca, sin video
+                if (btnWatch) btnWatch.style.display = 'none';
+                if (heroHtml5Wrap) heroHtml5Wrap.style.display = 'none';
+                if (heroVideo) { heroVideo.style.display = 'none'; heroVideo.innerHTML = ''; }
+                if (mainHero) mainHero.style.backgroundImage = 'linear-gradient(135deg, #1F1F1F 0%, #3a2a30 60%, #F65C7A 140%)';
             }
 
             // Actualizar tabla comparativa columna activa
@@ -3040,6 +4073,7 @@
             });
 
             actualizarTotal();
+            if (window.reanimarReveals && document.body.classList.contains('propuesta-abierta')) window.reanimarReveals(venueId);
         };
         window.cambiarVenue = window.seleccionarVenue;
 
@@ -3224,6 +4258,7 @@
                 document.body.style.overflow = '';
                 window.scrollTo(0, 0);
                 preloader.classList.add('fade-out');
+                document.body.classList.add('propuesta-abierta');
                 cargaVideosYoutube();
                 window.seleccionarVenue(state.venue);
                 if (bgAudio) {
@@ -3255,28 +4290,83 @@
         }
 
         // ══ Reveal Animation Observer ══
+        // ══ Reveal: animación de aparición en TODAS las secciones (escritorio y móvil) ══
+        // 1) Se agrega la clase reveal por JS a los bloques que no la traen en el HTML.
+        // 2) IntersectionObserver + respaldo por scroll con rAF (en móvil el observador
+        //    puede no disparar dentro de bloques que cambian de display al elegir recinto).
+        // 3) Al cambiar de recinto, los bloques que aparecen vuelven a animarse.
+        var revealObserver = null;
+        var AUTO_REVEAL = new Array(
+            'h3.section-title:not(.solo-print)', '.gallery-block-title', '.include-item', '.tarjeta-paquete-oficial',
+            '.paquete-oficial-section', '.venue-info-grid', '.venue-logo-wrap', '.comparativo-section', '.publicidad-card',
+            '.planner-card', '.signature-section', '.cta-container', '.kit-section', '.expo-section', '.calc-section .calc-category',
+            '.calc-section .calc-total-box', '.calc-section .calc-hint', '.notes-section', '.header-info'
+        );
+        var revealVariantes = new Array('reveal', 'reveal-left', 'reveal-zoom', 'reveal-right');
+        function prepararReveals() {
+            var idx = 0;
+            document.querySelectorAll(AUTO_REVEAL.join(',')).forEach(function(el){
+                if (el.classList.contains('reveal')) return;
+                if (el.closest('.solo-print, .controls-sticky-bar, #preloader, .hero')) return;
+                if (el.parentElement && el.parentElement.closest('.reveal')) return; // ya anima su contenedor
+                el.classList.add('reveal');
+                if (!el.classList.contains('include-item')) {
+                    var v = revealVariantes.at(idx % revealVariantes.length); idx++;
+                    if (v !== 'reveal') el.classList.add(v);
+                }
+            });
+        }
+        function revealVisible(r){
+            var rect = r.getBoundingClientRect();
+            return rect.top < window.innerHeight - 40 && rect.bottom > 0;
+        }
+        function chequeaReveals(){
+            document.querySelectorAll('.reveal:not(.active)').forEach(function(r){
+                if (r.offsetParent === null) return;
+                if (revealVisible(r)) r.classList.add('active');
+            });
+        }
+        function observaReveals(lista){
+            lista.forEach(function(r){
+                if (r.classList.contains('active')) return;
+                var rect = r.getBoundingClientRect();
+                if (r.offsetParent !== null && rect.top < window.innerHeight + 120 && rect.bottom > -50) {
+                    r.classList.add('active');
+                } else if (revealObserver) {
+                    revealObserver.observe(r);
+                }
+            });
+        }
+        // Reanima los bloques del recinto recién mostrado
+        window.reanimarReveals = function(venueId){
+            var lista = Array.from(document.querySelectorAll('.venue-' + venueId + '.reveal, .venue-' + venueId + ' .reveal'));
+            lista.forEach(function(r){ r.classList.remove('active'); if (revealObserver) revealObserver.unobserve(r); });
+            requestAnimationFrame(function(){ observaReveals(lista); });
+        };
         function initReveals() {
-            var reveals = document.querySelectorAll('.reveal');
+            prepararReveals();
+            var reveals = Array.from(document.querySelectorAll('.reveal'));
             if (!reveals.length) return;
             if (!('IntersectionObserver' in window)) {
                 reveals.forEach(function(r){ r.classList.add('active'); });
                 return;
             }
-            var observer = new IntersectionObserver(function(entries, obs){
+            revealObserver = new IntersectionObserver(function(entries, obs){
                 entries.forEach(function(e){
                     if (e.isIntersecting) { e.target.classList.add('active'); obs.unobserve(e.target); }
                 });
             }, { threshold: 0.01, rootMargin: '50px 0px 150px 0px' });
-            reveals.forEach(function(r){
-                var rect = r.getBoundingClientRect();
-                if (rect.top < window.innerHeight + 120) {
-                    r.classList.add('active');
-                } else {
-                    observer.observe(r);
-                }
-            });
+            observaReveals(reveals);
+            var pendienteReveal = false;
+            function alScroll(){
+                if (pendienteReveal) return;
+                pendienteReveal = true;
+                requestAnimationFrame(function(){ chequeaReveals(); pendienteReveal = false; });
+            }
+            window.addEventListener('scroll', alScroll, { passive:true });
+            window.addEventListener('resize', alScroll, { passive:true });
             window.addEventListener('beforeprint', function(){
-                reveals.forEach(function(r){ r.classList.add('active'); });
+                document.querySelectorAll('.reveal').forEach(function(r){ r.classList.add('active'); });
             });
         }
 
