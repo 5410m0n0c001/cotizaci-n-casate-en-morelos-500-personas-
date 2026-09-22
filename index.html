@@ -236,6 +236,10 @@
         .complementos-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin-top:20px; width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
         .complemento-card { border-radius:20px; overflow:hidden; border:1px solid var(--beige); background:var(--white); display:flex; }
         .complemento-img { width:120px; object-fit:cover; }
+        /* Triptico de 3 videos verticales lado a lado, para que en conjunto den la
+           ilusión de un solo video horizontal (usado en Música en Vivo & Show Men). */
+        .complemento-triptych { display:flex; width:220px; flex-shrink:0; gap:1px; overflow:hidden; background:#000; }
+        .complemento-triptych video { width:33.334%; height:100%; object-fit:cover; display:block; }
         .complemento-body { padding:18px; flex:1; }
         .complemento-body h4 { font-size:1rem; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
         .complemento-body h4 i { color:var(--primary-pink); }
@@ -3521,7 +3525,11 @@
                     </div>
                     <div class="reveal reveal-right delay-3">
                         <div class="complemento-card">
-                            <img loading="lazy" decoding="async" class="complemento-img" src="saxofonista_boda.webp" alt="Música en vivo">
+                            <div class="complemento-triptych">
+                                <video preload="none" data-autoplay="1" muted loop playsinline webkit-playsinline poster="musica_vivo_saxofonista_poster.webp"><source src="musica_vivo_saxofonista.mp4" type="video/mp4"></video>
+                                <video preload="none" data-autoplay="1" muted loop playsinline webkit-playsinline poster="musica_vivo_banda_poster.webp"><source src="musica_vivo_banda.mp4" type="video/mp4"></video>
+                                <video preload="none" data-autoplay="1" muted loop playsinline webkit-playsinline poster="musica_vivo_chinelos_poster.webp"><source src="musica_vivo_chinelos.mp4" type="video/mp4"></video>
+                            </div>
                             <div class="complemento-body">
                                 <h4><i class="fas fa-guitar"></i> Música en Vivo &amp; Show Men</h4>
                                 <p>Banda sinaloense, mariachi tradicional, show men animador o saxofonistas adicionales para momentos estelares.</p>
