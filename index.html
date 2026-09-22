@@ -47,7 +47,13 @@
             --font-serif: 'Playfair Display', serif; --font-sans: 'Poppins', sans-serif;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
-        html, body { overflow-x:hidden !important; max-width:100vw !important; width:100% !important; position:relative; }
+        /* Sin overflow-x:hidden en html/body: CUALQUIER overflow distinto de "visible" en un
+           ancestro (aunque sea solo en un eje) lo convierte en "contenedor de scroll" para
+           position:sticky, y como body/html no tienen alto fijo (nunca llegan a hacer scroll
+           ellos mismos), eso deja "colgados" (rotos) tanto a .controls-sticky-bar como a
+           .calc-total-box. El recorte horizontal se aplica más abajo, puntual, en .container
+           y .quote-card (que no son ancestros de ningún elemento sticky). */
+        html, body { max-width:100vw !important; width:100% !important; position:relative; }
         body { font-family: var(--font-sans); background: var(--background-light); color: var(--primary-dark); line-height:1.6; -webkit-font-smoothing:antialiased; }
         h1,h2,h3,h4 { font-family: var(--font-serif); }
 
@@ -93,7 +99,10 @@
         .quote-card { background: var(--white); border-radius:30px; box-shadow:0 30px 60px rgba(31,31,31,.08); padding:60px; border:1px solid var(--beige); overflow-x:clip !important; width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
 
         @media (max-width:768px) {
-            html, body { overflow-x:hidden !important; max-width:100vw !important; width:100% !important; position:relative; }
+            /* Sin overflow-x:hidden aquí tampoco (ver nota arriba, junto a la regla base de
+               html, body): .container y .quote-card ya recortan el desborde horizontal por
+               su cuenta con overflow-x:clip, sin romper el sticky. */
+            html, body { max-width:100vw !important; width:100% !important; position:relative; }
             .container{margin-top:-40px;padding:0 6px !important; width:100% !important; max-width:100% !important; overflow-x:clip !important; box-sizing:border-box !important;}
             .quote-card{padding:16px 10px !important;border-radius:16px !important; width:100% !important; max-width:100% !important; overflow-x:clip !important; box-sizing:border-box !important;}
             .hero { max-height:70vh !important; min-height:0 !important; }
@@ -658,7 +667,7 @@
             .planner-print-contacts { display:block !important; margin-top:8px !important; padding-top:8px !important; border-top:1px dashed #E2D9D0 !important; font-size:8pt !important; color:var(--primary-dark) !important; line-height:1.35 !important; }
             .planner-print-contacts p { margin:2px 0 !important; color:var(--primary-dark) !important; font-size:8pt !important; }
 
-            /* Tarjeta de Inversión Total */
+            /* Tarjeta de Precio por Persona */
             .pricing-section { background:linear-gradient(135deg,var(--primary-dark) 0%,var(--dark-grad-end) 100%) !important;
                 color:#fff !important; border:none !important; padding:16px 20px !important; border-radius:12px !important; margin-top:14px !important; page-break-inside:avoid !important; break-inside:avoid !important; }
             .pricing-section h3 { color:var(--gold-accent) !important; font-size:8.5pt !important; margin-bottom:4px !important; text-transform:uppercase; letter-spacing:0.5px; }
@@ -1482,7 +1491,7 @@
                     </div>
                     <div class="ph-txt">
                         <h2>Cotización elaborada por Primavera Events Group<sup class="marca-reg">&reg;</sup> &middot; Presentada por Cásate en Morelos</h2>
-                        <p class="ph-meta">Propuesta para <span class="invitados-num-txt">500</span> Invitados &middot; <span class="txt-evento" data-evento-boda="Boda" data-evento-xv="XV Años">Boda</span> &middot; <span class="venue-inline-name">Jardín Tsú Nuum</span> &middot; <span class="pp-activo">$1,000.00</span> MXN por persona &middot; Inversión total base: <span class="total-base-txt total-activo">$500,000.00 MXN</span></p>
+                        <p class="ph-meta">Propuesta para <span class="invitados-num-txt">500</span> Invitados &middot; <span class="txt-evento" data-evento-boda="Boda" data-evento-xv="XV Años">Boda</span> &middot; <span class="venue-inline-name">Jardín Tsú Nuum</span> &middot; <span class="pp-activo">$1,000.00</span> MXN por persona</p>
                     </div>
                 </div>
                 <div class="qr-print-box">
@@ -1608,14 +1617,6 @@
                                 <td class="col-venue-cell col-venue-sanrafael"><strong><span class="pp-val-sanrafael">$1,000.00</span> MXN</strong></td>
                             </tr>
                             <tr>
-                                <td class="col-feature-cell">Inversión <span class="invitados-num-txt">500</span> invitados</td>
-                                <td class="col-venue-cell col-venue-tsunuum col-active-venue"><strong class="total-val-tsunuum" style="color:var(--primary-pink); font-size:1.05rem;">$500,000.00 MXN</strong></td>
-                                <td class="col-venue-cell col-venue-presidente"><strong class="total-val-presidente" style="color:var(--primary-pink); font-size:1.05rem;">$425,000.00 MXN</strong></td>
-                                <td class="col-venue-cell col-venue-isabeles"><strong class="total-val-isabeles" style="color:var(--primary-pink); font-size:1.05rem;">$500,000.00 MXN</strong></td>
-                                <td class="col-venue-cell col-venue-lavilla"><strong class="total-val-lavilla" style="color:var(--primary-pink); font-size:1.05rem;">$500,000.00 MXN</strong></td>
-                                <td class="col-venue-cell col-venue-sanrafael"><strong class="total-val-sanrafael" style="color:var(--primary-pink); font-size:1.05rem;">$500,000.00 MXN</strong></td>
-                            </tr>
-                            <tr>
                                 <td class="col-feature-cell">Propuesta detallada</td>
                                 <td class="col-venue-cell col-venue-tsunuum col-active-venue">
                                     <button type="button" class="btn-ver-propuesta" onclick="window.seleccionarVenueYScroll('tsunuum')"><i class="fas fa-eye"></i> Ver esta propuesta</button>
@@ -1676,7 +1677,6 @@
                 <div class="summary-boxes reveal">
                     <div class="info-box"><span>Invitados</span><strong class="invitados-num-txt">500</strong> Px</div>
                     <div class="info-box"><span>Precio p/p</span><strong><span class="pp-activo">$1,000.00</span></strong></div>
-                    <div class="info-box"><span>Inversión Base</span><strong class="total-base-txt total-activo">$500,000.00</strong></div>
                     <div class="info-box"><span>Duración</span><strong class="duracion-venue-txt">10 hrs</strong></div>
                 </div>
             </div>
@@ -1734,7 +1734,7 @@
 
             <!-- ══ DESGLOSE COMPLETO DEL PAQUETE (VERSIÓN IMPRESA / PDF) ══ -->
             <h3 class="section-title solo-print"><i class="fas fa-list-check"></i> 1 &middot; Todo lo que Incluye tu Paquete</h3>
-            <p class="calc-hint solo-print">Todo lo que se detalla a continuación está <strong>incluido</strong> dentro de la inversión total base. No existen cargos ocultos sobre esta lista.</p>
+            <p class="calc-hint solo-print">Todo lo que se detalla a continuación está <strong>incluido</strong> dentro de la propuesta base por persona. No existen cargos ocultos sobre esta lista.</p>
             <div class="pricing-table-container solo-print">
                 <table class="pricing-table print-seccion-larga">
                     <thead>
@@ -2004,14 +2004,13 @@
                     </tbody>
                     <tfoot>
                         <tr style="background:var(--primary-dark); color:var(--white);">
-                            <td colspan="3"><strong>INVERSIÓN TOTAL BASE DEL EVENTO (<span class="invitados-num-txt">500</span> INVITADOS &middot; <span class="pp-activo">$1,000.00</span> MXN P/P)</strong></td>
+                            <td colspan="4"><strong>PRECIO BASE POR PERSONA (<span class="invitados-num-txt">500</span> INVITADOS)</strong></td>
                             <td class="align-right"><strong id="pdfTotalPersona">$1,000.00</strong></td>
-                            <td class="align-right"><strong id="pdfTotalEvento">$500,000.00</strong></td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
-            <p class="calc-hint solo-print" style="margin-top:8px;"><strong>Tarifa oficial garantizada:</strong> inversión calculada para <span class="invitados-num-txt">500</span> invitados según el recinto seleccionado, aplicable con el paquete integral descrito a continuación.</p>
+            <p class="calc-hint solo-print" style="margin-top:8px;"><strong>Tarifa oficial garantizada:</strong> precio por persona para <span class="invitados-num-txt">500</span> invitados según el recinto seleccionado, aplicable con el paquete integral descrito a continuación.</p>
 
             <!-- ══ 2 &middot; CORTESÍAS INCLUIDAS SIN COSTO (VERSIÓN PDF) ══ -->
             <!-- PDF Tsú Nuum -->
@@ -2640,18 +2639,15 @@
                 </div>
             </div>
 
-            <!-- ══ INVERSIÓN TOTAL BASE (CAJA OSCURA) ══ -->
+            <!-- ══ PRECIO BASE POR PERSONA (CAJA OSCURA) ══ -->
             <div class="pricing-section print-seccion reveal reveal-zoom" id="inversionBase">
-                <h3>Inversión Total del Evento</h3>
+                <h3>Precio por Persona</h3>
                 <div class="price-hero" id="totalBaseDisplay"><span class="pp-activo">$1,000.00</span><sup>MXN</sup></div>
                 <div class="price-label">Precio por persona según recinto &middot; <span class="invitados-num-txt invitados-activo">500</span> invitados</div>
-                <div style="font-size:1.4rem; font-weight:700; color:var(--white); margin:12px 0;">
-                    Inversión total del evento: <span class="total-base-txt total-activo" style="color:var(--gold-accent);">$500,000.00 MXN</span>
-                </div>
                 <div class="price-breakdown" style="max-width:540px; margin:20px auto 0;">
                     <div class="price-breakdown-row">
-                        <span>Paquete Integral 500 (<span class="invitados-num-txt invitados-activo">500</span> invitados &times; <span class="pp-activo">$1,000.00</span>)</span>
-                        <strong class="total-base-txt total-activo">$500,000.00 MXN</strong>
+                        <span>Paquete Integral 500 (<span class="invitados-num-txt invitados-activo">500</span> invitados)</span>
+                        <strong><span class="pp-activo">$1,000.00</span> MXN p/p</strong>
                     </div>
                     <div id="desgloseExtras" style="display:none; margin-top:8px; padding-top:8px; border-top:1px dashed rgba(255,255,255,.2);">
                         <ul id="listaExtras" style="list-style:none; padding:0; margin:0;"></ul>
@@ -2857,7 +2853,7 @@
             <div class="venue-block venue-tsunuum">
                 <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
                     <h3><i class="fas fa-gift"></i> Cortesías: Lo que ya Trae el Paquete y lo que se Agrega de Más</h3>
-                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete Vuelo Esmeralda (<a href="https://primaveraeventsgroup.com/paquete-vuelo-esmeralda/" target="_blank" rel="noopener">ficha oficial</a>) <strong>ya publica</strong>, y las que <strong>se agrega de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro de la inversión de <span class="total-activo">$500,000.00 MXN</span> (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
+                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete Vuelo Esmeralda (<a href="https://primaveraeventsgroup.com/paquete-vuelo-esmeralda/" target="_blank" rel="noopener">ficha oficial</a>) <strong>ya publica</strong>, y las que <strong>se agrega de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro del precio de $1,000.00 MXN por persona (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
 
                     <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--gray-text); text-transform:uppercase; letter-spacing:.5px;">A &middot; Cortesías que ya incluye el paquete Vuelo Esmeralda</p>
                     <ul>
@@ -2893,7 +2889,7 @@
             <div class="venue-block venue-presidente">
                 <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
                     <h3><i class="fas fa-gift"></i> Cortesías: Lo que ya Trae el Paquete y lo que se Agrega de Más</h3>
-                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que los paquetes oficiales del recinto (<a href="https://primaveraeventsgroup.com/paquete-presidente/" target="_blank" rel="noopener">ficha oficial</a>) <strong>ya publican</strong>, y las que <strong>se agrega de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro de la inversión de <span class="total-activo">$425,000.00 MXN</span> (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
+                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que los paquetes oficiales del recinto (<a href="https://primaveraeventsgroup.com/paquete-presidente/" target="_blank" rel="noopener">ficha oficial</a>) <strong>ya publican</strong>, y las que <strong>se agrega de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro del precio de $850.00 MXN por persona (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
 
                     <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--gray-text); text-transform:uppercase; letter-spacing:.5px;">A &middot; Ya lo incluyen los paquetes oficiales del recinto</p>
                     <ul>
@@ -2936,7 +2932,7 @@
             <div class="venue-block venue-isabeles">
                 <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
                     <h3><i class="fas fa-gift"></i> Cortesías: Lo que ya Trae el Paquete y lo que se Agrega de Más</h3>
-                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete Nature's Majesty (<a href="https://primaveraeventsgroup.com/paquete-natures-majesty/" target="_blank" rel="noopener">ficha oficial</a>) <strong>ya publica</strong>, y las que <strong>se agrega de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro de la inversión de <span class="total-activo">$500,000.00 MXN</span> (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
+                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete Nature's Majesty (<a href="https://primaveraeventsgroup.com/paquete-natures-majesty/" target="_blank" rel="noopener">ficha oficial</a>) <strong>ya publica</strong>, y las que <strong>se agrega de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro del precio de $1,000.00 MXN por persona (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
 
                     <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--gray-text); text-transform:uppercase; letter-spacing:.5px;">A &middot; Ya lo incluye el paquete Nature's Majesty</p>
                     <ul>
@@ -2972,7 +2968,7 @@
             <div class="venue-block venue-lavilla">
                 <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
                     <h3><i class="fas fa-gift"></i> Cortesías: Beneficios Incluidos en esta Propuesta</h3>
-                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, detallamos todas las cortesías incluidas en esta propuesta personalizada. Todo está considerado dentro de la inversión de <span class="total-activo">$500,000.00 MXN</span> (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
+                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, detallamos todas las cortesías incluidas en esta propuesta personalizada. Todo está considerado dentro del precio de $1,000.00 MXN por persona (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
 
                     <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">Incluido en esta propuesta</p>
                     <ul>
@@ -3001,7 +2997,7 @@
             <div class="venue-block venue-sanrafael">
                 <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
                     <h3><i class="fas fa-gift"></i> Cortesías: Beneficios Incluidos en esta Propuesta</h3>
-                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, detallamos todas las cortesías incluidas en esta propuesta personalizada. Todo está considerado dentro de la inversión de <span class="total-activo">$500,000.00 MXN</span> (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
+                    <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, detallamos todas las cortesías incluidas en esta propuesta personalizada. Todo está considerado dentro del precio de $1,000.00 MXN por persona (<span class="invitados-activo">500</span> invitados) &mdash; nada de esto se cobra aparte.</p>
 
                     <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">Incluido en esta propuesta</p>
                     <ul>
@@ -3535,44 +3531,38 @@
             <!-- ══ COTIZADOR DINÁMICO DE EXTRAS ══ -->
             <div class="calc-section" id="cotizador">
                 <h3 class="section-title reveal reveal-left"><i class="fas fa-calculator"></i> Cotizador Dinámico de Extras</h3>
-                <p class="calc-hint">Personaliza tu propuesta agregando servicios complementarios con tarifas oficiales verificadas. Los totales se actualizan en tiempo real.</p>
+                <p class="calc-hint">Personaliza tu propuesta agregando servicios complementarios con tarifas oficiales verificadas. Selecciona los servicios que deseas incluir.</p>
 
-                <!-- Caja de total sticky -->
+                <!-- Caja sticky del cotizador -->
                 <div class="calc-total-box" id="calcTotalBox">
-                    <div class="ctb-row">
-                        <span>Paquete base (<span class="invitados-num-txt">500</span> invitados):</span>
-                        <strong class="total-base-txt total-activo" id="ctbBase">$500,000.00</strong>
+                    <div class="ctb-pp">
+                        <span>Precio Base:</span>
+                        <strong><span class="pp-activo" id="ctbPorPersona">$1,000.00</span> <span style="font-size:0.85rem; font-weight:400; color:rgba(255,255,255,0.7);">p/p</span></strong>
                     </div>
-                    <div class="ctb-row">
-                        <span>Por persona:</span>
-                        <span class="pp-activo" id="ctbPorPersona">$1,000.00</span>
+                    <div class="ctb-row" style="margin-top:4px; font-size:0.75rem; color:rgba(255,255,255,0.65);">
+                        <span>Recinto activo &middot; <span class="invitados-num-txt">500</span> invitados</span>
                     </div>
-                    <ul class="ctb-extras-list" id="ctbExtras"></ul>
-                    <div class="ctb-vacio" id="ctbVacio">Sin extras seleccionados</div>
-                    <div class="ctb-total">
-                        <span>Inversión Final:</span>
-                        <strong id="ctbTotal">$500,000.00</strong>
+                    <div style="margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.15);">
+                        <span style="font-size:0.72rem; text-transform:uppercase; letter-spacing:1px; color:var(--gold-accent); font-weight:700;">Extras seleccionados:</span>
+                        <ul class="ctb-extras-list" id="ctbExtras"></ul>
+                        <div class="ctb-vacio" id="ctbVacio">Sin extras seleccionados</div>
                     </div>
                 </div>
 
                 <div id="calcGrid"></div>
             </div>
 
-            <!-- ══ RESUMEN FINAL COMPARATIVO ══ -->
+            <!-- ══ RESUMEN DE PROPUESTA WEB ══ -->
             <div class="pricing-section resumen-web reveal reveal-zoom" style="margin-top:40px;">
-                <h3>Resumen de Inversión</h3>
+                <h3>Resumen de Propuesta</h3>
                 <div class="price-breakdown" style="max-width:540px; margin:0 auto; border:none; padding:0;">
                     <div class="price-breakdown-row" style="font-size:1.05rem; padding:8px 0;">
-                        <span>Inversión Base (<span class="invitados-num-txt">500</span> invitados)</span>
-                        <strong class="total-base-txt total-activo">$500,000.00 MXN</strong>
+                        <span>Precio Base por Persona (<span class="invitados-num-txt">500</span> invitados)</span>
+                        <strong><span class="pp-activo">$1,000.00</span> MXN</strong>
                     </div>
                     <div class="price-breakdown-row" id="resumenFinalExtrasRow" style="display:none; font-size:1.05rem; padding:8px 0; color:var(--gold-accent);">
                         <span>Servicios Adicionales Seleccionados</span>
                         <strong id="resumenFinalExtras">$0.00 MXN</strong>
-                    </div>
-                    <div class="price-breakdown-row" style="font-size:1.25rem; font-weight:700; padding:12px 0 0; border-top:1px solid rgba(255,255,255,.2); color:var(--white);">
-                        <span>Total Estimado del Evento</span>
-                        <strong id="resumenFinalTotal" style="color:var(--gold-accent);">$500,000.00 MXN</strong>
                     </div>
                 </div>
             </div>
@@ -3907,32 +3897,23 @@
             var seleccion = Array.from(extrasSeleccionados.values());
             var extrasTotal = seleccion.reduce(function(acc, item){ return acc + item.precio; }, 0);
             var ppBase = precioActivo();
+            // Mantener cálculos internos por si se requieren
             var baseTotal = state.invitados * ppBase;
             var totalFinal = baseTotal + extrasTotal;
             var porPersona = totalFinal / state.invitados;
 
-            // Precio por persona del recinto activo (sin extras) y totales por columna del comparativo
+            // Precio por persona del recinto activo (sin extras) y valores por columna del comparativo
             document.querySelectorAll('.pp-activo').forEach(function(el){ el.textContent = moneyFmt(ppBase); });
             document.querySelectorAll('.invitados-activo').forEach(function(el){ el.textContent = state.invitados; });
             VENUES_VALIDOS.forEach(function(v){
                 document.querySelectorAll('.pp-val-' + v).forEach(function(el){ el.textContent = moneyFmt(PRECIOS[v]); });
-                document.querySelectorAll('.total-val-' + v).forEach(function(el){ el.textContent = moneyFmt(state.invitados * PRECIOS[v]) + ' MXN'; });
             });
 
-            // Inversión Base display
+            // Precio Base display (solo precio por persona grande)
             var elDisplay = document.getElementById('totalBaseDisplay');
-            if (elDisplay) elDisplay.innerHTML = moneyFmt(porPersona) + '<sup>MXN</sup>';
+            if (elDisplay) elDisplay.innerHTML = moneyFmt(ppBase) + '<sup>MXN</sup>';
 
-            var teChico = document.getElementById('totalEventoChico');
-            if (teChico) teChico.textContent = moneyFmt(totalFinal) + ' MXN';
-
-            var tbTexto = document.getElementById('totalBaseTexto');
-            if (tbTexto) tbTexto.textContent = moneyFmt(baseTotal);
-
-            var teTexto = document.getElementById('totalExtrasTexto');
-            if (teTexto) teTexto.textContent = moneyFmt(extrasTotal);
-
-            // Desglose extras en la caja de inversión
+            // Desglose extras en la caja de inversión (servicios adicionales opcionales con su costo individual)
             var listaEx = document.getElementById('listaExtras');
             if (listaEx) {
                 listaEx.innerHTML = seleccion.map(function(e){
@@ -3942,53 +3923,38 @@
             var desgEx = document.getElementById('desgloseExtras');
             if (desgEx) desgEx.style.display = seleccion.length ? 'block' : 'none';
 
-            // Tabla PDF
+            // Tabla PDF (solo precio por persona)
             var pdfTotalPersona = document.getElementById('pdfTotalPersona');
-            var pdfTotalEvento = document.getElementById('pdfTotalEvento');
-            if (pdfTotalPersona) pdfTotalPersona.textContent = moneyFmt(porPersona);
-            if (pdfTotalEvento) pdfTotalEvento.textContent = moneyFmt(totalFinal);
+            if (pdfTotalPersona) pdfTotalPersona.textContent = moneyFmt(ppBase);
 
-            // Caja sticky del cotizador
-            var ctbTotal = document.getElementById('ctbTotal');
-            if (ctbTotal) {
-                ctbTotal.textContent = moneyFmt(totalFinal);
-                var ctbPorPersona = document.getElementById('ctbPorPersona');
-                if (ctbPorPersona) ctbPorPersona.textContent = moneyFmt(porPersona);
-                var ctbBase = document.getElementById('ctbBase');
-                if (ctbBase) ctbBase.textContent = moneyFmt(baseTotal);
-                var ctbExtras = document.getElementById('ctbExtras');
-                if (ctbExtras) {
-                    ctbExtras.innerHTML = seleccion.map(function(e){
-                        return '<li><span>+ ' + e.nombre + '</span><span>' + moneyFmt(e.precio) + '</span></li>';
-                    }).join('');
-                }
-                var ctbVacio = document.getElementById('ctbVacio');
-                if (ctbVacio) ctbVacio.style.display = seleccion.length ? 'none' : 'block';
+            // Caja sticky del cotizador (solo precio por persona y lista de extras individuales)
+            var ctbPorPersona = document.getElementById('ctbPorPersona');
+            if (ctbPorPersona) ctbPorPersona.textContent = moneyFmt(ppBase);
+            var ctbExtras = document.getElementById('ctbExtras');
+            if (ctbExtras) {
+                ctbExtras.innerHTML = seleccion.map(function(e){
+                    return '<li><span>+ ' + e.nombre + '</span><span>' + moneyFmt(e.precio) + '</span></li>';
+                }).join('');
             }
+            var ctbVacio = document.getElementById('ctbVacio');
+            if (ctbVacio) ctbVacio.style.display = seleccion.length ? 'none' : 'block';
 
-            // Resumen final web
-            var rfTotal = document.getElementById('resumenFinalTotal');
-            if (rfTotal) rfTotal.textContent = moneyFmt(totalFinal) + ' MXN';
+            // Resumen de propuesta web (solo monto de extras seleccionados si existen)
             var rfExtras = document.getElementById('resumenFinalExtras');
             if (rfExtras) rfExtras.textContent = moneyFmt(extrasTotal) + ' MXN';
             var rfRow = document.getElementById('resumenFinalExtrasRow');
             if (rfRow) rfRow.style.display = seleccion.length ? 'flex' : 'none';
 
-            // Actualizar todos los span con clase total-base-txt
-            document.querySelectorAll('.total-base-txt').forEach(function(el){
-                el.textContent = moneyFmt(baseTotal) + ' MXN';
-            });
-
-            // Actualizar enlaces de WhatsApp
-            actualizarEnlacesWhatsapp(totalFinal);
+            // Actualizar enlaces de WhatsApp (menciona precio por persona)
+            actualizarEnlacesWhatsapp(ppBase);
         }
 
-        function actualizarEnlacesWhatsapp(totalFinal) {
+        function actualizarEnlacesWhatsapp(porPersona) {
             var vName = getVenueDisplayName(state.venue);
             var eName = getEventoDisplayName(state.evento);
-            var totalTxt = moneyFmt(totalFinal);
+            var ppTxt = moneyFmt(porPersona || precioActivo());
 
-            var textoApartar = 'Hola, revisé la propuesta integral para ' + state.invitados + ' invitados (' + eName + ' en ' + vName + ') por ' + totalTxt + ' MXN y quiero APARTAR LA FECHA con el 10% de anticipo. ¿Me confirman los datos para el depósito?';
+            var textoApartar = 'Hola, revisé la propuesta integral para ' + state.invitados + ' invitados (' + eName + ' en ' + vName + ') por ' + ppTxt + ' MXN por persona (' + state.invitados + ' invitados) y quiero APARTAR LA FECHA con el 10% de anticipo. ¿Me confirman los datos para el depósito?';
             var urlApartar = 'https://api.whatsapp.com/send/?phone=527774587923&text=' + encodeURIComponent(textoApartar);
 
             var textoCita = 'Hola, quiero agendar la fecha para la FIRMA DEL CONTRATO Y LA DEGUSTACIÓN para 4 personas para el evento de ' + state.invitados + ' invitados (' + eName + ' en ' + vName + '). ¿Qué días y horarios tienen disponibles y qué documentos debo llevar?';
@@ -4018,10 +3984,17 @@
             actualizarTotal();
         };
 
-        window.seleccionarVenue = function(venueId) {
+        window.seleccionarVenue = function(venueId, skipScrollPreserve) {
             if (VENUES_VALIDOS.indexOf(venueId) < 0) return;
             state.venue = venueId;
             try { localStorage.setItem('cotizacion_500_venue', venueId); } catch(err){}
+
+            // Guardar la posición relativa de scroll (0..1) antes de intercambiar los
+            // bloques .venue-block: cada recinto tiene distinta altura de contenido, así
+            // que sin esto el usuario "pierde el lugar" al cambiar de recinto a media página.
+            var prevScrollY = window.scrollY || window.pageYOffset || 0;
+            var prevMaxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+            var scrollRatio = prevScrollY / prevMaxScroll;
 
             // Actualizar pills
             var pills = document.querySelectorAll('.venue-pill');
@@ -4116,11 +4089,28 @@
             if (window.reanimarReveals && document.body.classList.contains('propuesta-abierta')) window.reanimarReveals(venueId);
             // Montar/desmontar los videos de YouTube del recinto recién mostrado
             setTimeout(function(){ window.dispatchEvent(new Event('scroll')); }, 60);
+
+            // Restaurar la posición relativa de scroll ya con el nuevo recinto pintado.
+            // Se corrige dos veces: la primera (doble rAF) cubre el reflow inmediato del
+            // cambio de altura; la segunda (a los 450ms) cubre el asentamiento tardío por
+            // el video de YouTube del hero o imágenes que aún están cargando.
+            if (!skipScrollPreserve) {
+                function restaurarScroll(){
+                    var newMaxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+                    var newScrollY = Math.round(scrollRatio * newMaxScroll);
+                    var currentScrollY = window.scrollY || window.pageYOffset || 0;
+                    if (Math.abs(newScrollY - currentScrollY) > 4) {
+                        window.scrollTo(0, newScrollY);
+                    }
+                }
+                requestAnimationFrame(function(){ requestAnimationFrame(restaurarScroll); });
+                setTimeout(restaurarScroll, 450);
+            }
         };
         window.cambiarVenue = window.seleccionarVenue;
 
         window.seleccionarVenueYScroll = function(venueId) {
-            window.seleccionarVenue(venueId);
+            window.seleccionarVenue(venueId, true);
             var el = document.getElementById('datosRecinto');
             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         };
