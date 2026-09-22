@@ -258,6 +258,11 @@
         .triptico-horizontal .triptico-panel .is-short-video-box,
         .triptico-horizontal .triptico-panel .is-short-video-box iframe { width:100% !important; height:100% !important; aspect-ratio:auto !important; object-fit:cover !important; }
         .complemento-body h4 { font-size:1rem; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+
+        /* Bloques que solo aplican a un tipo de evento (ej. el tríptico de Graduación):
+           ocultos por default, visibles solo cuando ese evento está activo en el toggle. */
+        .evento-block { display:none !important; }
+        body.evento-activo-graduacion .evento-graduacion-block { display:block !important; }
         .complemento-body h4 i { color:var(--primary-pink); }
         .complemento-body p { font-size:.8rem; color:var(--gray-text); margin-bottom:12px; }
         .btn-complemento { display:inline-flex; align-items:center; gap:6px; background:var(--primary-pink); color:var(--white); padding:6px 14px; border-radius:30px; font-weight:600; font-size:.75rem; text-decoration:none; }
@@ -1492,6 +1497,7 @@
                     <div class="pills-group">
                         <button type="button" class="pill-btn evento-pill active" id="btnEventoBoda" onclick="window.seleccionarEvento('boda')">Boda</button>
                         <button type="button" class="pill-btn evento-pill" id="btnEventoXv" onclick="window.seleccionarEvento('xv')">XV Años</button>
+                        <button type="button" class="pill-btn evento-pill" id="btnEventoGraduacion" onclick="window.seleccionarEvento('graduacion')">Graduación</button>
                     </div>
                 </div>
                 <div class="control-group control-group-invitados invitados-control">
@@ -1519,7 +1525,7 @@
                     </div>
                     <div class="ph-txt">
                         <h2>Cotización elaborada por Primavera Events Group<sup class="marca-reg">&reg;</sup> &middot; Presentada por Cásate en Morelos</h2>
-                        <p class="ph-meta">Propuesta para <span class="invitados-num-txt">500</span> Invitados &middot; <span class="txt-evento" data-evento-boda="Boda" data-evento-xv="XV Años">Boda</span> &middot; <span class="venue-inline-name">Jardín Tsú Nuum</span> &middot; <span class="pp-activo">$1,000.00</span> MXN por persona</p>
+                        <p class="ph-meta">Propuesta para <span class="invitados-num-txt">500</span> Invitados &middot; <span class="txt-evento" data-evento-boda="Boda" data-evento-xv="XV Años" data-evento-graduacion="Graduación">Boda</span> &middot; <span class="venue-inline-name">Jardín Tsú Nuum</span> &middot; <span class="pp-activo">$1,000.00</span> MXN por persona</p>
                     </div>
                 </div>
                 <div class="qr-print-box">
@@ -1698,7 +1704,7 @@
             <!-- ══ DATOS DEL EVENTO ══ -->
             <div class="header-info">
                 <div class="header-main">
-                    <h2><span class="txt-evento" data-evento-boda="Boda" data-evento-xv="XV Años">Boda</span> &middot; Paquete Integral 500</h2>
+                    <h2><span class="txt-evento" data-evento-boda="Boda" data-evento-xv="XV Años" data-evento-graduacion="Graduación">Boda</span> &middot; Paquete Integral 500</h2>
                     <p>Propuesta integral y personalizada para <strong><span class="invitados-num-txt">500</span> invitados</strong> en <strong class="venue-inline-name">Jardín Tsú Nuum</strong>. Toma como base el paquete Vuelo Esmeralda de Primavera Events Group, integrando banquete haute cuisine, barra libre de bebidas y mezcladores, mobiliario de diseñador, amenidades de cortesía, audio profesional y coordinación general de servicio.</p>
                     <span class="badge-event">Paquete Integral 500 &middot; Personalizado</span>
                 </div>
@@ -1786,7 +1792,7 @@
                         </tr>
                         <tr>
                             <td><img class="tbl-thumb" src="ceremonia_oficiante.webp" alt="Oficiante" loading="lazy"><strong>Oficiante y Coro</strong></td>
-                            <td>Padre / oficiante religioso y coro para acompañar la <span class="txt-evento" data-evento-boda="misa de boda" data-evento-xv="misa de acción de gracias">misa de boda</span>.</td>
+                            <td>Padre / oficiante religioso y coro para acompañar la <span class="txt-evento" data-evento-boda="misa de boda" data-evento-xv="misa de acción de gracias" data-evento-graduacion="ceremonia de graduación">misa de boda</span>.</td>
                             <td class="align-center">1</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
@@ -1830,7 +1836,7 @@
                         <tr class="tr-destacado" style="background:var(--soft-pink);"><td colspan="5"><strong>2 &middot; RECEPCIÓN Y CÓCTEL DE BIENVENIDA (1 HORA)</strong></td></tr>
                         <tr>
                             <td><img class="tbl-thumb" src="sala_lounge_1.webp" alt="Salas lounge" loading="lazy"><img class="tbl-thumb" src="periqueras_real.webp" alt="Periqueras y sombrillas" loading="lazy"><strong>Montaje de Recepción</strong></td>
-                            <td>Salas lounge, periqueras y sombrillas (para el 30% de los invitados), letras gigantes <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span> y corazón iluminado, con alfombra roja en la recepción.</td>
+                            <td>Salas lounge, periqueras y sombrillas (para el 30% de los invitados), letras gigantes <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span> y corazón iluminado, con alfombra roja en la recepción.</td>
                             <td class="align-center"><span class="invitados-num-txt">500</span> Px</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
@@ -1867,7 +1873,7 @@
                         </tr>
                         <tr>
                             <td><img class="tbl-thumb" src="mesa_principal_rey_reyna.webp" alt="Mesa de honor" loading="lazy"><strong>Mesa de Honor &amp; Mesas Especiales</strong></td>
-                            <td>Mesa de honor <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera y su familia">para los novios</span>, mesa especial para pastel y mesa para regalos.</td>
+                            <td>Mesa de honor <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera y su familia" data-evento-graduacion="para el egresado y su familia">para los novios</span>, mesa especial para pastel y mesa para regalos.</td>
                             <td class="align-center">3 montajes</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
@@ -1975,7 +1981,7 @@
                         <tr class="tr-destacado" style="background:var(--soft-pink);"><td colspan="5"><strong>8 &middot; PERFORMANCE Y CORTESÍAS ESPECIALES</strong></td></tr>
                         <tr>
                             <td><img class="tbl-thumb" src="letras_gigantes_iluminadas.webp" alt="Letras iluminadas" loading="lazy"><img class="tbl-thumb" src="corazon_rojo_iluminado.webp" alt="Corazón iluminado" loading="lazy"><strong>Letras Gigantes &amp; Corazón Iluminado</strong></td>
-                            <td>Letras decorativas a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>) y corazón rojo iluminado.</td>
+                            <td>Letras decorativas a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>) y corazón rojo iluminado.</td>
                             <td class="align-center">1 set</td>
                             <td class="align-right">Cortesía</td>
                             <td class="align-right">Cortesía</td>
@@ -1989,7 +1995,7 @@
                         </tr>
                         <tr>
                             <td><img class="tbl-thumb" src="alfombra_roja.webp" alt="Alfombra roja" loading="lazy"><strong>Alfombra Roja</strong></td>
-                            <td>Alfombra roja para una recepción espectacular <span class="txt-evento" data-evento-boda="para recibir a los novios y a sus invitados" data-evento-xv="para recibir a la quinceañera y a sus invitados">para recibir a los novios y a sus invitados</span>.</td>
+                            <td>Alfombra roja para una recepción espectacular <span class="txt-evento" data-evento-boda="para recibir a los novios y a sus invitados" data-evento-xv="para recibir a la quinceañera y a sus invitados" data-evento-graduacion="para recibir a los graduados y a sus invitados">para recibir a los novios y a sus invitados</span>.</td>
                             <td class="align-center">1</td>
                             <td class="align-right">Cortesía</td>
                             <td class="align-right">Cortesía</td>
@@ -2010,7 +2016,7 @@
                         </tr>
                         <tr>
                             <td><img class="tbl-thumb" src="dinamica_mazo_retos.webp" alt="Dinámica del mazo de retos" loading="lazy"><img class="tbl-thumb" src="buenos_deseos_video.webp" alt="Buenos deseos en video" loading="lazy"><strong>Social Media Content</strong></td>
-                            <td>Reels para redes sociales, dinámica del mazo de retos en las mesas y recopilación de buenos deseos grabados en video <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera">para los novios</span>.</td>
+                            <td>Reels para redes sociales, dinámica del mazo de retos en las mesas y recopilación de buenos deseos grabados en video <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera" data-evento-graduacion="para los graduados">para los novios</span>.</td>
                             <td class="align-center">1 servicio</td>
                             <td class="align-right">Cortesía</td>
                             <td class="align-right">Cortesía</td>
@@ -2061,7 +2067,7 @@
                             <tr style="background:var(--soft-pink);"><td colspan="3"><strong>A &middot; CORTESÍAS QUE YA INCLUYE EL PAQUETE VUELO ESMERALDA</strong></td></tr>
                             <tr>
                                 <td><strong>Letras Decorativas y Corazón</strong></td>
-                                <td>Letras a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>) y corazón rojo decorativo iluminado.</td>
+                                <td>Letras a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>) y corazón rojo decorativo iluminado.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
@@ -2166,7 +2172,7 @@
                             <tr style="background:var(--soft-pink);"><td colspan="3"><strong>A &middot; YA LO INCLUYEN LOS PAQUETES OFICIALES DEL RECINTO</strong></td></tr>
                             <tr>
                                 <td><strong>Cortesías Oficiales de Entrada y Fiesta</strong></td>
-                                <td>Degustación para 4 personas, letras gigantes (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>), corazón iluminado, mesas de pastel/regalos, detonación de 2 chisperos, alfombra roja, espejo selfie y barra mix con 12 toppings.</td>
+                                <td>Degustación para 4 personas, letras gigantes (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>), corazón iluminado, mesas de pastel/regalos, detonación de 2 chisperos, alfombra roja, espejo selfie y barra mix con 12 toppings.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
@@ -2291,7 +2297,7 @@
                             </tr>
                             <tr>
                                 <td><strong>Cortesías Tradicionales de la Firma</strong></td>
-                                <td>Letras decorativas (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>), corazón iluminado, mesas de pastel/regalos, 2 chisperos y alfombra roja.</td>
+                                <td>Letras decorativas (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>), corazón iluminado, mesas de pastel/regalos, 2 chisperos y alfombra roja.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
 
@@ -2381,12 +2387,12 @@
                             <tr style="background:var(--soft-pink);"><td colspan="3"><strong>BENEFICIOS INCLUIDOS EN ESTA PROPUESTA</strong></td></tr>
                             <tr>
                                 <td><strong>Letras Gigantes y Corazón Iluminado</strong></td>
-                                <td>Letras a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>) y corazón rojo iluminado.</td>
+                                <td>Letras a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>) y corazón rojo iluminado.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
                                 <td><strong>Mesas Especiales</strong></td>
-                                <td>Mesa de honor <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera">para los novios</span>, mesa para pastel y mesa para regalos.</td>
+                                <td>Mesa de honor <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera" data-evento-graduacion="para los graduados">para los novios</span>, mesa para pastel y mesa para regalos.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
@@ -2479,12 +2485,12 @@
                             <tr style="background:var(--soft-pink);"><td colspan="3"><strong>BENEFICIOS INCLUIDOS EN ESTA PROPUESTA</strong></td></tr>
                             <tr>
                                 <td><strong>Letras Gigantes y Corazón Iluminado</strong></td>
-                                <td>Letras a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>) y corazón rojo iluminado.</td>
+                                <td>Letras a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>) y corazón rojo iluminado.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
                                 <td><strong>Mesas Especiales</strong></td>
-                                <td>Mesa de honor <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera">para los novios</span>, mesa para pastel y mesa para regalos.</td>
+                                <td>Mesa de honor <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera" data-evento-graduacion="para los graduados">para los novios</span>, mesa para pastel y mesa para regalos.</td>
                                 <td class="align-right">Cortesía</td>
                             </tr>
                             <tr>
@@ -2709,7 +2715,7 @@
                                     <li><i class="fas fa-check"></i> Centros de mesa con arreglos florales naturales de temporada</li>
                                     <li><i class="fas fa-check"></i> DJ, iluminación y soporte de audio completo</li>
                                     <li><i class="fas fa-check"></i> Servicio de meseros y personal de cocina profesional</li>
-                                    <li><i class="fas fa-check"></i> Cortesías decorativas de la firma Primavera Events (letras decorativas <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>, corazón rojo iluminado, mesa de pastel, mesa de regalos, detonación de 2 chisperos, alfombra roja)</li>
+                                    <li><i class="fas fa-check"></i> Cortesías decorativas de la firma Primavera Events (letras decorativas <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>, corazón rojo iluminado, mesa de pastel, mesa de regalos, detonación de 2 chisperos, alfombra roja)</li>
                                 </ul>
                             </div>
                             <div class="paquete-pie-precio">
@@ -2748,7 +2754,7 @@
                                     <li><i class="fas fa-check"></i> Servicio de mezcladores completo: hielo, agua natural, refrescos de la línea Coca-Cola, jugo de limón y sal</li>
                                     <li><i class="fas fa-check"></i> Equipo de servicio completo: Coordinador General, Hostess, Meseros, Personal de barra, Stewart, Cocina, Personal de baños</li>
                                     <li><i class="fas fa-check"></i> DJ Profesional con cabina, audio/iluminación de alta calidad, cabezas robóticas, proyector/pantalla, accesorios de animación, micrófonos inalámbricos, láser y máquina de humo</li>
-                                    <li><i class="fas fa-check"></i> Cortesías: Degustación para 4 personas al firmar, letras gigantes (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>), corazón rojo iluminado, mesas de pastel/regalos, detonación de 2 chisperos, alfombra roja, espejo selfie y barra mix con 12 toppings</li>
+                                    <li><i class="fas fa-check"></i> Cortesías: Degustación para 4 personas al firmar, letras gigantes (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>), corazón rojo iluminado, mesas de pastel/regalos, detonación de 2 chisperos, alfombra roja, espejo selfie y barra mix con 12 toppings</li>
                                 </ul>
                             </div>
                             <div class="paquete-pie-precio">
@@ -2781,7 +2787,7 @@
                                     <li><i class="fas fa-check"></i> Servicio de mezcladores completo: hielo, agua, refrescos de la línea Coca-Cola, limón y sal</li>
                                     <li><i class="fas fa-check"></i> Equipo de servicio completo: Coordinador General, Capitán de Meseros, Hostess, Meseros, Barra, Stewart, Cocina, Personal de baños</li>
                                     <li><i class="fas fa-check"></i> DJ Profesional con cabina, audio/iluminación, cabezas robóticas, proyector/pantalla, accesorios de animación, micrófonos inalámbricos, láser, máquina de humo, pista de baile 5&times;5 y 2 chisperos a control remoto</li>
-                                    <li><i class="fas fa-check"></i> Cortesías: Degustación para 4 personas, letras gigantes (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>), corazón rojo iluminado, mesas de pastel/regalos, detonación de 2 chisperos, alfombra roja, espejo selfie, barra mix con 12 toppings y opción de montaje de ceremonia con mobiliario elegante</li>
+                                    <li><i class="fas fa-check"></i> Cortesías: Degustación para 4 personas, letras gigantes (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>), corazón rojo iluminado, mesas de pastel/regalos, detonación de 2 chisperos, alfombra roja, espejo selfie, barra mix con 12 toppings y opción de montaje de ceremonia con mobiliario elegante</li>
                                 </ul>
                             </div>
                             <div class="paquete-pie-precio">
@@ -2810,7 +2816,7 @@
                                     <li><i class="fas fa-check"></i> Mobiliario estilo campestre de autor</li>
                                     <li><i class="fas fa-check"></i> Audio, DJ profesional, iluminación arquitectónica del bosque y kit de animación</li>
                                     <li><i class="fas fa-check"></i> Personal operativo de meseros, barras, Stewart y sanitarios</li>
-                                    <li><i class="fas fa-check"></i> Cortesías tradicionales de la firma (letras decorativas <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>, corazón rojo iluminado, mesa de pastel, mesa de regalos, detonación de 2 chisperos, alfombra roja)</li>
+                                    <li><i class="fas fa-check"></i> Cortesías tradicionales de la firma (letras decorativas <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>, corazón rojo iluminado, mesa de pastel, mesa de regalos, detonación de 2 chisperos, alfombra roja)</li>
                                 </ul>
                             </div>
                             <div class="paquete-pie-precio">
@@ -2885,7 +2891,7 @@
 
                     <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--gray-text); text-transform:uppercase; letter-spacing:.5px;">A &middot; Cortesías que ya incluye el paquete Vuelo Esmeralda</p>
                     <ul>
-                        <li>Letras decorativas a elegir <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>.</li>
+                        <li>Letras decorativas a elegir <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>.</li>
                         <li>Corazón rojo decorativo iluminado.</li>
                         <li>Mesa especial para pastel.</li>
                         <li>Mesa especial para regalos.</li>
@@ -2922,7 +2928,7 @@
                     <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--gray-text); text-transform:uppercase; letter-spacing:.5px;">A &middot; Ya lo incluyen los paquetes oficiales del recinto</p>
                     <ul>
                         <li>Degustación para 4 personas.</li>
-                        <li>Letras gigantes <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>.</li>
+                        <li>Letras gigantes <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>.</li>
                         <li>Corazón rojo iluminado.</li>
                         <li>Mesas de pastel y regalos.</li>
                         <li>Detonación de 2 chisperos.</li>
@@ -2969,7 +2975,7 @@
                         <li>Mobiliario campestre de autor.</li>
                         <li>Audio, DJ, iluminación arquitectónica del bosque y kit de animación.</li>
                         <li>Meseros, barras, Stewart y sanitarios.</li>
-                        <li>Cortesías tradicionales de la firma (letras <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>, corazón iluminado, mesas de pastel y regalos, 2 chisperos, alfombra roja).</li>
+                        <li>Cortesías tradicionales de la firma (letras <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>, corazón iluminado, mesas de pastel y regalos, 2 chisperos, alfombra roja).</li>
                     </ul>
 
                     <p style="font-weight:700; font-size:.88rem; margin:18px 0 6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">B &middot; Se agrega de más en esta propuesta</p>
@@ -3000,7 +3006,7 @@
 
                     <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">Incluido en esta propuesta</p>
                     <ul>
-                        <li>Letras decorativas a elegir <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>.</li>
+                        <li>Letras decorativas a elegir <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>.</li>
                         <li>Corazón rojo decorativo iluminado.</li>
                         <li>Mesa especial para pastel y mesa especial para regalos.</li>
                         <li>Detonación de <strong>4</strong> chisperos de pirotecnia en frío.</li>
@@ -3029,7 +3035,7 @@
 
                     <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">Incluido en esta propuesta</p>
                     <ul>
-                        <li>Letras decorativas a elegir <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>.</li>
+                        <li>Letras decorativas a elegir <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>.</li>
                         <li>Corazón rojo decorativo iluminado.</li>
                         <li>Mesa especial para pastel y mesa especial para regalos.</li>
                         <li>Detonación de <strong>4</strong> chisperos de pirotecnia en frío.</li>
@@ -3183,7 +3189,7 @@
             </div>
             <!-- Tsú Nuum: video real de la ceremonia en el jardín (recorrido, seg. 16-38) -->
             <div class="venue-block venue-tsunuum reveal" style="margin-top:0;">
-                <p class="calc-hint" style="margin-top:-6px;">Así se vive la <span class="txt-evento" data-evento-boda="misa de boda" data-evento-xv="misa de acción de gracias">misa de boda</span> en el área de ceremonia al aire libre de Jardín Tsú Nuum.</p>
+                <p class="calc-hint" style="margin-top:-6px;">Así se vive la <span class="txt-evento" data-evento-boda="misa de boda" data-evento-xv="misa de acción de gracias" data-evento-graduacion="ceremonia de graduación">misa de boda</span> en el área de ceremonia al aire libre de Jardín Tsú Nuum.</p>
                 <div class="video-frame is-short-video-box" data-video="5xVqNRu6nu8" data-inicio="16" data-fin="38" style="aspect-ratio:16/9; margin-bottom:22px;"></div>
             </div>
             <!-- Isabeles: video real del montaje de ceremonia en los jardines (clip 0:58-1:12) -->
@@ -3221,7 +3227,7 @@
                 </div>
                 <div class="servicio-detalle reveal reveal-right">
                     <h4><i class="fas fa-music"></i> Oficiante Religioso y Coro</h4>
-                    <p>Padre / oficiante religioso con coro en vivo para solemnizar la <span class="txt-evento" data-evento-boda="misa de boda" data-evento-xv="misa de acción de gracias">misa de boda</span>.</p>
+                    <p>Padre / oficiante religioso con coro en vivo para solemnizar la <span class="txt-evento" data-evento-boda="misa de boda" data-evento-xv="misa de acción de gracias" data-evento-graduacion="ceremonia de graduación">misa de boda</span>.</p>
                 </div>
             </div>
 
@@ -3231,7 +3237,7 @@
             <div class="includes-grid">
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="sala_lounge_1.webp" alt="Salas lounge"></div><div class="include-content"><h4><i class="fas fa-couch"></i> Salas Lounge</h4><p>Salas lounge para que tus invitados se acomoden con comodidad durante la recepción.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="periqueras_real.webp" alt="Periqueras y sombrillas"></div><div class="include-content"><h4><i class="fas fa-umbrella-beach"></i> Periqueras y Sombrillas</h4><p>Mesas altas tipo periquera con bancos y sombrillas para el área de jardín, para el 30% de los invitados.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container is-short is-short-video-box" data-video="xNc85w8ZOCk" data-inicio="123"></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja en la Recepción <span class="badge-incluido">Cortesía del paquete</span> <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Entrada con alfombra roja <span class="txt-evento" data-evento-boda="para recibir a los novios y a sus invitados" data-evento-xv="para recibir a la quinceañera y a sus invitados">para recibir a los novios y a sus invitados</span>.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container is-short is-short-video-box" data-video="xNc85w8ZOCk" data-inicio="123"></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja en la Recepción <span class="badge-incluido">Cortesía del paquete</span> <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Entrada con alfombra roja <span class="txt-evento" data-evento-boda="para recibir a los novios y a sus invitados" data-evento-xv="para recibir a la quinceañera y a sus invitados" data-evento-graduacion="para recibir a los graduados y a sus invitados">para recibir a los novios y a sus invitados</span>.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="aguas_frescas.webp" alt="Cóctel de bienvenida y aguas frescas"></div><div class="include-content"><h4><i class="fas fa-martini-glass-citrus"></i> Cóctel de Bienvenida &amp; Aguas Frescas</h4><p>Margaritas, piñadas, azulitos y mojitos —en versión con y sin alcohol—, aguas frescas de fruta natural y agua natural.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-dual"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.webp" alt="Barra de snacks"><img class="include-img" loading="lazy" decoding="async" src="snacks_jicama_chamoy.webp" alt="Jícama con chamoy y limón"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings)</h4><p>Barra de snacks dulces y salados: chicharrones, palomitas, jícama con chamoy, chile en polvo y limón, entre otros toppings.</p></div></div></div>
             </div>
@@ -3241,7 +3247,7 @@
             <div class="includes-grid">
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container is-dual"><img class="include-img" loading="lazy" decoding="async" src="mesa_campirana.webp" alt="Mesa campirana de madera"><img class="include-img" loading="lazy" decoding="async" src="mesa_redonda_tiffany.webp" alt="Mesa redonda con sillas Tiffany"></div><div class="include-content"><h4><i class="fas fa-chair"></i> Mobiliario de Diseñador</h4><p>Mesas redondas, cuadradas o campiranas de madera con sillas Tiffany, Crossback o Luis XV a elección.</p></div></div></div>
                 <div class="reveal"><div class="include-item"><div class="include-img-container is-dual"><img class="include-img" loading="lazy" decoding="async" src="centros_mesa_altos.webp" alt="Centros de mesa altos"><img class="include-img" loading="lazy" decoding="async" src="centros_mesa_bajos.webp" alt="Centros de mesa bajos"></div><div class="include-content"><h4><i class="fas fa-spa"></i> Centros de Mesa Florales</h4><p>Flores naturales en arreglos altos y bajos combinados sobre bases de diseñador para todas las mesas.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_principal_rey_reyna.webp" alt="Mesa de honor Rey y Reyna"></div><div class="include-content"><h4><i class="fas fa-crown"></i> Mesa de Honor &amp; Mesas Especiales</h4><p>Mesa de honor con sillones de gala <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera y su familia">para los novios</span>, mesa para pastel y mesa para regalos.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_principal_rey_reyna.webp" alt="Mesa de honor Rey y Reyna"></div><div class="include-content"><h4><i class="fas fa-crown"></i> Mesa de Honor &amp; Mesas Especiales</h4><p>Mesa de honor con sillones de gala <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera y su familia" data-evento-graduacion="para el egresado y su familia">para los novios</span>, mesa para pastel y mesa para regalos.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-dual"><img class="include-img" loading="lazy" decoding="async" src="manteleria.webp" alt="Mantelería fina"><img class="include-img" loading="lazy" decoding="async" src="cuberteria_fina.webp" alt="Cubertería y vajilla completa"></div><div class="include-content"><h4><i class="fas fa-wine-glass"></i> Mantelería, Vajilla &amp; Cristalería</h4><p>Mantelería en varios tonos, vajilla de porcelana completa, cubertería fina y cristalería general (copas, vasos y tequileros).</p></div></div></div>
             </div>
 
@@ -3392,7 +3398,7 @@
             <!-- ═══ BLOQUE 8: PERFORMANCE Y EFECTOS ═══ -->
             <div class="gallery-block-title reveal reveal-left">8 &middot; Performance y Efectos Especiales</div>
             <div class="includes-grid">
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container is-dual"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_iluminadas.webp" alt="Letras gigantes iluminadas"><img class="include-img" loading="lazy" decoding="async" src="corazon_rojo_iluminado.webp" alt="Corazón rojo iluminado"></div><div class="include-content"><h4><i class="fas fa-heart"></i> Letras Gigantes &amp; Corazón Iluminado</h4><p>Letras gigantes a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>) con iluminación cálida y corazón rojo decorativo para sesiones de fotos.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container is-dual"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_iluminadas.webp" alt="Letras gigantes iluminadas"><img class="include-img" loading="lazy" decoding="async" src="corazon_rojo_iluminado.webp" alt="Corazón rojo iluminado"></div><div class="include-content"><h4><i class="fas fa-heart"></i> Letras Gigantes &amp; Corazón Iluminado</h4><p>Letras gigantes a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»" data-evento-graduacion="«GRAD»">«LOVE»</span>) con iluminación cálida y corazón rojo decorativo para sesiones de fotos.</p></div></div></div>
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Pirotecnia fría 4 chisperos"></div><div class="include-content"><h4><i class="fas fa-wand-magic-sparkles"></i> 4 Chisperos de Pirotecnia en Frío</h4><p>Cuatro detonaciones de chisperos en frío a control remoto, totalmente seguros para interiores y exteriores.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="amenidades_pista.webp" alt="Amenidades de pista"></div><div class="include-content"><h4><i class="fas fa-circle"></i> Amenidades de Pista</h4><p>Globos multicolores, collares hawaianos y pulseras neón para animar la fiesta en la pista de baile.</p></div></div></div>
             </div>
@@ -3418,12 +3424,12 @@
             </div>
             <div class="includes-grid">
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="dinamica_mazo_retos.webp" alt="Dinámica del mazo de retos"></div><div class="include-content"><h4><i class="fas fa-clone"></i> Dinámica del Mazo de Retos</h4><p>Llevamos un mazo de tarjetas a cada mesa: los invitados toman una al azar y cada tarjeta trae una imagen graciosa, un gesto o un reto que deben cumplir. Nosotros capturamos el momento con fotografía.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="buenos_deseos_video.webp" alt="Invitados grabando sus buenos deseos en video"></div><div class="include-content"><h4><i class="fas fa-comment-dots"></i> Buenos Deseos en Video</h4><p>Interactuamos con tus invitados para que graben en video sus mejores deseos <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera">para los novios</span>. Te los entregamos listos para compartir en redes o guardar como recuerdo.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="buenos_deseos_video.webp" alt="Invitados grabando sus buenos deseos en video"></div><div class="include-content"><h4><i class="fas fa-comment-dots"></i> Buenos Deseos en Video</h4><p>Interactuamos con tus invitados para que graben en video sus mejores deseos <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera" data-evento-graduacion="para los graduados">para los novios</span>. Te los entregamos listos para compartir en redes o guardar como recuerdo.</p></div></div></div>
             </div>
             <div class="servicios-lista">
                 <div class="servicio-detalle reveal reveal-left">
                     <h4><i class="fas fa-images"></i> Álbum de Recuerdo con tus Invitados</h4>
-                    <p>Recopilamos todas esas fotos de la dinámica y te las entregamos: un recuerdo divertido y espontáneo <span class="txt-evento" data-evento-boda="de los novios" data-evento-xv="de la festejada">de los novios</span> junto a cada una de sus mesas.</p>
+                    <p>Recopilamos todas esas fotos de la dinámica y te las entregamos: un recuerdo divertido y espontáneo <span class="txt-evento" data-evento-boda="de los novios" data-evento-xv="de la festejada" data-evento-graduacion="de los graduados">de los novios</span> junto a cada una de sus mesas.</p>
                 </div>
             </div>
 
@@ -3432,7 +3438,7 @@
             <div class="includes-grid">
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="fotografia_video.webp" alt="Fotografía y Video Profesional"></div><div class="include-content"><h4><i class="fas fa-camera"></i> Fotografía &amp; Video Profesional</h4><p>3 paquetes a elegir: Memoria Clásica ($9,350), Experiencia Deluxe ($10,900) o Cinematic Prestige ($13,900 — incluye dron 4K). <em>No incluidos en el paquete base; selecciónalos en el cotizador dinámico de abajo.</em></p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="cabina_inflable_fotos.webp" alt="Cabina inflable de fotos"></div><div class="include-content"><h4><i class="fas fa-camera-retro"></i> Cabina Inflable de Fotos</h4><p>Cabina inflable adicional para fotos con props, por 2 horas (además de la opción sin costo ya incluida). <em>No incluida en el paquete base; selecciónala en el cotizador dinámico de abajo.</em></p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container is-video"><video preload="none" data-autoplay="1" id="videoPastel" class="include-video" muted loop playsinline webkit-playsinline poster="mesa_pastel.webp"><source src="video_pastel.mp4" type="video/mp4"></video></div><div class="include-content"><h4><i class="fas fa-cake-candles"></i> <span class="txt-evento" data-evento-boda="Pastel de Boda de Autor" data-evento-xv="Pastel de XV Años de Autor">Pastel de Boda de Autor</span> <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Elaborado a medida por chef pastelero de autor (diseño personalizado, pisos y kilos a elección). <em>Se cotiza por separado sobre diseño, desde $9,000 MXN. Mira el video de demostración.</em></p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container is-video"><video preload="none" data-autoplay="1" id="videoPastel" class="include-video" muted loop playsinline webkit-playsinline poster="mesa_pastel.webp"><source src="video_pastel.mp4" type="video/mp4"></video></div><div class="include-content"><h4><i class="fas fa-cake-candles"></i> <span class="txt-evento" data-evento-boda="Pastel de Boda de Autor" data-evento-xv="Pastel de XV Años de Autor" data-evento-graduacion="Pastel de Graduación de Autor">Pastel de Boda de Autor</span> <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Elaborado a medida por chef pastelero de autor (diseño personalizado, pisos y kilos a elección). <em>Se cotiza por separado sobre diseño, desde $9,000 MXN. Mira el video de demostración.</em></p></div></div></div>
             </div>
 
             <!-- ══ Croquis interactivo: INCLUIDO EN EL SERVICIO ══ -->
@@ -3605,6 +3611,21 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- ══ Graduación: tríptico horizontal de 5 videos verticales (solo visible con evento=Graduación) ══ -->
+            <div class="video-section reveal evento-block evento-graduacion-block" style="margin-top:25px;">
+                <div class="triptico-horizontal">
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="gWsXegmZEgM"></div></div>
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="Gskb3tClLhY"></div></div>
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="cpItpEHm3M4"></div></div>
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="iOTu9DFZPU8"></div></div>
+                    <div class="triptico-panel"><div class="is-short-video-box" data-video="in1SZUNehR8"></div></div>
+                </div>
+                <div style="text-align:center; margin-top:14px;">
+                    <h4 style="font-size:1.1rem; margin-bottom:6px; color:var(--primary-dark); font-family:var(--font-serif);"><i class="fas fa-graduation-cap" style="color:var(--primary-pink); margin-right:8px;"></i> Graduación · Momentos Reales</h4>
+                    <p style="font-size:0.9rem; color:var(--gray-text); max-width:640px; margin:0 auto;">Así se vive una graduación con Primavera Events Group: banquete, pista, música en vivo y toda la energía de tus egresados.</p>
                 </div>
             </div>
 
@@ -3980,11 +4001,15 @@
         }
 
         function getEventoDisplayName(e) {
-            return e === 'xv' ? 'XV Años' : 'Boda';
+            if (e === 'xv') return 'XV Años';
+            if (e === 'graduacion') return 'Graduación';
+            return 'Boda';
         }
 
         function getPastelItemNombre(e) {
-            return e === 'xv' ? 'Pastel de XV Años de Autor (desde, según kilos y pisos)' : 'Pastel de Boda de Autor (desde, según kilos y pisos)';
+            if (e === 'xv') return 'Pastel de XV Años de Autor (desde, según kilos y pisos)';
+            if (e === 'graduacion') return 'Pastel de Graduación de Autor (desde, según kilos y pisos)';
+            return 'Pastel de Boda de Autor (desde, según kilos y pisos)';
         }
 
         function renderCalculador() {
@@ -4247,7 +4272,7 @@
         };
 
         window.seleccionarEvento = function(eventoId) {
-            if (eventoId !== 'boda' && eventoId !== 'xv') return;
+            if (eventoId !== 'boda' && eventoId !== 'xv' && eventoId !== 'graduacion') return;
             state.evento = eventoId;
             try { localStorage.setItem('cotizacion_500_evento', eventoId); } catch(err){}
 
@@ -4256,13 +4281,18 @@
             var targetPill = document.getElementById('btnEvento' + eventoId.charAt(0).toUpperCase() + eventoId.slice(1));
             if (targetPill) targetPill.classList.add('active');
 
+            // Actualizar clase del body (para bloques exclusivos de un evento, ej. tríptico de Graduación)
+            document.body.classList.remove('evento-activo-boda', 'evento-activo-xv', 'evento-activo-graduacion');
+            document.body.classList.add('evento-activo-' + eventoId);
+
             // Actualizar hero H1
             var heroEventoH1 = document.getElementById('heroEventoH1');
             if (heroEventoH1) heroEventoH1.textContent = getEventoDisplayName(eventoId);
 
             // Actualizar todos los elementos con data-evento
             document.querySelectorAll('.txt-evento').forEach(function(el){
-                var texto = eventoId === 'boda' ? el.getAttribute('data-evento-boda') : el.getAttribute('data-evento-xv');
+                var attr = eventoId === 'xv' ? 'data-evento-xv' : (eventoId === 'graduacion' ? 'data-evento-graduacion' : 'data-evento-boda');
+                var texto = el.getAttribute(attr) || el.getAttribute('data-evento-boda');
                 if (texto) el.textContent = texto;
             });
 
