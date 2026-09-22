@@ -236,11 +236,14 @@
         .complementos-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin-top:20px; width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
         .complemento-card { border-radius:20px; overflow:hidden; border:1px solid var(--beige); background:var(--white); display:flex; }
         .complemento-img { width:120px; object-fit:cover; }
-        /* Triptico de 3 videos verticales lado a lado, para que en conjunto den la
-           ilusión de un solo video horizontal (usado en Música en Vivo & Show Men). */
-        .complemento-triptych { display:flex; width:220px; flex-shrink:0; gap:1px; overflow:hidden; background:#000; }
-        .complemento-triptych video { width:33.334% !important; height:100% !important; max-width:33.334% !important; object-fit:cover !important; display:block !important; flex-shrink:0 !important; }
         .complemento-body { padding:18px; flex:1; }
+
+        /* Tríptico ancho de 3 videos 9:16 completos lado a lado: cada panel conserva su
+           formato vertical real (sin recortarlo a una franja delgada); juntos, el bloque
+           completo queda con proporción horizontal y da la ilusión de un solo video ancho. */
+        .triptico-horizontal { display:flex; gap:2px; width:100%; border-radius:18px; overflow:hidden; background:#000; box-shadow:0 12px 30px rgba(0,0,0,.15); }
+        .triptico-horizontal .triptico-panel { flex:1 1 0; aspect-ratio:9/16; min-width:0; }
+        .triptico-horizontal video { width:100% !important; height:100% !important; object-fit:cover !important; display:block !important; }
         .complemento-body h4 { font-size:1rem; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
         .complemento-body h4 i { color:var(--primary-pink); }
         .complemento-body p { font-size:.8rem; color:var(--gray-text); margin-bottom:12px; }
@@ -3531,11 +3534,7 @@
                     </div>
                     <div class="reveal reveal-right delay-3">
                         <div class="complemento-card">
-                            <div class="complemento-triptych">
-                                <video preload="none" data-autoplay="1" muted loop playsinline webkit-playsinline poster="musica_vivo_saxofonista_poster.webp"><source src="musica_vivo_saxofonista.mp4" type="video/mp4"></video>
-                                <video preload="none" data-autoplay="1" muted loop playsinline webkit-playsinline poster="musica_vivo_banda_poster.webp"><source src="musica_vivo_banda.mp4" type="video/mp4"></video>
-                                <video preload="none" data-autoplay="1" muted loop playsinline webkit-playsinline poster="musica_vivo_chinelos_poster.webp"><source src="musica_vivo_chinelos.mp4" type="video/mp4"></video>
-                            </div>
+                            <img loading="lazy" decoding="async" class="complemento-img" src="musica_vivo_saxofonista_poster.webp" alt="Música en vivo">
                             <div class="complemento-body">
                                 <h4><i class="fas fa-guitar"></i> Música en Vivo &amp; Show Men</h4>
                                 <p>Banda sinaloense, mariachi tradicional, show men animador o saxofonistas adicionales para momentos estelares.</p>
@@ -3543,6 +3542,20 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- ══ Música en Vivo & Show Men: tríptico horizontal de 3 videos verticales ══ -->
+            <div class="video-section reveal" style="margin-top:25px;">
+                <div class="triptico-horizontal">
+                    <div class="triptico-panel"><video preload="none" data-autoplay="1" muted loop playsinline webkit-playsinline poster="musica_vivo_saxofonista_poster.webp"><source src="musica_vivo_saxofonista.mp4" type="video/mp4"></video></div>
+                    <div class="triptico-panel"><video preload="none" data-autoplay="1" muted loop playsinline webkit-playsinline poster="musica_vivo_banda_poster.webp"><source src="musica_vivo_banda.mp4" type="video/mp4"></video></div>
+                    <div class="triptico-panel"><video preload="none" data-autoplay="1" muted loop playsinline webkit-playsinline poster="musica_vivo_chinelos_poster.webp"><source src="musica_vivo_chinelos.mp4" type="video/mp4"></video></div>
+                </div>
+                <div style="text-align:center; margin-top:14px;">
+                    <h4 style="font-size:1.1rem; margin-bottom:6px; color:var(--primary-dark); font-family:var(--font-serif);"><i class="fas fa-guitar" style="color:var(--primary-pink); margin-right:8px;"></i> Música en Vivo &amp; Show Men</h4>
+                    <p style="font-size:0.9rem; color:var(--gray-text); max-width:640px; margin:0 auto;">Banda sinaloense, mariachi tradicional, show men animador o saxofonistas adicionales para momentos estelares.</p>
+                    <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-complemento" style="display:inline-flex; margin-top:12px;"><i class="fas fa-arrow-up-right-from-square"></i> Consultar</a>
                 </div>
             </div>
 
