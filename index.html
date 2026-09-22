@@ -62,11 +62,12 @@
         .btn-enter:hover { transform:scale(1.04); background:#e04b69; }
 
         @media (max-width:768px) {
-            .preloader-overlay { padding:22px 16px !important; max-width:340px !important; border-radius:20px !important; background:rgba(255,255,255,.84) !important; }
-            .preloader-logo { width:54px !important; height:54px !important; margin-bottom:8px !important; }
-            .preloader-title { font-size:1.2rem !important; margin-bottom:6px !important; }
-            .preloader-text { font-size:.8rem !important; margin-bottom:14px !important; }
-            .btn-enter { padding:10px 20px !important; font-size:.78rem !important; }
+            #preloader { padding:12px !important; overflow:hidden !important; }
+            .preloader-overlay { padding:18px 14px !important; max-width:340px !important; width:94% !important; border-radius:20px !important; background:rgba(255,255,255,.88) !important; }
+            .preloader-logo { width:52px !important; height:52px !important; margin-bottom:6px !important; }
+            .preloader-title { font-size:1.25rem !important; margin-bottom:4px !important; }
+            .preloader-text { font-size:.8rem !important; margin-bottom:12px !important; }
+            .btn-enter { padding:10px 22px !important; font-size:.8rem !important; }
         }
 
         /* HERO — video oficial de Jardín Tsú Nuum en silencio y en bucle,
@@ -90,16 +91,25 @@
             html, body { overflow-x:hidden !important; max-width:100vw !important; width:100% !important; position:relative; }
             .container{margin-top:-40px;padding:0 6px !important; width:100% !important; max-width:100% !important; overflow-x:hidden !important; box-sizing:border-box !important;}
             .quote-card{padding:16px 10px !important;border-radius:16px !important; width:100% !important; max-width:100% !important; overflow-x:hidden !important; box-sizing:border-box !important;}
-            .hero h1{font-size:1.8rem;}
+            .hero { max-height:70vh !important; min-height:0 !important; }
+            .hero h1{ font-size:clamp(1.35rem, 5.2vw, 1.8rem) !important; line-height:1.18 !important; }
             .pricing-section { padding:18px 10px !important; border-radius:16px !important; width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
             .price-hero { font-size:2rem !important; word-break:break-word !important; }
             .price-hero sup { font-size:1rem !important; }
-            .includes-grid { grid-template-columns:1fr !important; gap:16px !important; width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
-            .include-item, .include-img-container, .include-img, .complemento-card, .publicidad-card, .venue-info-card, .calc-item { width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
-            .include-img-container.is-video { min-height:0 !important; width:100% !important; max-width:100% !important; height:auto !important; aspect-ratio:16/9; }
+            .includes-grid { grid-template-columns:minmax(0, 1fr) !important; gap:16px !important; width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
+            .includes-grid > * { min-width:0 !important; max-width:100% !important; }
+            .include-item { width:100% !important; max-width:100% !important; box-sizing:border-box !important; overflow:hidden !important; }
+            .include-img-container:not(.is-short):not(.is-figura) { width:100% !important; max-width:100% !important; height:auto !important; aspect-ratio:16/9 !important; overflow:hidden !important; }
+            .include-img-container.is-figura { width:100% !important; max-width:100% !important; height:280px !important; }
+            .include-img { width:100% !important; height:100% !important; object-fit:cover !important; }
+            .include-img.figura { object-fit:contain !important; }
+            .include-content p { font-size:0.88rem !important; line-height:1.55 !important; }
+            .include-img-container.is-video { min-height:0 !important; width:100% !important; max-width:100% !important; height:auto !important; aspect-ratio:16/9 !important; }
             .include-video, video { max-width:100% !important; height:auto !important; }
+            .complemento-card, .publicidad-card, .venue-info-card { width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
             .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); will-change:opacity, transform; }
             .reveal.active { opacity:1 !important; transform:translateY(0) !important; }
+            footer { padding-bottom:95px !important; }
         }
 
         .venue-logo-wrap { text-align:center; margin-bottom:30px; }
@@ -208,18 +218,20 @@
         .complemento-body p { font-size:.8rem; color:var(--gray-text); margin-bottom:12px; }
         .btn-complemento { display:inline-flex; align-items:center; gap:6px; background:var(--primary-pink); color:var(--white); padding:6px 14px; border-radius:30px; font-weight:600; font-size:.75rem; text-decoration:none; }
 
-        /* ══ Floating actions (redes + compartir) — copiado literal de antonio-cotizacion ══ */
+        /* ══ Floating actions (redes + compartir) — copiado literal de original ══ */
         .floating-actions-container { position:fixed; bottom:15px; right:15px; z-index:1000; display:flex; flex-direction:column; align-items:flex-end; gap:15px; }
         .fab-group { display:flex; flex-direction:column; align-items:flex-end; position:relative; }
         .fab-main { width:50px; height:50px; border-radius:50%; background:var(--white); border:none; color:var(--primary-pink); font-size:1.4rem; cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative; transition:all .4s cubic-bezier(.175,.885,.32,1.275); box-shadow:0 6px 18px rgba(0,0,0,.15); z-index:2; }
         .fab-main:hover { transform:scale(1.1) translateY(-5px); }
         .fab-label { position:absolute; right:65px; background:var(--white); color:var(--primary-dark); padding:6px 12px; border-radius:20px; font-size:.8rem; white-space:nowrap; box-shadow:0 4px 10px rgba(0,0,0,.1); opacity:0; visibility:hidden; transition:all .3s ease; font-weight:500; pointer-events:none; }
         .fab-main:hover .fab-label { opacity:1; visibility:visible; right:60px; }
-        .fab-menu { display:flex; flex-direction:column-reverse; gap:8px; position:absolute; bottom:100%; right:5px; opacity:0; visibility:hidden; transform:translateY(20px); transition:all .4s cubic-bezier(.175,.885,.32,1.275); margin-bottom:10px; pointer-events:none; z-index:1; }
-        .fab-group.active .fab-menu { opacity:1; visibility:visible; transform:translateY(0); pointer-events:auto; }
+        .fab-group.active .fab-label { display:none !important; }
+        .fab-menu { display:flex; flex-direction:row-reverse; gap:8px; position:absolute; right:60px; top:5px; opacity:0; visibility:hidden; transform:translateX(20px); transition:all .4s cubic-bezier(.175,.885,.32,1.275); pointer-events:none; z-index:1; }
+        .fab-group.active .fab-menu { opacity:1; visibility:visible; transform:translateX(0); pointer-events:auto; }
         .fab-item { width:40px; height:40px; border-radius:50%; background:var(--white); color:var(--primary-pink); display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:1.1rem; box-shadow:0 4px 12px rgba(0,0,0,.1); transition:all .3s ease; }
         .fab-item:hover { background:var(--primary-pink); color:var(--white); transform:scale(1.15); }
         .fab-group.active .fab-main { transform:rotate(15deg) scale(.9); filter:brightness(1.2); }
+        .fab-social, .fab-share { }
 
         /* ══ Expo / publicidad — copiado literal de antonio-cotizacion ══ */
         .expo-section { margin-top:50px; }
@@ -328,9 +340,14 @@
         .ctb-extras-list li { display:flex; justify-content:space-between; gap:10px; font-size:.78rem; color:rgba(255,255,255,.85); padding:3px 0; }
         .ctb-vacio { font-size:.78rem; color:rgba(255,255,255,.55); font-style:italic; }
         @media (max-width:768px){
-            .calc-total-box { top:8px; padding:12px 14px; border-radius:16px; }
+            .calc-total-box { top:85px !important; padding:12px 14px; border-radius:16px; }
             .ctb-total strong { font-size:1.4rem; }
             .ctb-extras-list { max-height:90px; }
+            .calc-grid { grid-template-columns: 1fr !important; gap:10px !important; }
+            .calc-item { width:100% !important; box-sizing:border-box !important; padding:12px 14px !important; gap:12px !important; justify-content:space-between !important; }
+            .calc-item input { flex-shrink:0 !important; }
+            .calc-item-label { flex:1 1 auto !important; font-size:0.86rem !important; line-height:1.4 !important; word-break:break-word !important; }
+            .calc-item-price { flex-shrink:0 !important; font-size:0.85rem !important; white-space:nowrap !important; text-align:right !important; }
         }
 
         /* ══ Sistema de Animaciones Elegantes e Interactivas (Basado en antonio-cotizacion) ══ */
@@ -416,6 +433,8 @@
             position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
             height:300px !important; width:534px !important; /* 300 x 16/9 */
             border:0 !important; display:block !important; max-width:none !important; }
+        .include-img-container.is-short-video-box:not(.is-short) { height:auto !important; position:relative; overflow:hidden; }
+        .is-short-video-box:not(.is-short) iframe { position:absolute; inset:0; width:100% !important; height:100% !important; border:0; }
 
         /* Dos videos verticales, uno al lado del otro, en la tarjeta de la Expo */
         .expo-img-box.expo-videos { background:#000; display:flex; align-items:center; justify-content:center;
@@ -425,6 +444,18 @@
             position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
             height:300px !important; width:534px !important; border:0 !important; display:block !important; max-width:none !important; }
         @media (max-width:768px) {
+            .include-img-container.is-short { height:320px !important; width:100% !important; position:relative !important; overflow:hidden !important; }
+            .include-img-container.is-short iframe {
+                position:absolute !important; top:50% !important; left:50% !important; transform:translate(-50%,-50%) !important;
+                height:320px !important; width:569px !important; border:0 !important; display:block !important; max-width:none !important;
+            }
+            .include-img-container.is-short-video-box:not(.is-short),
+            .is-short-video-box:not(.is-short) {
+                width:100% !important; height:auto !important; aspect-ratio:16/9 !important; position:relative !important; overflow:hidden !important;
+            }
+            .is-short-video-box:not(.is-short) iframe {
+                position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; border:0 !important;
+            }
             /* En movil solo se muestra un video de la Expo, mas grande: el navegador
                reproduce uno a la vez, asi que dos lado a lado dejaban uno en marcha
                y el otro con su miniatura, lo que se veia disparejo. */
@@ -846,6 +877,65 @@
             transform: scale(1.03);
         }
 
+        /* ══ Comparativo Móvil Selector y Tabla Adaptada ══ */
+        .comp-mobile-selector { display: none; }
+        @media (max-width: 767px) {
+            .comp-mobile-selector {
+                display: flex !important;
+                gap: 6px;
+                margin: 12px 0 16px;
+                background: var(--background-light);
+                padding: 4px;
+                border-radius: 30px;
+                border: 1px solid var(--beige);
+            }
+            .comp-mobile-btn {
+                flex: 1;
+                padding: 8px 4px;
+                font-size: 0.72rem;
+                border-radius: 25px;
+                border: none;
+                background: transparent;
+                color: var(--gray-text);
+                cursor: pointer;
+                font-weight: 600;
+                text-align: center;
+                transition: all .25s ease;
+                white-space: nowrap;
+                font-family: var(--font-sans);
+            }
+            .comp-mobile-btn.active {
+                background: var(--primary-pink) !important;
+                color: var(--white) !important;
+                box-shadow: 0 3px 10px rgba(246,92,122,.3);
+            }
+            .comparativo-table .col-venue-header:not(.col-active-venue),
+            .comparativo-table .col-venue-cell:not(.col-active-venue) {
+                display: none !important;
+            }
+            .comparativo-table {
+                width: 100% !important;
+                table-layout: fixed;
+            }
+            .comparativo-table th, .comparativo-table td {
+                width: 50% !important;
+                padding: 10px 8px !important;
+                font-size: 0.8rem !important;
+                box-sizing: border-box !important;
+            }
+            .comp-thumb {
+                max-width: 100% !important;
+                height: 90px !important;
+            }
+        }
+        @media print {
+            .comp-mobile-selector { display: none !important; }
+            .comparativo-table .col-venue-header,
+            .comparativo-table .col-venue-cell {
+                display: table-cell !important;
+            }
+        }
+
         /* ══ Visibilidad por Venue ══ */
         body.venue-active-tsunuum .venue-presidente,
         body.venue-active-tsunuum .venue-isabeles {
@@ -899,6 +989,64 @@
             border-left: 3px solid var(--gold-accent);
             margin-bottom: 25px;
             line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+            .tabla-paquetes-ccp,
+            .tabla-paquetes-ccp tbody,
+            .tabla-paquetes-ccp tr {
+                display: block !important;
+                width: 100% !important;
+                border: none !important;
+                box-shadow: none !important;
+                background: transparent !important;
+            }
+            .tabla-paquetes-ccp thead {
+                display: none !important;
+            }
+            .tabla-paquetes-ccp td {
+                display: block !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                border: 1.5px solid var(--gold-accent) !important;
+                border-radius: 14px !important;
+                margin-bottom: 18px !important;
+                padding: 46px 16px 16px !important;
+                position: relative !important;
+                background: var(--white) !important;
+                box-shadow: 0 4px 14px rgba(31,31,31,.05) !important;
+            }
+            .tabla-paquetes-ccp tr td:first-child::before {
+                content: "Paquete Gobernador";
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                background: var(--gold-accent);
+                color: var(--white);
+                font-family: var(--font-serif);
+                font-weight: 700;
+                font-size: 0.95rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                padding: 10px 14px;
+                text-align: center;
+                border-top-left-radius: 12px;
+                border-top-right-radius: 12px;
+            }
+            .tabla-paquetes-ccp tr td:last-child::before {
+                content: "Paquete Presidente";
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                background: var(--primary-dark);
+                color: var(--gold-accent);
+                font-family: var(--font-serif);
+                font-weight: 700;
+                font-size: 0.95rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                padding: 10px 14px;
+                text-align: center;
+                border-top-left-radius: 12px;
+                border-top-right-radius: 12px;
+            }
         }
 
         /* ══ Clase de datos por confirmar ══ */
@@ -1169,7 +1317,11 @@
             <!-- ══ SECCIÓN NUEVA: COMPARATIVO DE LOS 3 RECINTOS (SÍ SE IMPRIME) ══ -->
             <div class="comparativo-section bloque-print" id="seccionComparativo">
                 <h3 class="section-title" style="margin-top:10px;"><i class="fas fa-scale-balanced"></i> Comparativo de los 3 Recintos</h3>
-                <p class="calc-hint">Compara de un vistazo las características principales de los tres recintos disponibles para tu evento. Todos comparten el mismo paquete integral de banquete y coordinación, con la misma tarifa por persona.</p>
+                <div class="comp-mobile-selector" id="compMobileSelector">
+                    <button type="button" class="comp-mobile-btn active" data-comp-venue="tsunuum" onclick="window.seleccionarVenue('tsunuum')">Jardín Tsú Nuum</button>
+                    <button type="button" class="comp-mobile-btn" data-comp-venue="presidente" onclick="window.seleccionarVenue('presidente')">CC Presidente</button>
+                    <button type="button" class="comp-mobile-btn" data-comp-venue="isabeles" onclick="window.seleccionarVenue('isabeles')">Finca Las Isabeles</button>
+                </div>
                 <div class="comparativo-table-wrap">
                     <table class="comparativo-table">
                         <thead>
@@ -1188,7 +1340,7 @@
                                     <img src="logo_tsu_nuum.png" alt="Logo Jardín Tsú Nuum" style="height:40px; width:auto; object-fit:contain; margin:10px auto 0; display:block;" loading="lazy">
                                 </td>
                                 <td class="col-venue-cell col-venue-presidente">
-                                    <img src="presidente_01.webp" alt="Centro de Convenciones Presidente" class="comp-thumb" loading="lazy">
+                                    <img src="presidente_03.webp" alt="Centro de Convenciones Presidente" class="comp-thumb" loading="lazy">
                                     <div style="background:#1F1F1F; border-radius:8px; display:inline-block; padding:4px 12px; margin:10px auto 0;">
                                         <img src="logo_ccpresidente.png" alt="Logo Centro de Convenciones Presidente" style="height:40px; width:auto; object-fit:contain; display:block;" loading="lazy">
                                     </div>
@@ -1390,22 +1542,22 @@
 
                         <tr class="tr-destacado" style="background:var(--soft-pink);"><td colspan="5"><strong>2 &middot; RECEPCIÓN Y CÓCTEL DE BIENVENIDA (1 HORA)</strong></td></tr>
                         <tr>
-                            <td><img class="tbl-thumb" src="canapes_bienvenida.jpg" alt="Canapés" loading="lazy"><strong>Canapés de Bienvenida</strong></td>
-                            <td>Tres variedades de canapés gourmet a elección de los anfitriones.</td>
+                            <td><img class="tbl-thumb" src="sala_lounge_1.webp" alt="Salas lounge" loading="lazy"><img class="tbl-thumb" src="periqueras_real.jpg" alt="Periqueras y sombrillas" loading="lazy"><strong>Montaje de Recepción</strong></td>
+                            <td>Salas lounge, periqueras y sombrillas (para el 30% de los invitados), letras gigantes <span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span> y corazón iluminado, con alfombra roja en la recepción.</td>
                             <td class="align-center"><span class="invitados-num-txt">500</span> Px</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
                         </tr>
                         <tr>
-                            <td><img class="tbl-thumb" src="periqueras_altas.webp" alt="Periqueras" loading="lazy"><strong>Mobiliario de Cóctel</strong></td>
-                            <td>Periqueras altas de madera y sombrillas para el 30% de los invitados.</td>
-                            <td class="align-center">30% invitados</td>
+                            <td><img class="tbl-thumb" src="margaritas.webp" alt="Margaritas de sabores" loading="lazy"><img class="tbl-thumb" src="aguas_frescas.webp" alt="Aguas frescas" loading="lazy"><strong>Bebidas de Bienvenida</strong></td>
+                            <td>Margaritas, piñadas, azulitos, mojitos con y sin alcohol, y aguas frescas de fruta natural y agua natural.</td>
+                            <td class="align-center"><span class="invitados-num-txt">500</span> Px</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
                         </tr>
                         <tr>
-                            <td><img class="tbl-thumb" src="barra_premium.jpg" alt="Barra de shots" loading="lazy"><img class="tbl-thumb" src="aguas_frescas.webp" alt="Aguas frescas" loading="lazy"><strong>Bebidas de Bienvenida</strong></td>
-                            <td>Barra de shots y aguas frescas naturales durante el cóctel.</td>
+                            <td><img class="tbl-thumb" src="barra_snacks_real.jpg" alt="Barra de snacks" loading="lazy"><strong>Barra de Snacks (12 Toppings)</strong></td>
+                            <td>Barra de snacks con 12 toppings dulces y salados: chicharrones, palomitas, etc.</td>
                             <td class="align-center"><span class="invitados-num-txt">500</span> Px</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
@@ -1584,7 +1736,7 @@
                             <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
-                            <td><img class="tbl-thumb" src="guia_maestra_primavera.pdf" alt="Kit Planner" loading="lazy"><strong>Kit Organizador de Eventos</strong></td>
+                            <td><strong>Kit Organizador de Eventos</strong></td>
                             <td>Plantilla de control de presupuesto en Excel y guía maestra de organización en PDF.</td>
                             <td class="align-center">1 kit</td>
                             <td class="align-right">Cortesía</td>
@@ -1782,12 +1934,6 @@
                                 <td class="align-right">$1,000.00 MXN</td>
                             </tr>
 
-                            <tr class="tr-destacado" style="background:var(--soft-pink);"><td colspan="3"><strong>SOUVENIRS</strong></td></tr>
-                            <tr>
-                                <td>Souvenirs</td>
-                                <td>Tequila personalizado Don Ramón (750 ml, botella corte diamante personalizada)</td>
-                                <td class="align-right">$11,515.00 MXN</td>
-                            </tr>
 
                             <tr class="tr-destacado" style="background:var(--soft-pink);"><td colspan="3"><strong>TIEMPO EXTRA</strong></td></tr>
                             <tr>
@@ -1850,7 +1996,7 @@
                     <li><strong>Descorche libre</strong> durante todo el evento.</li>
                 </ul>
                 <p class="quote-phrase">Todos estos beneficios van integrados dentro de la inversión contratada &mdash; transparencia absoluta sin cargos sorpresa.</p>
-                <p style="color:var(--gray-text); font-size:.82rem; margin-top:14px; padding-top:14px; border-top:1px dashed var(--beige);"><i class="fas fa-circle-info" style="color:var(--primary-pink); margin-right:6px;"></i><strong>Los complementos adicionales opcionales</strong> (fotografía y video profesional, grupos musicales, souvenirs, etc.) se detallan más adelante en el "Cotizador Dinámico de Extras" y solo se cobran si decides agregarlos.</p>
+                <p style="color:var(--gray-text); font-size:.82rem; margin-top:14px; padding-top:14px; border-top:1px dashed var(--beige);"><i class="fas fa-circle-info" style="color:var(--primary-pink); margin-right:6px;"></i><strong>Los complementos adicionales opcionales</strong> (fotografía y video profesional, grupos musicales, etc.) se detallan más adelante en el "Cotizador Dinámico de Extras" y solo se cobran si decides agregarlos.</p>
             </div>
 
             <h3 class="section-title reveal reveal-left"><i class="fas fa-magic"></i> Todo lo que Incluye, Servicio por Servicio</h3>
@@ -1866,7 +2012,8 @@
                     <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_4.webp" alt="Arcos de piedra iluminados en el jardín"></div><div class="include-content"><h4><i class="fas fa-tree"></i> Arquitectura de Jardín</h4><p>Arcos de piedra y árboles maduros iluminados, aportando privacidad y un entorno espectacular al recinto.</p></div></div></div>
                     <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="hospedaje_habitacion.png" alt="Habitación de hospedaje"></div><div class="include-content"><h4><i class="fas fa-house"></i> Hospedaje</h4><p>Hospedaje sujeto a disponibilidad <span class="pendiente-confirmar">(se confirma con tu planner)</span>.</p></div></div></div>
                     <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_area_techada.webp" alt="Área techada montada para banquete"></div><div class="include-content"><h4><i class="fas fa-warehouse"></i> Área Techada para el Banquete</h4><p>Gran estructura techada con iluminación decorativa y pista de baile, para el montaje del banquete y la fiesta.</p></div></div></div>
-                    <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_area_techada_2.webp" alt="Área techada con pista de baile y cabina de DJ"></div><div class="include-content"><h4><i class="fas fa-music"></i> Pista de Baile y Área de DJ</h4><p>Vista nocturna del área techada con la pista de baile iluminada, cabina de DJ y pantalla.</p></div></div></div>
+                    <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_salon_montado.webp" alt="Salón montado con pista de baile"></div><div class="include-content"><h4><i class="fas fa-champagne-glasses"></i> Salón Montado con Pista de Baile</h4><p>Área techada montada para banquete con pista de baile, candil floral suspendido y mesa de honor iluminada.</p></div></div></div>
+                    <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_area_techada_2.webp" alt="Área techada con pista de baile y cabina de DJ"></div><div class="include-content"><h4><i class="fas fa-music"></i> Pista de Baile y Área de DJ</h4><p>Vista nocturna del área techada con la pista de baile iluminada, cabina de DJ y pantalla.</p></div></div></div>
                     <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tiempodeservicio.webp" alt="10 horas de presencia en el evento"></div><div class="include-content"><h4><i class="fas fa-clock"></i> 10 Horas de Presencia</h4><p>1 hora de ceremonia religiosa + 1 hora de cóctel de bienvenida + 8 horas de banquete y fiesta.</p></div></div></div>
                 </div>
             </div>
@@ -1875,29 +2022,25 @@
             <div class="venue-block venue-presidente">
                 <div class="gallery-block-title reveal reveal-left">1 &middot; Centro de Convenciones Presidente — Recinto y Áreas</div>
                 <div class="includes-grid">
-                    <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_01.webp" alt="Fachada principal con logotipo del recinto"></div><div class="include-content"><h4><i class="fas fa-building"></i> Fachada Principal</h4><p>Fachada principal con logotipo del recinto y acceso ejecutivo.</p></div></div></div>
                     <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_02.webp" alt="Gran salón techado climatizado"></div><div class="include-content"><h4><i class="fas fa-snowflake"></i> Salón Techado Climatizado</h4><p>Gran salón techado climatizado, con excelentes acabados y acústica de primer nivel.</p></div></div></div>
                     <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_03.webp" alt="Salón con entelado y pista LED"></div><div class="include-content"><h4><i class="fas fa-border-all"></i> Entelado &amp; Pista LED</h4><p>Salón montado con elegante entelado de techo y pista de baile LED interactiva.</p></div></div></div>
                     <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_04.webp" alt="Vista completa del salón en evento"></div><div class="include-content"><h4><i class="fas fa-wand-magic-sparkles"></i> Iluminación Arquitectónica</h4><p>Vista completa del salón en evento con entelado e iluminación arquitectónica perimetral.</p></div></div></div>
                     <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_05.webp" alt="Terraza y pasillos techados de acceso"></div><div class="include-content"><h4><i class="fas fa-walkie-talkie"></i> Terraza y Pasillos Techados</h4><p>Terraza y pasillos techados de acceso para una recepción cómoda y fluida.</p></div></div></div>
                     <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_06.webp" alt="Área infantil con juegos múltiples fijos"></div><div class="include-content"><h4><i class="fas fa-child"></i> Área Infantil</h4><p>Área infantil con juegos múltiples fijos, seguros y techados para los más pequeños.</p></div></div></div>
-                    <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_07.webp" alt="Jardín delantero y estacionamiento interno"></div><div class="include-content"><h4><i class="fas fa-square-parking"></i> Estacionamiento &amp; Jardín</h4><p>Jardín delantero y estacionamiento interno vigilado con capacidad para 35 vehículos compactos.</p></div></div></div>
+                    <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-short-video-box" data-video="W0IPzy0dFwk" data-inicio="50" data-fin="57" style="aspect-ratio:16/9;"></div><div class="include-content"><h4><i class="fas fa-square-parking"></i> Estacionamiento Interno Vigilado <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Estacionamiento privado interno y vigilado para 35 vehículos compactos.</p></div></div></div>
                     <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_08.webp" alt="Mesa principal de honor montada en salón"></div><div class="include-content"><h4><i class="fas fa-crown"></i> Mesa de Honor en Salón</h4><p>Mesa principal de honor montada en el salón principal con diseño personalizado.</p></div></div></div>
                     <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_09.webp" alt="Montaje de mesas con sillas Tiffany y meseros"></div><div class="include-content"><h4><i class="fas fa-utensils"></i> Montaje con Sillas Tiffany</h4><p>Montaje de mesas con sillas Tiffany y equipo completo de meseros capacitados.</p></div></div></div>
                     <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_10.webp" alt="Templete para DJ con letras gigantes iluminadas"></div><div class="include-content"><h4><i class="fas fa-music"></i> Templete con Letras Gigantes</h4><p>Templete para DJ/grupo musical con letras gigantes iluminadas.</p></div></div></div>
                     <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_11.webp" alt="Mesa principal con sillones y centro floral"></div><div class="include-content"><h4><i class="fas fa-couch"></i> Sillones y Arte Floral</h4><p>Mesa principal con sillones confortables y centro floral natural de autor.</p></div></div></div>
                     <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_12.webp" alt="Baños múltiples de lujo para damas y caballeros"></div><div class="include-content"><h4><i class="fas fa-restroom"></i> Sanitarios de Lujo</h4><p>Baños múltiples de lujo para damas y caballeros con limpieza permanente.</p></div></div></div>
                     <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_13.webp" alt="Acceso lateral con jardineras y fuente"></div><div class="include-content"><h4><i class="fas fa-fountain"></i> Jardineras y Fuente</h4><p>Acceso lateral ajardinado con fuentes decorativas e iluminación ambiental.</p></div></div></div>
-                    <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_14.webp" alt="Mesa de honor en jardín"></div><div class="include-content"><h4><i class="fas fa-seedling"></i> Área de Jardín</h4><p>Montajes alternativos y mesa de honor al aire libre en el jardín exterior.</p></div></div></div>
+                    <div class="reveal"><div class="include-item"><div class="include-img-container is-short-video-box" data-video="W0IPzy0dFwk" data-inicio="13" data-fin="20" style="aspect-ratio:16/9;"></div><div class="include-content"><h4><i class="fas fa-couch"></i> Área de Jardín &middot; Lounge y Periqueras <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Jardín delantero con fuente artificial iluminada, donde se monta el cóctel de bienvenida con salas lounge, periqueras altas y sombrillas.</p></div></div></div>
                     <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_15.webp" alt="Firma de acta en ceremonia civil dentro del salón"></div><div class="include-content"><h4><i class="fas fa-file-signature"></i> Ceremonia en Salón</h4><p>Montaje para ceremonia civil o religiosa con mobiliario elegante dentro del salón.</p></div></div></div>
-                    <div class="reveal reveal-left pendiente-foto" data-venue="presidente">
+                    <div class="reveal reveal-left" data-venue="presidente">
                         <div class="include-item">
-                            <div class="include-img-container" style="background:#EFE7E1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
-                                <i class="fas fa-church" style="font-size:3rem; color:var(--primary-pink); opacity:0.85;"></i>
-                                <span style="font-size:0.72rem; color:var(--gray-text); text-transform:uppercase; letter-spacing:1px; font-weight:600;">Foto del recinto por integrar</span>
-                            </div>
+                            <div class="include-img-container is-short-video-box" data-video="W0IPzy0dFwk" data-inicio="9" data-fin="40" style="aspect-ratio:16/9;"></div>
                             <div class="include-content">
-                                <h4><i class="fas fa-church"></i> Montaje de Ceremonia Religiosa en Jardín</h4>
+                                <h4><i class="fas fa-church"></i> Montaje de Ceremonia en el Jardín <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4>
                                 <p>Montaje de ceremonia con mobiliario elegante en el jardín de la entrada, con fuente artificial iluminada.</p>
                             </div>
                         </div>
@@ -1919,7 +2062,7 @@
                 <!-- Video del recinto en evento real -->
                 <div class="video-section reveal" style="margin-top:25px;">
                     <h4 style="font-size:1.1rem; margin-bottom:12px; color:var(--primary-dark); font-family:var(--font-serif);"><i class="fas fa-circle-play" style="color:var(--primary-pink); margin-right:8px;"></i> Evento Real en Centro de Convenciones Presidente</h4>
-                    <div class="is-short-video-box" data-video="AjOVYnYQ6cQ" style="width:100%; aspect-ratio:16/9; max-height:420px; background:#000; border-radius:18px; overflow:hidden; position:relative; box-shadow:0 12px 30px rgba(0,0,0,.15);">
+                    <div class="is-short-video-box" data-video="AjOVYnYQ6cQ" style="width:100%; aspect-ratio:16/9; background:#000; border-radius:18px; overflow:hidden; position:relative; box-shadow:0 12px 30px rgba(0,0,0,.15);">
                     </div>
                 </div>
 
@@ -1977,15 +2120,12 @@
                     <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="finca_hospedaje.webp" alt="Hospedaje en cabañas ecológicas"></div><div class="include-content"><h4><i class="fas fa-house-chimney"></i> Hospedaje en Cabañas</h4><p>Cabañas ecológicas rústicas disponibles dentro de la finca (previa reserva y costo adicional).</p></div></div></div>
                     <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="finca_suite_nupcial.webp" alt="Suite nupcial en finca"></div><div class="include-content"><h4><i class="fas fa-champagne-glasses"></i> Suite Nupcial</h4><p>Suite nupcial privada de diseño campestre exclusivo (previa reserva y costo adicional).</p></div></div></div>
                     <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="finca_valet_parking.webp" alt="Valet parking en la finca"></div><div class="include-content"><h4><i class="fas fa-car-side"></i> Valet Parking</h4><p>Servicio de valet parking y control vehicular para máxima comodidad de tus invitados.</p></div></div></div>
-                    <div class="reveal reveal-left pendiente-foto" data-venue="isabeles">
+                    <div class="reveal reveal-left" data-venue="isabeles">
                         <div class="include-item">
-                            <div class="include-img-container" style="background:#EFE7E1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
-                                <i class="fas fa-champagne-glasses" style="font-size:3rem; color:var(--primary-pink); opacity:0.85;"></i>
-                                <span style="font-size:0.72rem; color:var(--gray-text); text-transform:uppercase; letter-spacing:1px; font-weight:600;">Foto del recinto por integrar</span>
-                            </div>
+                            <div class="include-img-container is-video"><video class="include-video" autoplay muted loop playsinline webkit-playsinline poster="isabeles_salon_montado_poster.jpg"><source src="isabeles_salon_montado.mp4" type="video/mp4"></video></div>
                             <div class="include-content">
-                                <h4><i class="fas fa-champagne-glasses"></i> Salón Montado con Pista de Baile</h4>
-                                <p>Área techada montada para banquete y pista de baile.</p>
+                                <h4><i class="fas fa-video"></i> Montaje Real en Finca Las Isabeles <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4>
+                                <p>Montaje real de mesas y ceremonia en los jardines de la finca, con pasarela de madera sobre el estanque.</p>
                             </div>
                         </div>
                     </div>
@@ -2051,11 +2191,13 @@
 
             <!-- ═══ BLOQUE 3: RECEPCIÓN Y CÓCTEL DE BIENVENIDA ═══ -->
             <div class="gallery-block-title reveal reveal-left">3 &middot; Recepción y Cóctel de Bienvenida (1 Hora)</div>
-            <p class="calc-hint reveal reveal-left" style="margin-top:-6px;">Recibimiento con periqueras de madera, sombrillas de jardín, barra de bebidas refrescantes y canapés gourmet para iniciar la celebración.</p>
+            <p class="calc-hint reveal reveal-left" style="margin-top:-6px;">Recibimiento con salas lounge, periqueras de madera, sombrillas de jardín, cóctel de bienvenida con y sin alcohol, barra de snacks y alfombra roja para iniciar la celebración.</p>
             <div class="includes-grid">
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="canapes_bienvenida.jpg" alt="Canapés gourmet de bienvenida"></div><div class="include-content"><h4><i class="fas fa-utensils"></i> Canapés Gourmet</h4><p>3 variedades de canapés artesanales a elección, servidos por el equipo de meseros durante la primera hora.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="periqueras_altas.webp" alt="Mobiliario de cóctel y sombrillas"></div><div class="include-content"><h4><i class="fas fa-umbrella"></i> Periqueras y Sombrillas</h4><p>Mobiliario periquera con bancos altos y sombrillas campiranas para el 30% de los invitados en el área de recepción.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="barra_premium.jpg" alt="Barra de shots y coctelería de bienvenida"></div><div class="include-content"><h4><i class="fas fa-martini-glass"></i> Barra de Shots &amp; Aguas Frescas</h4><p>Barra de shots de cortesía y aguas frescas de sabores naturales para recibir a cada invitado.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="sala_lounge_1.webp" alt="Salas lounge"></div><div class="include-content"><h4><i class="fas fa-couch"></i> Salas Lounge</h4><p>Salas lounge para que tus invitados se acomoden con comodidad durante la recepción.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="periqueras_real.jpg" alt="Periqueras y sombrillas"></div><div class="include-content"><h4><i class="fas fa-umbrella-beach"></i> Periqueras y Sombrillas</h4><p>Mesas altas tipo periquera con bancos y sombrillas para el área de jardín, para el 30% de los invitados.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container is-short is-short-video-box" data-video="xNc85w8ZOCk" data-inicio="123"></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja en la Recepción <span class="badge-incluido">Cortesía del paquete</span> <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Entrada con alfombra roja <span class="txt-evento" data-evento-boda="para recibir a los novios y a sus invitados" data-evento-xv="para recibir a la quinceañera y a sus invitados">para recibir a los novios y a sus invitados</span>.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="aguas_frescas.webp" alt="Cóctel de bienvenida y aguas frescas"></div><div class="include-content"><h4><i class="fas fa-martini-glass-citrus"></i> Cóctel de Bienvenida &amp; Aguas Frescas</h4><p>Margaritas, piñadas, azulitos y mojitos —en versión con y sin alcohol—, aguas frescas de fruta natural y agua natural.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-dual"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.jpg" alt="Barra de snacks"><img class="include-img" loading="lazy" decoding="async" src="snacks_jicama_chamoy.webp" alt="Jícama con chamoy y limón"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings)</h4><p>Barra de snacks dulces y salados: chicharrones, palomitas, jícama con chamoy, chile en polvo y limón, entre otros toppings.</p></div></div></div>
             </div>
 
             <!-- ═══ BLOQUE 4: MONTAJE Y DECORACIÓN ═══ -->
@@ -2195,7 +2337,7 @@
             <div class="includes-grid">
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container is-dual"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_iluminadas.webp" alt="Letras gigantes iluminadas"><img class="include-img" loading="lazy" decoding="async" src="corazon_rojo_iluminado.webp" alt="Corazón rojo iluminado"></div><div class="include-content"><h4><i class="fas fa-heart"></i> Letras Gigantes &amp; Corazón Iluminado</h4><p>Letras gigantes a elegir (<span class="txt-evento" data-evento-boda="«LOVE»" data-evento-xv="«XV»">«LOVE»</span>) con iluminación cálida y corazón rojo decorativo para sesiones de fotos.</p></div></div></div>
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Pirotecnia fría 4 chisperos"></div><div class="include-content"><h4><i class="fas fa-wand-magic-sparkles"></i> 4 Chisperos de Pirotecnia en Frío</h4><p>Cuatro detonaciones de chisperos en frío a control remoto, totalmente seguros para interiores y exteriores.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="alfombra_roja.webp" alt="Alfombra roja"></div><div class="include-content"><h4><i class="fas fa-road"></i> Alfombra Roja</h4><p>Alfombra roja <span class="txt-evento" data-evento-boda="para recibir a los novios y a sus invitados" data-evento-xv="para recibir a la quinceañera y a sus invitados">para recibir a los novios y a sus invitados</span> con distinción y elegancia.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="amenidades_pista.jpg" alt="Amenidades de pista"></div><div class="include-content"><h4><i class="fas fa-circle"></i> Amenidades de Pista</h4><p>Globos multicolores, collares hawaianos y pulseras neón para animar la fiesta en la pista de baile.</p></div></div></div>
             </div>
 
             <!-- ═══ BLOQUE 9: CORTESÍAS INCLUIDAS ═══ -->
@@ -2205,8 +2347,26 @@
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="robot_leds.webp" alt="Robot LED interactivo"></div><div class="include-content"><h4><i class="fas fa-robot"></i> Robot LED Interactivo</h4><p>Robot gigante con iluminación LED multicolor y animación interactiva para el momento cumbre de la fiesta.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="cabina_360.webp" alt="Cabina de experiencia 360"></div><div class="include-content"><h4><i class="fas fa-video"></i> Cabina de Experiencia</h4><p>Cabina de experiencia a elegir: plataforma 360&deg; con video digital instantáneo, cabina inflable o espejo mágico.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="invitacion_digital.webp" alt="Invitación digital interactiva"></div><div class="include-content"><h4><i class="fas fa-mobile-screen-button"></i> Invitación Digital Premium</h4><p>Diseño exclusivo interactivo con sistema de confirmación RSVP vía WhatsApp, geolocalización GPS y galería. (Valor comercial $4,000&ndash;$8,000 MXN, incluida al contratar el paquete).</p></div></div></div>
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="dinamica_mazo_retos.jpg" alt="Dinámica del mazo de retos"></div><div class="include-content"><h4><i class="fas fa-clone"></i> Dinámica del Mazo de Retos</h4><p>Tarjetas dinámicas por mesa para generar momentos espontáneos, gestos graciosos y fotos divertidas entre los asistentes.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="buenos_deseos_video.jpg" alt="Grabación de buenos deseos en video"></div><div class="include-content"><h4><i class="fas fa-comment-dots"></i> Buenos Deseos en Video</h4><p>Entrevistas dinámicas grabadas en video donde los invitados expresan sus mejores deseos <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera">para los novios</span>.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container is-short is-short-video-box" data-video="7r6OV9qjS30"></div><div class="include-content"><h4><i class="fas fa-hashtag"></i> Social Media Content <span class="badge-extra">Cortesía adicional</span></h4><p>Contenido ligero y vertical para redes sociales: reels del evento, dinámica del mazo de retos y buenos deseos de tus invitados en video.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-short is-short-video-box" data-video="Q4L2srgBU2E"></div><div class="include-content"><h4><i class="fas fa-clipboard-list"></i> Kit Organizador de Eventos <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Plantilla de control de presupuesto (Excel) y guía maestra de organización (PDF) para planear tu evento paso a paso. Descárgalo más abajo.</p></div></div></div>
+            </div>
+
+            <!-- ═══ SOCIAL MEDIA CONTENT — cortesía incluida ═══ -->
+            <div class="gallery-block-title reveal reveal-left" style="margin-top:20px;">Social Media Content &middot; Contenido Ligero para Redes Sociales <span class="badge-extra">Cortesía adicional</span></div>
+            <p class="calc-hint reveal reveal-left" style="margin-top:-10px;">Contenido vertical, ágil y listo para publicar el mismo fin de semana — <strong>no sustituye a la fotografía y video profesional</strong> (que son formatos largos, cinematográficos y de edición fina): la <em>complementa</em>. Aquí lo que buscamos es la reacción espontánea, la risa y el mensaje sincero de tus invitados. Así se ve en eventos reales:</p>
+            <div class="includes-grid">
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container is-short is-short-video-box" data-video="7r6OV9qjS30"></div><div class="include-content"><h4><i class="fas fa-hashtag"></i> Ejemplo: La Ceremonia <span class="badge-video"><i class="fas fa-play"></i> Reel</span></h4><p>Reel vertical de la ceremonia religiosa, listo para publicar en redes.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container is-short is-short-video-box" data-video="xNc85w8ZOCk"></div><div class="include-content"><h4><i class="fas fa-hashtag"></i> Ejemplo: La Fiesta <span class="badge-video"><i class="fas fa-play"></i> Reel</span></h4><p>Reel vertical del ambiente y la fiesta, con la energía real del evento.</p></div></div></div>
+            </div>
+            <div class="includes-grid">
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="dinamica_mazo_retos.jpg" alt="Dinámica del mazo de retos"></div><div class="include-content"><h4><i class="fas fa-clone"></i> Dinámica del Mazo de Retos</h4><p>Llevamos un mazo de tarjetas a cada mesa: los invitados toman una al azar y cada tarjeta trae una imagen graciosa, un gesto o un reto que deben cumplir. Nosotros capturamos el momento con fotografía.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="buenos_deseos_video.jpg" alt="Invitados grabando sus buenos deseos en video"></div><div class="include-content"><h4><i class="fas fa-comment-dots"></i> Buenos Deseos en Video</h4><p>Interactuamos con tus invitados para que graben en video sus mejores deseos <span class="txt-evento" data-evento-boda="para los novios" data-evento-xv="para la quinceañera">para los novios</span>. Te los entregamos listos para compartir en redes o guardar como recuerdo.</p></div></div></div>
+            </div>
+            <div class="servicios-lista">
+                <div class="servicio-detalle reveal reveal-left">
+                    <h4><i class="fas fa-images"></i> Álbum de Recuerdo con tus Invitados</h4>
+                    <p>Recopilamos todas esas fotos de la dinámica y te las entregamos: un recuerdo divertido y espontáneo <span class="txt-evento" data-evento-boda="de los novios" data-evento-xv="de la festejada">de los novios</span> junto a cada una de sus mesas.</p>
+                </div>
             </div>
 
             <!-- ═══ BLOQUE 10: COMPLEMENTOS ADICIONALES (A COTIZAR POR SEPARADO) ═══ -->
@@ -2298,10 +2458,10 @@
                     </div>
                     <div class="reveal delay-2">
                         <div class="complemento-card">
-                            <img class="complemento-img" src="tequila_personalizado.png" alt="Tequila personalizado">
+                            <img class="complemento-img" src="cristaleria.webp" alt="Barra de bebidas premium">
                             <div class="complemento-body">
-                                <h4><i class="fas fa-wine-bottle"></i> Souvenirs &amp; Tequila de Autor</h4>
-                                <p>Botellas Don Ramón corte diamante grabadas con los datos del evento, para un recuerdo conmemorativo inigualable.</p>
+                                <h4><i class="fas fa-martini-glass"></i> Barra de Bebidas Premium</h4>
+                                <p>Opción adicional del paquete: barra con destilados premium, además de los mezcladores ilimitados ya incluidos.</p>
                                 <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-complemento"><i class="fas fa-arrow-up-right-from-square"></i> Consultar</a>
                             </div>
                         </div>
@@ -2398,8 +2558,8 @@
                         <a href="https://primaveraeventsgroup.com" target="_blank" class="btn-expo"><i class="fas fa-ticket"></i> Conocer Próxima Edición</a>
                     </div>
                     <div class="expo-img-box expo-videos">
-                        <div class="expo-video is-short is-short-video-box" data-video="G3c1zJ-g51E"></div>
-                        <div class="expo-video is-short is-short-video-box" data-video="3J5i6F85xNk"></div>
+                        <div class="expo-video is-short is-short-video-box" data-video="P9MxVEjGA98"></div>
+                        <div class="expo-video is-short is-short-video-box" data-video="xdPO6q93pMM"></div>
                     </div>
                 </div>
             </div>
@@ -2554,30 +2714,24 @@
         </div>
     </footer>
 
-    <!-- ══ FLOATING ACTIONS BUTTONS (FAB) ══ -->
+    <!-- 📌 Floating Actions - copiado literal de index_original_tsunum_ana.html (URLs reales de PEG, sin WhatsApp flotante) 📌 -->
     <div class="floating-actions-container">
-        <div class="fab-group" id="fabShareGroup">
+        <button class="fab-main fab-share" id="btnShare" title="Compartir">
+            <span class="fab-label">Compartir Propuesta</span>
+            <i class="fas fa-share-nodes"></i>
+        </button>
+        <div class="fab-group" id="socialGroup">
             <div class="fab-menu">
-                <a href="#" id="btnShareNative" class="fab-item" title="Compartir propuesta"><i class="fas fa-share-nodes"></i></a>
+                <a href="https://facebook.com/share/1GLd3Qt2Tj" target="_blank" class="fab-item" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/primavera.events.group?igsh=Y2g4d3hvZW95dDc5" target="_blank" class="fab-item" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@primavera_events_group?_r=1&_t=ZS-94uQ5m4lTyG" target="_blank" class="fab-item" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://linkedin.com/in/richard-hernandez-3844ba3b9" target="_blank" class="fab-item" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/@PrimaveraEventsGroup" target="_blank" class="fab-item" title="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
-            <button type="button" class="fab-main" id="btnShare" title="Compartir enlace"><i class="fas fa-share-nodes"></i></button>
-            <span class="fab-label">Compartir propuesta</span>
-        </div>
-        <div class="fab-group" id="fabSocialGroup">
-            <div class="fab-menu">
-                <a href="https://primaveraeventsgroup.com" target="_blank" class="fab-item" title="Sitio Web Oficial"><i class="fas fa-globe"></i></a>
-                <a href="https://facebook.com" target="_blank" class="fab-item" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank" class="fab-item" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://tiktok.com" target="_blank" class="fab-item" title="TikTok"><i class="fab fa-tiktok"></i></a>
-            </div>
-            <button type="button" class="fab-main" id="fabSocialBtn" title="Redes sociales"><i class="fas fa-icons"></i></button>
-            <span class="fab-label">Nuestras redes</span>
-        </div>
-        <div class="fab-group" id="fabWaGroup">
-            <a href="https://api.whatsapp.com/send/?phone=527774587923" id="fabWaDirect" target="_blank" class="fab-main" title="WhatsApp directo" style="background:#25D366; color:var(--white);">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <span class="fab-label">Chatear con tu Planner</span>
+            <button class="fab-main fab-social" id="btnSocial" type="button">
+                <span class="fab-label">Síguenos</span>
+                <i class="fas fa-thumbs-up"></i>
+            </button>
         </div>
     </div>
 
@@ -2625,9 +2779,6 @@
             { categoria: "Personal Extra", items: new Array(
                 { id: "extra-staff-1", nombre: "Capitán de meseros adicional para supervisión ejecutiva", precio: 3000 },
                 { id: "extra-staff-2", nombre: "Mesero adicional capacitado (8 hrs de servicio continuo)", precio: 1000 }
-            )},
-            { categoria: "Souvenirs", items: new Array(
-                { id: "extra-souv-1", nombre: "Tequila personalizado Don Ramón (750 ml, botella corte diamante)", precio: 11515 }
             )},
             { categoria: "Tiempo Extra", items: new Array(
                 { id: "extra-hora-1", nombre: "Hora extra de banquete y servicio continuo", precio: 12000 }
@@ -2884,9 +3035,13 @@
             document.querySelectorAll('.comparativo-table .col-venue-' + venueId).forEach(function(cell){
                 cell.classList.add('col-active-venue');
             });
+            document.querySelectorAll('.comp-mobile-btn').forEach(function(btn){
+                btn.classList.toggle('active', btn.getAttribute('data-comp-venue') === venueId);
+            });
 
             actualizarTotal();
         };
+        window.cambiarVenue = window.seleccionarVenue;
 
         window.seleccionarVenueYScroll = function(venueId) {
             window.seleccionarVenue(venueId);
@@ -2957,8 +3112,10 @@
             if (c.querySelector('iframe')) return;
             var vId = c.getAttribute('data-video');
             if (!vId) return;
+            var inicio = c.getAttribute('data-inicio') ? '&start=' + Math.floor(parseFloat(c.getAttribute('data-inicio'))) : '';
+            var fin = c.getAttribute('data-fin') ? '&end=' + Math.floor(parseFloat(c.getAttribute('data-fin'))) : '';
             var ifr = document.createElement('iframe');
-            ifr.src = 'https://www.youtube.com/embed/' + vId + '?autoplay=1&mute=1&loop=1&playlist=' + vId + '&controls=0&showinfo=0&rel=0&playsinline=1&enablejsapi=1';
+            ifr.src = 'https://www.youtube.com/embed/' + vId + '?autoplay=1&mute=1&loop=1&playlist=' + vId + '&controls=0&showinfo=0&rel=0&playsinline=1&enablejsapi=1' + inicio + fin;
             ifr.title = tit;
             ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
             ifr.setAttribute('allowfullscreen', '');
@@ -3202,11 +3359,11 @@
             });
         })();
 
-        // ══ Floating Actions Menu & Share ══
+        // ══ Floating Actions (redes + compartir nativo) ══
         var fabGroups = document.querySelectorAll('.fab-group');
         fabGroups.forEach(function(g){
             var btn = g.querySelector('.fab-main');
-            if (btn && !btn.href) {
+            if (btn) {
                 btn.addEventListener('click', function(e){
                     e.stopPropagation();
                     fabGroups.forEach(function(o){ if (o !== g) o.classList.remove('active'); });
@@ -3219,27 +3376,32 @@
         });
 
         var btnShare = document.getElementById('btnShare');
-        var btnShareNative = document.getElementById('btnShareNative');
-        function doShare(){
-            var vName = getVenueDisplayName(state.venue);
-            var eName = getEventoDisplayName(state.evento);
-            var sData = {
-                title: 'Cotización 500 Invitados · ' + eName + ' en ' + vName,
-                text: 'Te comparto la propuesta integral para ' + state.invitados + ' personas en ' + vName + ' con Primavera Events Group y Cásate en Morelos.',
-                url: window.location.href
-            };
-            if (navigator.share) {
-                navigator.share(sData).catch(function(err){ if (err.name !== 'AbortError') console.error(err); });
-            } else {
-                navigator.clipboard.writeText(window.location.href).then(function(){
-                    alert('Enlace copiado al portapapeles. Ya puedes pegarlo en WhatsApp o redes sociales.');
-                }).catch(function(){
-                    alert('Por favor copia el enlace desde la barra de tu navegador.');
-                });
-            }
+        if (btnShare) {
+            btnShare.addEventListener('click', async function(){
+                var vName = getVenueDisplayName(state.venue);
+                var eName = getEventoDisplayName(state.evento);
+                var shareText = 'Propuesta para 500 invitados · ' + eName + ' en ' + vName + ' · Cásate en Morelos × Primavera Events Group';
+                var shareData = {
+                    title: shareText,
+                    text: shareText,
+                    url: window.location.href
+                };
+                if (navigator.share) {
+                    try {
+                        await navigator.share(shareData);
+                    } catch (err) {
+                        if (err.name !== 'AbortError') console.error(err);
+                    }
+                } else {
+                    try {
+                        await navigator.clipboard.writeText(window.location.href);
+                        alert('¡Enlace copiado al portapapeles!\n\n' + shareText + '\n' + window.location.href);
+                    } catch (err) {
+                        alert('Por favor copia el enlace desde la barra de tu navegador.');
+                    }
+                }
+            });
         }
-        if (btnShare) btnShare.addEventListener('click', doShare);
-        if (btnShareNative) btnShareNative.addEventListener('click', function(e){ e.preventDefault(); doShare(); });
 
         // ══ Pinning del total del cotizador ══
         (function(){
