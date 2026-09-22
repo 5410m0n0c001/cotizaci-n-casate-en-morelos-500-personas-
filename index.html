@@ -4411,13 +4411,24 @@
 
             function sincroniza(){
                 if (window.innerWidth <= 768) {
+                    // Los paneles de un tríptico (varios videos lado a lado, ej. Graduación)
+                    // se montan/desmontan juntos como grupo: ahí SÍ deben reproducirse todos
+                    // a la vez, no compiten por el único "video activo" de la página.
+                    var enTriptico = cajas.filter(function(c){ return c.closest('.triptico-horizontal'); });
+                    var sueltos = cajas.filter(function(c){ return !c.closest('.triptico-horizontal'); });
+
+                    enTriptico.forEach(function(c){
+                        if (cerca(c, 300)) montaVideo(c, titulo(c));
+                        else if (!cerca(c, 1500)) desmontaVideo(c);
+                    });
+
                     var elegido = null, mejor = Infinity;
-                    cajas.forEach(function(c){
+                    sueltos.forEach(function(c){
                         if (!cerca(c, 200)) return;
                         var d = distanciaAlCentro(c);
                         if (d < mejor) { mejor = d; elegido = c; }
                     });
-                    cajas.forEach(function(c){
+                    sueltos.forEach(function(c){
                         if (c === elegido) montaVideo(c, titulo(c));
                         else desmontaVideo(c);
                     });
