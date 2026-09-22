@@ -3108,24 +3108,54 @@
         };
 
         // ══ YouTube Lazy Loading ══
+        // Segmentos (data-inicio / data-fin): YouTube solo respeta end= en la primera
+        // pasada; con loop=1 reinicia desde 0 y reproduce el video completo. Para un
+        // segmento se quita el loop nativo y se vigila el tiempo por postMessage
+        // (enablejsapi=1) para regresar al inicio del tramo al llegar al fin.
+        var segmentos = new Map();
+        window.addEventListener('message', function(ev){
+            if (typeof ev.data !== 'string' || ev.data.indexOf('infoDelivery') < 0 && ev.data.indexOf('onStateChange') < 0) return;
+            var d; try { d = JSON.parse(ev.data); } catch(e) { return; }
+            var seg = null;
+            segmentos.forEach(function(s){ if (s.ifr.contentWindow === ev.source) seg = s; });
+            if (!seg) return;
+            var info = d.info || {};
+            var ct = typeof info.currentTime === 'number' ? info.currentTime : null;
+            var ended = (d.event === 'onStateChange' && d.info === 0) || info.playerState === 0;
+            if (ended || (ct !== null && (ct >= seg.fin || ct < seg.inicio - 1))) {
+                seg.ifr.contentWindow.postMessage(JSON.stringify({event:'command',func:'seekTo',args:[seg.inicio,true]}), '*');
+                seg.ifr.contentWindow.postMessage(JSON.stringify({event:'command',func:'playVideo',args:[]}), '*');
+            }
+        });
+
         function montaVideo(c, tit){
             if (c.querySelector('iframe')) return;
             var vId = c.getAttribute('data-video');
             if (!vId) return;
-            var inicio = c.getAttribute('data-inicio') ? '&start=' + Math.floor(parseFloat(c.getAttribute('data-inicio'))) : '';
-            var fin = c.getAttribute('data-fin') ? '&end=' + Math.floor(parseFloat(c.getAttribute('data-fin'))) : '';
+            var ini = c.getAttribute('data-inicio') ? Math.floor(parseFloat(c.getAttribute('data-inicio'))) : 0;
+            var fin = c.getAttribute('data-fin') ? Math.floor(parseFloat(c.getAttribute('data-fin'))) : 0;
+            var esSegmento = fin > ini;
             var ifr = document.createElement('iframe');
-            ifr.src = 'https://www.youtube.com/embed/' + vId + '?autoplay=1&mute=1&loop=1&playlist=' + vId + '&controls=0&showinfo=0&rel=0&playsinline=1&enablejsapi=1' + inicio + fin;
+            var params = '?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&playsinline=1&enablejsapi=1&origin=' + encodeURIComponent(location.origin);
+            params += esSegmento ? ('&start=' + ini + '&end=' + fin) : ('&loop=1&playlist=' + vId + (ini ? '&start=' + ini : ''));
+            ifr.src = 'https://www.youtube.com/embed/' + vId + params;
             ifr.title = tit;
             ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
             ifr.setAttribute('allowfullscreen', '');
             ifr.style.border = '0';
             c.appendChild(ifr);
+            if (esSegmento) {
+                segmentos.set(c, { ifr: ifr, inicio: ini, fin: fin });
+                ifr.addEventListener('load', function(){
+                    ifr.contentWindow.postMessage(JSON.stringify({event:'listening', id: vId}), '*');
+                });
+            }
         }
 
         function desmontaVideo(c){
             var ifr = c.querySelector('iframe');
             if (ifr) ifr.remove();
+            segmentos.delete(c);
         }
 
         function cargaVideosYoutube() {
