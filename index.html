@@ -191,6 +191,8 @@
            video llena el cuadro; en un cuadro 16:9 se veía como una tira diminuta al centro. */
         .include-img-container.is-video.is-vertical { aspect-ratio:3/4 !important; }
         .include-img-container.is-video.is-vertical video { object-fit:cover !important; object-position:center 30%; }
+        body.venue-active-presidente .ceremonia-generica, body.venue-active-tsunuum .ceremonia-generica { display:none !important; }
+        .video-frame.is-short-video-box iframe { position:absolute; inset:0; width:100% !important; height:100% !important; border:0; }
         .video-frame { width:100% !important; aspect-ratio:16/9 !important; border-radius:20px !important; overflow:hidden !important; background:#000 !important; position:relative; }
         .video-frame video { width:100% !important; height:100% !important; object-fit:contain !important; display:block !important; }
         .badge-video { display:inline-flex; align-items:center; gap:5px; background:var(--gold-accent); color:var(--primary-dark); font-size:.6rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:3px 9px; border-radius:30px; margin-left:6px; vertical-align:middle; }
@@ -3053,28 +3055,6 @@
                     <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_13.webp" alt="Acceso lateral con jardineras y fuente"></div><div class="include-content"><h4><i class="fas fa-fountain"></i> Jardineras y Fuente</h4><p>Acceso lateral ajardinado con fuentes decorativas e iluminación ambiental.</p></div></div></div>
                     <div class="reveal"><div class="include-item"><div class="include-img-container is-short-video-box" data-video="W0IPzy0dFwk" data-inicio="13" data-fin="20" style="aspect-ratio:16/9;"></div><div class="include-content"><h4><i class="fas fa-couch"></i> Área de Jardín &middot; Lounge y Periqueras <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Jardín delantero con fuente artificial iluminada, donde se monta el cóctel de bienvenida con salas lounge, periqueras altas y sombrillas.</p></div></div></div>
                     <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="presidente_15.webp" alt="Firma de acta en ceremonia civil dentro del salón"></div><div class="include-content"><h4><i class="fas fa-file-signature"></i> Ceremonia en Salón</h4><p>Montaje para ceremonia civil o religiosa con mobiliario elegante dentro del salón.</p></div></div></div>
-                    <div class="reveal reveal-left" data-venue="presidente">
-                        <div class="include-item">
-                            <div class="include-img-container is-short-video-box" data-video="W0IPzy0dFwk" data-inicio="9" data-fin="40" style="aspect-ratio:16/9;"></div>
-                            <div class="include-content">
-                                <h4><i class="fas fa-church"></i> Montaje de Ceremonia en el Jardín <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4>
-                                <p>Montaje de ceremonia con mobiliario elegante en el jardín de la entrada, con fuente artificial iluminada.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="reveal reveal-right pendiente-foto" data-venue="presidente">
-                        <div class="include-item">
-                            <div class="include-img-container" style="background:#EFE7E1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
-                                <i class="fas fa-kitchen-set" style="font-size:3rem; color:var(--primary-pink); opacity:0.85;"></i>
-                                <span style="font-size:0.72rem; color:var(--gray-text); text-transform:uppercase; letter-spacing:1px; font-weight:600;">Foto del recinto por integrar</span>
-                            </div>
-                            <div class="include-content">
-                                <h4><i class="fas fa-kitchen-set"></i> Área de Cocina Profesional</h4>
-                                <p>Cocina amplia adaptada para banquetes masivos.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Galería: salón montado en evento real (fotos propias del recinto) -->
                 <div class="reveal" style="margin-top:35px;">
@@ -3173,8 +3153,18 @@
 
             <!-- ═══ BLOQUE 2: CEREMONIA RELIGIOSA ═══ -->
             <div class="gallery-block-title reveal reveal-left">2 &middot; Ceremonia Religiosa (1 Hora)</div>
-            <p class="calc-hint reveal reveal-left" style="margin-top:-6px;">Fotos reales de montajes ceremoniales de Primavera Events Group: atril, altar, cruz floral, reclinatorio, sonorización profesional y oficiante religioso.</p>
-            <div class="slides-section slides-fotos reveal" style="margin-top:0;">
+            <!-- Presidente: video real del montaje de ceremonia en el jardín (recorrido, seg. 9-40) -->
+            <div class="venue-block venue-presidente reveal" style="margin-top:0;">
+                <p class="calc-hint" style="margin-top:-6px;">Montaje real de ceremonia en el jardín de la entrada del Centro de Convenciones Presidente, con mobiliario elegante y fuente artificial iluminada.</p>
+                <div class="video-frame is-short-video-box" data-video="W0IPzy0dFwk" data-inicio="9" data-fin="40" style="aspect-ratio:16/9; margin-bottom:22px;"></div>
+            </div>
+            <!-- Tsú Nuum: video real de la ceremonia en el jardín (recorrido, seg. 16-38) -->
+            <div class="venue-block venue-tsunuum reveal" style="margin-top:0;">
+                <p class="calc-hint" style="margin-top:-6px;">Así se vive la <span class="txt-evento" data-evento-boda="misa de boda" data-evento-xv="misa de acción de gracias">misa de boda</span> en el área de ceremonia al aire libre de Jardín Tsú Nuum.</p>
+                <div class="video-frame is-short-video-box" data-video="5xVqNRu6nu8" data-inicio="16" data-fin="38" style="aspect-ratio:16/9; margin-bottom:22px;"></div>
+            </div>
+            <p class="calc-hint reveal reveal-left ceremonia-generica" style="margin-top:-6px;">Fotos reales de montajes ceremoniales de Primavera Events Group: atril, altar, cruz floral, reclinatorio, sonorización profesional y oficiante religioso.</p>
+            <div class="slides-section slides-fotos reveal ceremonia-generica" style="margin-top:0;">
                 <div class="slides-wrap">
                     <button class="slide-nav prev" id="slidePrevCeremonia" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
                     <div class="slides-track" id="slidesTrackCeremonia">
@@ -3209,16 +3199,6 @@
             <div class="gallery-block-title reveal reveal-left">3 &middot; Recepción y Cóctel de Bienvenida (1 Hora)</div>
             <p class="calc-hint reveal reveal-left" style="margin-top:-6px;">Recibimiento con salas lounge, periqueras de madera, sombrillas de jardín, cóctel de bienvenida con y sin alcohol, barra de snacks y alfombra roja para iniciar la celebración.</p>
             <div class="includes-grid">
-                <!-- Tsú Nuum: ceremonia en el jardín (video del recorrido, seg. 16-38) -->
-                <div class="reveal reveal-zoom venue-block venue-tsunuum">
-                    <div class="include-item">
-                        <div class="include-img-container is-short-video-box" data-video="5xVqNRu6nu8" data-inicio="16" data-fin="38" style="aspect-ratio:16/9;"></div>
-                        <div class="include-content">
-                            <h4><i class="fas fa-church"></i> Ceremonia en Jardín Tsú Nuum <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4>
-                            <p>Así se vive la <span class="txt-evento" data-evento-boda="misa de boda" data-evento-xv="misa de acción de gracias">misa de boda</span> en el área de ceremonia al aire libre del jardín: montaje ceremonial, sillas y ambientación natural.</p>
-                        </div>
-                    </div>
-                </div>
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="sala_lounge_1.webp" alt="Salas lounge"></div><div class="include-content"><h4><i class="fas fa-couch"></i> Salas Lounge</h4><p>Salas lounge para que tus invitados se acomoden con comodidad durante la recepción.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="periqueras_real.jpg" alt="Periqueras y sombrillas"></div><div class="include-content"><h4><i class="fas fa-umbrella-beach"></i> Periqueras y Sombrillas</h4><p>Mesas altas tipo periquera con bancos y sombrillas para el área de jardín, para el 30% de los invitados.</p></div></div></div>
                 <div class="reveal"><div class="include-item"><div class="include-img-container is-short is-short-video-box" data-video="xNc85w8ZOCk" data-inicio="123"></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja en la Recepción <span class="badge-incluido">Cortesía del paquete</span> <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Entrada con alfombra roja <span class="txt-evento" data-evento-boda="para recibir a los novios y a sus invitados" data-evento-xv="para recibir a la quinceañera y a sus invitados">para recibir a los novios y a sus invitados</span>.</p></div></div></div>
@@ -4131,6 +4111,8 @@
 
             actualizarTotal();
             if (window.reanimarReveals && document.body.classList.contains('propuesta-abierta')) window.reanimarReveals(venueId);
+            // Montar/desmontar los videos de YouTube del recinto recién mostrado
+            setTimeout(function(){ window.dispatchEvent(new Event('scroll')); }, 60);
         };
         window.cambiarVenue = window.seleccionarVenue;
 
@@ -4223,6 +4205,7 @@
             if (c.querySelector('iframe')) return;
             var vId = c.getAttribute('data-video');
             if (!vId) return;
+            if (c.offsetParent === null && c.id !== 'heroVideo') return; // bloque de otro recinto (oculto): no cargar
             var ini = c.getAttribute('data-inicio') ? Math.floor(parseFloat(c.getAttribute('data-inicio'))) : 0;
             var fin = c.getAttribute('data-fin') ? Math.floor(parseFloat(c.getAttribute('data-fin'))) : 0;
             var esSegmento = fin > ini;
