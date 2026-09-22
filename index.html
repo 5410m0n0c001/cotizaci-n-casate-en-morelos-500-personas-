@@ -346,7 +346,7 @@
         .calc-total-box { background:linear-gradient(135deg,var(--primary-dark) 0%,var(--dark-grad-end) 100%);
             color:var(--white); border-radius:18px; padding:18px 22px; margin-bottom:22px; box-shadow:0 14px 30px rgba(31,31,31,.35);
             border:1.5px solid var(--gold-accent); width:100%; box-sizing:border-box; transition:box-shadow .2s ease;
-            position:sticky; top:10px; z-index:50; }
+            position:sticky; top:calc(var(--barra-h, 64px) + 10px); z-index:50; }
         .ctb-row { display:flex; justify-content:space-between; align-items:baseline; gap:12px; font-size:.85rem; color:rgba(255,255,255,.75); padding:2px 0; }
         .ctb-total { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-top:10px; padding-top:12px; border-top:1px solid rgba(255,255,255,.18); }
         .ctb-total span:first-child { font-size:.75rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--gold-accent); font-weight:700; }
@@ -355,7 +355,7 @@
         .ctb-extras-list li { display:flex; justify-content:space-between; gap:10px; font-size:.78rem; color:rgba(255,255,255,.85); padding:3px 0; }
         .ctb-vacio { font-size:.78rem; color:rgba(255,255,255,.55); font-style:italic; }
         @media (max-width:768px){
-            .calc-total-box { top:85px !important; padding:12px 14px; border-radius:16px; }
+            .calc-total-box { top:calc(var(--barra-h, 125px) + 8px) !important; padding:12px 14px; border-radius:16px; }
             .ctb-total strong { font-size:1.4rem; }
             .ctb-extras-list { max-height:90px; }
             .calc-grid { grid-template-columns: 1fr !important; gap:10px !important; }
@@ -4625,6 +4625,17 @@
                     }
                 }
             }
+
+            // Altura real de la barra de recinto/evento (sticky, z-index mayor): la caja del
+            // cotizador se fija justo debajo para que no quede tapada por ella.
+            var barra = document.querySelector('.controls-sticky-bar');
+            function publicaAlturaBarra(){
+                var h = barra ? Math.round(barra.getBoundingClientRect().height) : 0;
+                document.documentElement.style.setProperty('--barra-h', h + 'px');
+            }
+            publicaAlturaBarra();
+            window.addEventListener('resize', publicaAlturaBarra, { passive:true });
+            if ('ResizeObserver' in window && barra) new ResizeObserver(publicaAlturaBarra).observe(barra);
 
             window.addEventListener('scroll', updatePinning, { passive:true });
             window.addEventListener('resize', updatePinning, { passive:true });
