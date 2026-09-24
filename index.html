@@ -287,8 +287,8 @@
         .fab-label { position:absolute; right:65px; background:var(--white); color:var(--primary-dark); padding:6px 12px; border-radius:20px; font-size:.8rem; white-space:nowrap; box-shadow:0 4px 10px rgba(0,0,0,.1); opacity:0; visibility:hidden; transition:all .3s ease; font-weight:500; pointer-events:none; }
         .fab-main:hover .fab-label { opacity:1; visibility:visible; right:60px; }
         .fab-group.active .fab-label { display:none !important; }
-        .fab-menu { display:flex; flex-direction:row-reverse; gap:8px; position:absolute; right:60px; top:5px; opacity:0; visibility:hidden; transform:translateX(20px); transition:all .4s cubic-bezier(.175,.885,.32,1.275); pointer-events:none; z-index:1; }
-        .fab-group.active .fab-menu { opacity:1; visibility:visible; transform:translateX(0); pointer-events:auto; }
+        .fab-menu { display:flex; flex-direction:column-reverse; align-items:center; gap:8px; position:absolute; bottom:60px; right:5px; opacity:0; visibility:hidden; transform:translateY(20px); transition:all .4s cubic-bezier(.175,.885,.32,1.275); pointer-events:none; z-index:1; }
+        .fab-group.active .fab-menu { opacity:1; visibility:visible; transform:translateY(0); pointer-events:auto; }
         .fab-item { width:40px; height:40px; border-radius:50%; background:var(--white); color:var(--primary-pink); display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:1.1rem; box-shadow:0 4px 12px rgba(0,0,0,.1); transition:all .3s ease; }
         .fab-item:hover { background:var(--primary-pink); color:var(--white); transform:scale(1.15); }
         .fab-group.active .fab-main { transform:rotate(15deg) scale(.9); filter:brightness(1.2); }
@@ -3622,6 +3622,10 @@
                         <ul class="ctb-extras-list" id="ctbExtras"></ul>
                         <div class="ctb-vacio" id="ctbVacio">Sin extras seleccionados</div>
                     </div>
+                    <div class="ctb-row" id="ctbDeltaRow" style="display:none; margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.15); font-size:0.8rem; color:var(--gold-accent); font-weight:600;">
+                        <span>Estos extras suben tu precio p/p en:</span>
+                        <strong id="ctbDelta">+$0.00</strong>
+                    </div>
                 </div>
 
                 <div id="calcGrid"></div>
@@ -3638,6 +3642,14 @@
                     <div class="price-breakdown-row" id="resumenFinalExtrasRow" style="display:none; font-size:1.05rem; padding:8px 0; color:var(--gold-accent);">
                         <span>Servicios Adicionales Seleccionados</span>
                         <strong id="resumenFinalExtras">$0.00 MXN</strong>
+                    </div>
+                    <div class="price-breakdown-row" id="resumenDeltaRow" style="display:none; font-size:0.9rem; padding:4px 0; color:var(--gold-accent); font-style:italic;">
+                        <span>Esto equivale a un aumento de</span>
+                        <strong id="resumenDelta">+$0.00 MXN por persona</strong>
+                    </div>
+                    <div class="price-breakdown-row" id="resumenFinalPpRow" style="display:none; font-size:1.15rem; padding:10px 0 0; margin-top:6px; border-top:1px solid var(--beige); font-weight:700;">
+                        <span>Precio Final por Persona</span>
+                        <strong id="resumenFinalPp">$0.00 MXN</strong>
                     </div>
                 </div>
             </div>
@@ -3834,10 +3846,6 @@
 
     <!-- 📌 Floating Actions - copiado literal de index_original_tsunum_ana.html (URLs reales de PEG, sin WhatsApp flotante) 📌 -->
     <div class="floating-actions-container">
-        <button class="fab-main fab-share" id="btnShare" title="Compartir">
-            <span class="fab-label">Compartir Propuesta</span>
-            <i class="fas fa-share-nodes"></i>
-        </button>
         <div class="fab-group" id="socialGroup">
             <div class="fab-menu">
                 <a href="https://facebook.com/share/1GLd3Qt2Tj" target="_blank" class="fab-item" title="Facebook"><i class="fab fa-facebook"></i></a>
@@ -3845,12 +3853,17 @@
                 <a href="https://tiktok.com/@primavera_events_group?_r=1&_t=ZS-94uQ5m4lTyG" target="_blank" class="fab-item" title="TikTok"><i class="fab fa-tiktok"></i></a>
                 <a href="https://linkedin.com/in/richard-hernandez-3844ba3b9" target="_blank" class="fab-item" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://www.youtube.com/@PrimaveraEventsGroup" target="_blank" class="fab-item" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://g.page/r/CRYo3lgLK8NEEBM/review" target="_blank" class="fab-item" title="Reseñas en Google"><i class="fab fa-google"></i></a>
             </div>
             <button class="fab-main fab-social" id="btnSocial" type="button">
                 <span class="fab-label">Síguenos</span>
                 <i class="fas fa-thumbs-up"></i>
             </button>
         </div>
+        <button class="fab-main fab-share" id="btnShare" title="Compartir">
+            <span class="fab-label">Compartir Propuesta</span>
+            <i class="fas fa-share-nodes"></i>
+        </button>
     </div>
 
     <script>
@@ -4018,11 +4031,29 @@
             var ctbVacio = document.getElementById('ctbVacio');
             if (ctbVacio) ctbVacio.style.display = seleccion.length ? 'none' : 'block';
 
-            // Resumen de propuesta web (solo monto de extras seleccionados si existen)
+            // Cuánto sube el precio por persona según lo que se agregue en el cotizador
+            var deltaPorPersona = state.invitados > 0 ? (extrasTotal / state.invitados) : 0;
+            var ctbDeltaRow = document.getElementById('ctbDeltaRow');
+            if (ctbDeltaRow) ctbDeltaRow.style.display = seleccion.length ? 'flex' : 'none';
+            var ctbDelta = document.getElementById('ctbDelta');
+            if (ctbDelta) ctbDelta.textContent = '+' + moneyFmt(deltaPorPersona);
+
+            // Resumen de propuesta web (monto de extras seleccionados, su equivalente
+            // por persona, y el precio final por persona resultante)
             var rfExtras = document.getElementById('resumenFinalExtras');
             if (rfExtras) rfExtras.textContent = moneyFmt(extrasTotal) + ' MXN';
             var rfRow = document.getElementById('resumenFinalExtrasRow');
             if (rfRow) rfRow.style.display = seleccion.length ? 'flex' : 'none';
+
+            var resumenDelta = document.getElementById('resumenDelta');
+            if (resumenDelta) resumenDelta.textContent = '+' + moneyFmt(deltaPorPersona) + ' MXN por persona';
+            var resumenDeltaRow = document.getElementById('resumenDeltaRow');
+            if (resumenDeltaRow) resumenDeltaRow.style.display = seleccion.length ? 'flex' : 'none';
+
+            var resumenFinalPp = document.getElementById('resumenFinalPp');
+            if (resumenFinalPp) resumenFinalPp.textContent = moneyFmt(porPersona) + ' MXN';
+            var resumenFinalPpRow = document.getElementById('resumenFinalPpRow');
+            if (resumenFinalPpRow) resumenFinalPpRow.style.display = seleccion.length ? 'flex' : 'none';
 
             // Actualizar enlaces de WhatsApp (menciona precio por persona)
             actualizarEnlacesWhatsapp(ppBase);
