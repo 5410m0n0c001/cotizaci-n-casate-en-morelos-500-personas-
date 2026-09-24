@@ -287,11 +287,28 @@
         .fab-label { position:absolute; right:65px; background:var(--white); color:var(--primary-dark); padding:6px 12px; border-radius:20px; font-size:.8rem; white-space:nowrap; box-shadow:0 4px 10px rgba(0,0,0,.1); opacity:0; visibility:hidden; transition:all .3s ease; font-weight:500; pointer-events:none; }
         .fab-main:hover .fab-label { opacity:1; visibility:visible; right:60px; }
         .fab-group.active .fab-label { display:none !important; }
-        .fab-menu { display:flex; flex-direction:column-reverse; align-items:center; gap:8px; position:absolute; bottom:60px; right:5px; opacity:0; visibility:hidden; transform:translateY(20px); transition:all .4s cubic-bezier(.175,.885,.32,1.275); pointer-events:none; z-index:1; }
-        .fab-group.active .fab-menu { opacity:1; visibility:visible; transform:translateY(0); pointer-events:auto; }
-        .fab-item { width:40px; height:40px; border-radius:50%; background:var(--white); color:var(--primary-pink); display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:1.1rem; box-shadow:0 4px 12px rgba(0,0,0,.1); transition:all .3s ease; }
-        .fab-item:hover { background:var(--primary-pink); color:var(--white); transform:scale(1.15); }
-        .fab-group.active .fab-main { transform:rotate(15deg) scale(.9); filter:brightness(1.2); }
+        /* Menú radial: el ícono de "Síguenos" queda como centro del círculo y los
+           íconos de redes salen disparados hacia su posición en el arco (JS calcula
+           --tx/--ty por ícono). El arco va de 90° (arriba) a 186° (izquierda/abajo-
+           izquierda) porque el botón vive pegado a la esquina inferior derecha: un
+           círculo completo empujaría íconos fuera de la pantalla hacia la derecha. */
+        .fab-menu { position:absolute; bottom:25px; right:25px; width:0; height:0; pointer-events:none; z-index:1; }
+        .fab-group.active .fab-menu { pointer-events:auto; }
+        .fab-item {
+            position:absolute; top:0; left:0; margin:-18px 0 0 -18px;
+            width:36px; height:36px; border-radius:50%; background:var(--white); color:var(--primary-pink);
+            display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:1rem;
+            box-shadow:0 4px 12px rgba(0,0,0,.15);
+            opacity:0; pointer-events:none;
+            transform:translate(0,0) scale(.2);
+            transition:transform .5s cubic-bezier(.34,1.56,.64,1), opacity .3s ease, background .25s ease, color .25s ease;
+        }
+        .fab-group.active .fab-item {
+            opacity:1; pointer-events:auto;
+            transform:translate(var(--tx,0px), var(--ty,0px)) scale(1);
+        }
+        .fab-item:hover { background:var(--primary-pink); color:var(--white); transform:translate(var(--tx,0px), var(--ty,0px)) scale(1.18); }
+        .fab-group.active .fab-main { transform:scale(1.08); filter:brightness(1.2); z-index:3; }
         .fab-social, .fab-share { }
 
         /* ══ Expo / publicidad — copiado literal de antonio-cotizacion ══ */
@@ -4668,6 +4685,27 @@
         })();
 
         // ══ Floating Actions (redes + compartir nativo) ══
+        // Menú radial: coloca cada ícono en un punto de un arco (90°=arriba,
+        // 186°=izquierda/abajo-izquierda) alrededor del botón "Síguenos", que
+        // queda como centro del círculo. Solo ese arco es seguro porque el botón
+        // vive en la esquina inferior derecha (un círculo completo sacaría íconos
+        // de la pantalla por la derecha y por abajo).
+        function posicionarMenuRadial(menu){
+            var items = Array.from(menu.querySelectorAll('.fab-item'));
+            if (!items.length) return;
+            var anguloInicio = 90, anguloFin = 186, radio = 210;
+            var paso = items.length > 1 ? (anguloFin - anguloInicio) / (items.length - 1) : 0;
+            items.forEach(function(item, i){
+                var angulo = (anguloInicio + paso * i) * Math.PI / 180;
+                var tx = Math.round(radio * Math.cos(angulo));
+                var ty = Math.round(-radio * Math.sin(angulo));
+                item.style.setProperty('--tx', tx + 'px');
+                item.style.setProperty('--ty', ty + 'px');
+                item.style.transitionDelay = (i * 35) + 'ms';
+            });
+        }
+        document.querySelectorAll('.fab-menu').forEach(posicionarMenuRadial);
+
         var fabGroups = document.querySelectorAll('.fab-group');
         fabGroups.forEach(function(g){
             var btn = g.querySelector('.fab-main');
