@@ -478,11 +478,12 @@
         /* ══ Carrusel de slides (minuto a minuto) ══ */
         .slides-section { margin-top:50px; }
         .slides-wrap { position:relative; }
-        /* touch-action:pan-x — el carrusel se queda solo con el gesto horizontal y
-           deja pasar el vertical a la pagina. Sin esto, al deslizar el dedo sobre
-           una foto el carrusel se quedaba el gesto y la pagina no avanzaba: habia
-           que intentar varias veces para poder seguir bajando. */
-        .slides-track { display:flex; gap:16px; overflow-x:auto; touch-action:pan-x; scroll-snap-type:x mandatory; scroll-behavior:smooth;
+        /* touch-action:pan-x pan-y — deja que el navegador reconozca ambos gestos de
+           forma nativa (el que domine el primer movimiento del dedo gana: horizontal
+           desliza el carrusel, vertical avanza la pagina). Antes solo tenia pan-x, lo
+           que DESACTIVABA por completo el scroll vertical para cualquier toque que
+           empezara sobre una foto del carrusel: la pagina se sentia "atascada" ahi. */
+        .slides-track { display:flex; gap:16px; overflow-x:auto; touch-action:pan-x pan-y; scroll-snap-type:x mandatory; scroll-behavior:smooth;
             padding:4px 2px 14px; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
         .slides-track::-webkit-scrollbar { height:6px; }
         .slides-track::-webkit-scrollbar-thumb { background:var(--beige); border-radius:10px; }
@@ -3628,8 +3629,8 @@
                 <!-- Caja sticky del cotizador -->
                 <div class="calc-total-box" id="calcTotalBox">
                     <div class="ctb-pp">
-                        <span>Precio Base:</span>
-                        <strong><span class="pp-activo" id="ctbPorPersona">$1,000.00</span> <span style="font-size:0.85rem; font-weight:400; color:rgba(255,255,255,0.7);">p/p</span></strong>
+                        <span>Precio por Persona:</span>
+                        <strong><span id="ctbPorPersona">$1,000.00</span> <span style="font-size:0.85rem; font-weight:400; color:rgba(255,255,255,0.7);">p/p</span></strong>
                     </div>
                     <div class="ctb-row" style="margin-top:4px; font-size:0.75rem; color:rgba(255,255,255,0.65);">
                         <span>Recinto activo &middot; <span class="invitados-num-txt">500</span> invitados</span>
@@ -3638,10 +3639,6 @@
                         <span style="font-size:0.72rem; text-transform:uppercase; letter-spacing:1px; color:var(--gold-accent); font-weight:700;">Extras seleccionados:</span>
                         <ul class="ctb-extras-list" id="ctbExtras"></ul>
                         <div class="ctb-vacio" id="ctbVacio">Sin extras seleccionados</div>
-                    </div>
-                    <div class="ctb-row" id="ctbDeltaRow" style="display:none; margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.15); font-size:0.8rem; color:var(--gold-accent); font-weight:600;">
-                        <span>Estos extras suben tu precio p/p en:</span>
-                        <strong id="ctbDelta">+$0.00</strong>
                     </div>
                 </div>
 
@@ -3652,21 +3649,13 @@
             <div class="pricing-section resumen-web reveal reveal-zoom" style="margin-top:40px;">
                 <h3>Resumen de Propuesta</h3>
                 <div class="price-breakdown" style="max-width:540px; margin:0 auto; border:none; padding:0;">
-                    <div class="price-breakdown-row" style="font-size:1.05rem; padding:8px 0;">
-                        <span>Precio Base por Persona (<span class="invitados-num-txt">500</span> invitados)</span>
-                        <strong><span class="pp-activo">$1,000.00</span> MXN</strong>
+                    <div class="price-breakdown-row" style="font-size:1.15rem; padding:8px 0; font-weight:700;">
+                        <span>Precio por Persona (<span class="invitados-num-txt">500</span> invitados)</span>
+                        <strong><span id="resumenFinalPp">$1,000.00</span> MXN</strong>
                     </div>
-                    <div class="price-breakdown-row" id="resumenFinalExtrasRow" style="display:none; font-size:1.05rem; padding:8px 0; color:var(--gold-accent);">
-                        <span>Servicios Adicionales Seleccionados</span>
+                    <div class="price-breakdown-row" id="resumenFinalExtrasRow" style="display:none; font-size:0.9rem; padding:6px 0; color:var(--gold-accent); font-style:italic;">
+                        <span>Incluye servicios adicionales seleccionados</span>
                         <strong id="resumenFinalExtras">$0.00 MXN</strong>
-                    </div>
-                    <div class="price-breakdown-row" id="resumenDeltaRow" style="display:none; font-size:0.9rem; padding:4px 0; color:var(--gold-accent); font-style:italic;">
-                        <span>Esto equivale a un aumento de</span>
-                        <strong id="resumenDelta">+$0.00 MXN por persona</strong>
-                    </div>
-                    <div class="price-breakdown-row" id="resumenFinalPpRow" style="display:none; font-size:1.15rem; padding:10px 0 0; margin-top:6px; border-top:1px solid var(--beige); font-weight:700;">
-                        <span>Precio Final por Persona</span>
-                        <strong id="resumenFinalPp">$0.00 MXN</strong>
                     </div>
                 </div>
             </div>
@@ -4039,9 +4028,10 @@
             var pdfTotalPersona = document.getElementById('pdfTotalPersona');
             if (pdfTotalPersona) pdfTotalPersona.textContent = moneyFmt(ppBase);
 
-            // Caja sticky del cotizador (solo precio por persona y lista de extras individuales)
+            // Caja sticky del cotizador: el precio p/p mostrado ES el precio final
+            // (base + extras entre invitados), no un aparte "+ cuanto sube".
             var ctbPorPersona = document.getElementById('ctbPorPersona');
-            if (ctbPorPersona) ctbPorPersona.textContent = moneyFmt(ppBase);
+            if (ctbPorPersona) ctbPorPersona.textContent = moneyFmt(porPersona);
             var ctbExtras = document.getElementById('ctbExtras');
             if (ctbExtras) {
                 ctbExtras.innerHTML = seleccion.map(function(e){
@@ -4051,29 +4041,15 @@
             var ctbVacio = document.getElementById('ctbVacio');
             if (ctbVacio) ctbVacio.style.display = seleccion.length ? 'none' : 'block';
 
-            // Cuánto sube el precio por persona según lo que se agregue en el cotizador
-            var deltaPorPersona = state.invitados > 0 ? (extrasTotal / state.invitados) : 0;
-            var ctbDeltaRow = document.getElementById('ctbDeltaRow');
-            if (ctbDeltaRow) ctbDeltaRow.style.display = seleccion.length ? 'flex' : 'none';
-            var ctbDelta = document.getElementById('ctbDelta');
-            if (ctbDelta) ctbDelta.textContent = '+' + moneyFmt(deltaPorPersona);
+            // Resumen de propuesta web: el precio por persona mostrado tambien es el
+            // final ya elevado; la lista de extras solo se ve como detalle incluido.
+            var resumenFinalPp = document.getElementById('resumenFinalPp');
+            if (resumenFinalPp) resumenFinalPp.textContent = moneyFmt(porPersona);
 
-            // Resumen de propuesta web (monto de extras seleccionados, su equivalente
-            // por persona, y el precio final por persona resultante)
             var rfExtras = document.getElementById('resumenFinalExtras');
             if (rfExtras) rfExtras.textContent = moneyFmt(extrasTotal) + ' MXN';
             var rfRow = document.getElementById('resumenFinalExtrasRow');
             if (rfRow) rfRow.style.display = seleccion.length ? 'flex' : 'none';
-
-            var resumenDelta = document.getElementById('resumenDelta');
-            if (resumenDelta) resumenDelta.textContent = '+' + moneyFmt(deltaPorPersona) + ' MXN por persona';
-            var resumenDeltaRow = document.getElementById('resumenDeltaRow');
-            if (resumenDeltaRow) resumenDeltaRow.style.display = seleccion.length ? 'flex' : 'none';
-
-            var resumenFinalPp = document.getElementById('resumenFinalPp');
-            if (resumenFinalPp) resumenFinalPp.textContent = moneyFmt(porPersona) + ' MXN';
-            var resumenFinalPpRow = document.getElementById('resumenFinalPpRow');
-            if (resumenFinalPpRow) resumenFinalPpRow.style.display = seleccion.length ? 'flex' : 'none';
 
             // Actualizar enlaces de WhatsApp (menciona precio por persona)
             actualizarEnlacesWhatsapp(ppBase);
